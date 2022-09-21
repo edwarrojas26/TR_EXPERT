@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2022 a las 01:37:31
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 01-09-2022 a las 15:41:04
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -21,6 +21,23 @@ SET time_zone = "+00:00";
 -- Base de datos: `gymsoft`
 --
 
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizarusuario` (`_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(30), `_numDoc` BIGINT)   UPDATE usuario set tipoDoc = _tipoDoc, nombre = _nombre, apellido = _apellido, fechaNacimiento = _fechaNacimiento, edad = _edad, direccion = _direccion, telefono = _telefono, correo = _correo, Tipo_sangre = _Tipo_sangre, EPS = _EPS, alergias = _alergias, estado = _estado, sexo = _sexo, rol = _rol, contraseña = _contraseña where numDoc=_numDoc$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarUsuario` (`_numDoc` BIGINT)   SELECT numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol, contraseña FROM usuario where numDoc = _numDoc$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `inhabilitarusuario` (`_numDoc` BIGINT)   UPDATE usuario SET estado = "Inactivo" where numDoc = _numDoc$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listarUsuarios` ()   SELECT numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol FROM usuario$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `nuevousuario` (`_numDoc` BIGINT, `_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(30))   INSERT INTO usuario(numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion ,telefono ,correo ,Tipo_sangre ,EPS ,alergias ,estado ,sexo ,rol, contraseña) 
+VALUES (_numDoc, _tipoDoc, _nombre, _apellido, _fechaNacimiento , _edad, _direccion, _telefono, _correo, _Tipo_sangre, _EPS, _alergias, _estado, _sexo, _rol, _contraseña)$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -29,7 +46,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cliente` (
   `idCliente` bigint(20) NOT NULL,
-  `numDoc` int(11) DEFAULT NULL
+  `idUsuario` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -53,8 +70,8 @@ CREATE TABLE `ejercicio` (
 
 CREATE TABLE `entrenador` (
   `idEntrenador` bigint(20) NOT NULL,
-  `numDoc` int(11) DEFAULT NULL,
-  `area` varchar(40) DEFAULT NULL
+  `idUsuario` bigint(20) DEFAULT NULL,
+  `area` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,11 +95,10 @@ CREATE TABLE `medida` (
 --
 
 CREATE TABLE `plan_entrenamiento` (
-  `idPlan` bigint(20) NOT NULL,
+  `idCliente` bigint(20) NOT NULL,
   `idTrabajo` bigint(20) DEFAULT NULL,
   `idMedida` bigint(20) DEFAULT NULL,
   `idEntrenador` bigint(20) DEFAULT NULL,
-  `idCliente` bigint(20) DEFAULT NULL,
   `infoPlan` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -107,23 +123,24 @@ CREATE TABLE `trabajo` (
 --
 
 CREATE TABLE `usuario` (
-  `numDoc` int(11) NOT NULL,
-  `tipoDoc` varchar(5) DEFAULT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `apellido` varchar(50) DEFAULT NULL,
-  `fechaNacimiento` date DEFAULT NULL,
-  `fechaIngreso` datetime DEFAULT NULL,
-  `edad` int(11) DEFAULT NULL,
-  `direccion` varchar(50) DEFAULT NULL,
-  `telefono` int(11) DEFAULT NULL,
-  `correo` varchar(50) DEFAULT NULL,
-  `RH` varchar(3) DEFAULT NULL,
-  `EPS` varchar(30) DEFAULT NULL,
-  `alergias` varchar(100) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT NULL,
-  `sexo` varchar(1) DEFAULT NULL,
-  `rol` varchar(12) DEFAULT NULL,
-  `contraseña` varchar(30) DEFAULT NULL
+  `idUsuario` bigint(20) NOT NULL,
+  `numDoc` bigint(20) NOT NULL,
+  `tipoDoc` enum('CC','TI','TE','CE','PAS') NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `fechaNacimiento` date NOT NULL,
+  `edad` int(11) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `telefono` bigint(20) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `Tipo_sangre` enum('A+','A-','B+','B-','AB+','AB-','O+','O-') NOT NULL,
+  `EPS` enum('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar') NOT NULL,
+  `alergias` varchar(100) NOT NULL,
+  `estado` varchar(9) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
+  `rol` varchar(12) NOT NULL,
+  `contraseña` varchar(30) NOT NULL,
+  `fechaIngreso` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -133,6 +150,7 @@ CREATE TABLE `usuario` (
 --
 
 CREATE TABLE `valor` (
+  `idValor` bigint(20) NOT NULL,
   `idMedida` bigint(20) DEFAULT NULL,
   `idCliente` bigint(20) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
@@ -160,13 +178,14 @@ CREATE TABLE `valoracionmedidascliente` (
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`idCliente`),
-  ADD KEY `numDoc` (`numDoc`);
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- Indices de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
   ADD PRIMARY KEY (`idEjercicio`),
+  ADD UNIQUE KEY `nombreEjercicio` (`nombreEjercicio`),
   ADD KEY `idTrabajo` (`idTrabajo`);
 
 --
@@ -174,7 +193,7 @@ ALTER TABLE `ejercicio`
 --
 ALTER TABLE `entrenador`
   ADD PRIMARY KEY (`idEntrenador`),
-  ADD KEY `numDoc` (`numDoc`);
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- Indices de la tabla `medida`
@@ -186,11 +205,10 @@ ALTER TABLE `medida`
 -- Indices de la tabla `plan_entrenamiento`
 --
 ALTER TABLE `plan_entrenamiento`
-  ADD PRIMARY KEY (`idPlan`),
+  ADD PRIMARY KEY (`idCliente`),
   ADD KEY `idTrabajo` (`idTrabajo`),
   ADD KEY `idMedida` (`idMedida`),
-  ADD KEY `idEntrenador` (`idEntrenador`),
-  ADD KEY `idCliente` (`idCliente`);
+  ADD KEY `idEntrenador` (`idEntrenador`);
 
 --
 -- Indices de la tabla `trabajo`
@@ -202,12 +220,15 @@ ALTER TABLE `trabajo`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`numDoc`);
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD UNIQUE KEY `numDoc` (`numDoc`),
+  ADD UNIQUE KEY `correo` (`correo`);
 
 --
 -- Indices de la tabla `valor`
 --
 ALTER TABLE `valor`
+  ADD PRIMARY KEY (`idValor`),
   ADD KEY `idMedida` (`idMedida`),
   ADD KEY `idCliente` (`idCliente`);
 
@@ -247,16 +268,22 @@ ALTER TABLE `medida`
   MODIFY `idMedida` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `plan_entrenamiento`
---
-ALTER TABLE `plan_entrenamiento`
-  MODIFY `idPlan` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `trabajo`
 --
 ALTER TABLE `trabajo`
   MODIFY `idTrabajo` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `valor`
+--
+ALTER TABLE `valor`
+  MODIFY `idValor` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `valoracionmedidascliente`
@@ -272,7 +299,7 @@ ALTER TABLE `valoracionmedidascliente`
 -- Filtros para la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`numDoc`) REFERENCES `usuario` (`numDoc`);
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `ejercicio`
@@ -284,7 +311,7 @@ ALTER TABLE `ejercicio`
 -- Filtros para la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
-  ADD CONSTRAINT `entrenador_ibfk_1` FOREIGN KEY (`numDoc`) REFERENCES `usuario` (`numDoc`);
+  ADD CONSTRAINT `entrenador_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `plan_entrenamiento`
