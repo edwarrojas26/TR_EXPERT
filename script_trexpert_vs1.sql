@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2022 a las 17:43:58
+-- Tiempo de generación: 21-09-2022 a las 17:51:29
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -26,6 +26,8 @@ DELIMITER $$
 -- Procedimientos
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizarusuario` (`_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(100), `_numDoc` BIGINT)   UPDATE usuario set tipoDoc = _tipoDoc, nombre = _nombre, apellido = _apellido, fechaNacimiento = _fechaNacimiento, edad = _edad, direccion = _direccion, telefono = _telefono, correo = _correo, Tipo_sangre = _Tipo_sangre, EPS = _EPS, alergias = _alergias, estado = _estado, sexo = _sexo, rol = _rol, contraseña = _contraseña where numDoc=_numDoc$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AREA` (`_area` VARCHAR(40))   INSERT INTO entrenador (area) VALUES (_area)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarUsuario` (`_numDoc` BIGINT)   SELECT numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol, contraseña FROM usuario where numDoc = _numDoc$$
 
@@ -103,7 +105,8 @@ CREATE TABLE `actualizacionesusuario` (
 --
 
 INSERT INTO `actualizacionesusuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaModificaciones`) VALUES
-(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar', '2022-09-14 11:23:29');
+(11, 76567876, 'CC', 'Edwar', 'Rojas', '2022-09-06', 18, 'Diagonal 59 sur #3B-72', 587654, 'plksid03@gmail.com', 'A+', 'Cruz Blanca', 'Todas', 'Activo', 'M', 'Entrenador', 'asdfghjklÃ±', '2022-09-19 16:59:44'),
+(16, 1025140348, 'CC', 'Edwar', 'Rojas', '2022-08-30', 18, 'Diagonal 59 sur #3B-72', 39841236, 'dg@gmail.com', 'A-', 'Sura', 'Ninguna', 'Activo', 'M', 'Entrenador', 'sdfgh', '2022-09-21 14:20:48');
 
 -- --------------------------------------------------------
 
@@ -116,15 +119,6 @@ CREATE TABLE `cliente` (
   `idUsuarioFK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`idCliente`, `idUsuarioFK`) VALUES
-(1, 2),
-(2, 3),
-(3, 4);
-
 -- --------------------------------------------------------
 
 --
@@ -133,12 +127,9 @@ INSERT INTO `cliente` (`idCliente`, `idUsuarioFK`) VALUES
 
 CREATE TABLE `ejercicio` (
   `idEjercicio` bigint(20) NOT NULL,
-  `nombreEjercicio` varchar(50) DEFAULT NULL,
-  `descripcionEjercicio` varchar(100) NOT NULL,
-  `series` int(11) NOT NULL,
-  `repeticiones` int(11) NOT NULL,
-  `descanso` float NOT NULL,
-  `peso` float NOT NULL
+  `idPlanFK` bigint(20) NOT NULL,
+  `idClienteFk` bigint(20) NOT NULL,
+  `idTipoEjercicioFK` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -158,7 +149,20 @@ CREATE TABLE `entrenador` (
 --
 
 INSERT INTO `entrenador` (`idEntrenador`, `idUsuarioFK`, `area`) VALUES
-(1, 6, '');
+(21, 16, ''),
+(28, 22, '');
+
+--
+-- Disparadores `entrenador`
+--
+DELIMITER $$
+CREATE TRIGGER `Area` AFTER INSERT ON `entrenador` FOR EACH ROW BEGIN
+IF new.idUsuarioFk = usuario.idUsuario  THEN
+INSERT INTO Entrenador(area) values (new.area);
+END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -168,6 +172,8 @@ INSERT INTO `entrenador` (`idEntrenador`, `idUsuarioFK`, `area`) VALUES
 
 CREATE TABLE `medida` (
   `idMedida` bigint(20) NOT NULL,
+  `idPlanFK` bigint(20) NOT NULL,
+  `idClienteFK` bigint(20) NOT NULL,
   `CodigoFK` bigint(20) DEFAULT NULL,
   `valorI` float DEFAULT NULL,
   `valorF` float DEFAULT NULL
@@ -180,12 +186,27 @@ CREATE TABLE `medida` (
 --
 
 CREATE TABLE `plan_entrenamiento` (
+  `idPlan` bigint(20) NOT NULL,
   `idClienteFk` bigint(20) NOT NULL,
-  `idMedidaFK` bigint(20) DEFAULT NULL,
-  `idEjercicioFK` bigint(20) DEFAULT NULL,
   `idEntrenadorFK` bigint(20) DEFAULT NULL,
   `observaciones` varchar(100) DEFAULT NULL,
   `fechaCreacion` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipoejercicio`
+--
+
+CREATE TABLE `tipoejercicio` (
+  `idTipoEjercicio` bigint(20) NOT NULL,
+  `nombreEjercicio` varchar(50) DEFAULT NULL,
+  `descripcionEjercicio` varchar(100) NOT NULL,
+  `series` int(11) NOT NULL,
+  `repeticiones` int(11) NOT NULL,
+  `descanso` float NOT NULL,
+  `peso` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -199,15 +220,6 @@ CREATE TABLE `tipomedida` (
   `nombreParte` varchar(50) NOT NULL,
   `categoria` enum('Tren superior','Tren Inferior','saludAlimentacion','factorRiesgo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tipomedida`
---
-
-INSERT INTO `tipomedida` (`Codigo`, `nombreParte`, `categoria`) VALUES
-(3, 'cuello', 'Tren superior'),
-(4, 'cuello', 'Tren superior'),
-(5, 'pierna', 'Tren superior');
 
 -- --------------------------------------------------------
 
@@ -241,27 +253,20 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaIngreso`) VALUES
-(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Famisanar', 'Ninguna', 'Inactivo', 'M', 'Cliente', 'edwar', '2022-09-14 11:10:57'),
-(2, 35513761, 'CC', 'Maria', 'Colorado', '1969-01-09', 53, 'Calle 65g sur #7D-42', 3178144300, 'maria@gmail.com', 'O+', 'Compensar', 'Niguna', 'Activo', 'F', 'Cliente', 'edwar', '2022-09-15 04:29:23'),
-(3, 19348706, 'CC', 'Reinaldo', 'Rojas', '1956-07-06', 66, 'Diagonal 59 sur #3B-72', 3208081310, 'Reinaldo@gmail.com', 'O+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'reinaldo', '2022-09-15 15:14:02'),
-(4, 1025320898, 'CC', 'Daniel ', 'Sierra', '1956-07-10', 18, 'Calle 60', 123456987, 'sdfghjkl@gmail.com', 'O+', 'Famisanar', 'Polvo', 'Activo', 'M', 'Cliente', 'asdfghfdsafg', '2022-09-15 15:19:32'),
-(6, 846138498184, 'CE', 'Mike', 'Towers baby', '2021-08-02', 2, 'Calle 6486168', 3212481668498, 'edwarroja@gmail.com', 'B-', 'Cruz Blanca', 'Parvo', 'Activo', 'M', 'Entrenador', 'rdfghjk', '2022-09-15 15:21:41');
+(16, 1025140348, 'CC', 'Edwar', 'Rojas', '2022-08-30', 18, 'Diagonal 59 sur #3B-72', 39841236, 'dg@gmail.com', 'A-', 'Sura', 'Ninguna', 'Inactivo', 'M', 'Entrenador', 'sdfgh', '2022-09-21 03:43:56'),
+(22, 48284848, 'CC', 'Edwar', 'Sanchez', '2022-08-28', 18, 'Diagonal 59 sur #3B-72', 3368855555, 'edwarrojas2003@gmail.com', 'B+', 'Sura', 'Ninguna', 'Activo', 'M', 'Entrenador', 'asdfgh', '2022-09-21 13:36:00');
 
 --
 -- Disparadores `usuario`
 --
 DELIMITER $$
-CREATE TRIGGER `Cliente` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
+CREATE TRIGGER `Usuario` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
 IF new.rol = "Cliente" THEN
 insert into cliente(idUsuarioFk) values (new.idUsuario);
-END IF;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `Entrenador` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
-IF new.rol = "Entrenador" THEN 
+	ELSE IF new.rol = "Entrenador" THEN 
 INSERT INTO Entrenador(idUsuarioFk) values (new.idUsuario);
+
+END IF;
 END IF;
 END
 $$
@@ -296,8 +301,10 @@ ALTER TABLE `cliente`
 -- Indices de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
-  ADD PRIMARY KEY (`idEjercicio`),
-  ADD UNIQUE KEY `nombreEjercicio` (`nombreEjercicio`);
+  ADD PRIMARY KEY (`idEjercicio`,`idClienteFk`,`idPlanFK`),
+  ADD KEY `idPlanFK` (`idPlanFK`),
+  ADD KEY `idClienteFk` (`idClienteFk`),
+  ADD KEY `idTipoEjercicioFK` (`idTipoEjercicioFK`);
 
 --
 -- Indices de la tabla `entrenador`
@@ -310,24 +317,31 @@ ALTER TABLE `entrenador`
 -- Indices de la tabla `medida`
 --
 ALTER TABLE `medida`
-  ADD PRIMARY KEY (`idMedida`),
+  ADD PRIMARY KEY (`idMedida`,`idPlanFK`,`idClienteFK`),
+  ADD KEY `idPlanFK` (`idPlanFK`),
+  ADD KEY `idClienteFK` (`idClienteFK`),
   ADD KEY `CodigoFK` (`CodigoFK`);
 
 --
 -- Indices de la tabla `plan_entrenamiento`
 --
 ALTER TABLE `plan_entrenamiento`
-  ADD PRIMARY KEY (`idClienteFk`),
-  ADD KEY `idMedidaFK` (`idMedidaFK`),
-  ADD KEY `idEjercicioFK` (`idEjercicioFK`),
+  ADD PRIMARY KEY (`idPlan`,`idClienteFk`),
+  ADD KEY `idClienteFk` (`idClienteFk`),
   ADD KEY `idEntrenadorFK` (`idEntrenadorFK`);
+
+--
+-- Indices de la tabla `tipoejercicio`
+--
+ALTER TABLE `tipoejercicio`
+  ADD PRIMARY KEY (`idTipoEjercicio`),
+  ADD UNIQUE KEY `nombreEjercicio` (`nombreEjercicio`);
 
 --
 -- Indices de la tabla `tipomedida`
 --
 ALTER TABLE `tipomedida`
-  ADD PRIMARY KEY (`Codigo`),
-  ADD UNIQUE KEY `Codigo` (`Codigo`);
+  ADD PRIMARY KEY (`Codigo`);
 
 --
 -- Indices de la tabla `usuario`
@@ -346,7 +360,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCliente` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicio`
@@ -358,7 +372,7 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
-  MODIFY `idEntrenador` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEntrenador` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `medida`
@@ -367,10 +381,28 @@ ALTER TABLE `medida`
   MODIFY `idMedida` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `plan_entrenamiento`
+--
+ALTER TABLE `plan_entrenamiento`
+  MODIFY `idPlan` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipoejercicio`
+--
+ALTER TABLE `tipoejercicio`
+  MODIFY `idTipoEjercicio` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipomedida`
+--
+ALTER TABLE `tipomedida`
+  MODIFY `Codigo` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Restricciones para tablas volcadas
@@ -380,30 +412,36 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`),
-  ADD CONSTRAINT `cliente_ibfk_2` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`);
+
+--
+-- Filtros para la tabla `ejercicio`
+--
+ALTER TABLE `ejercicio`
+  ADD CONSTRAINT `ejercicio_ibfk_1` FOREIGN KEY (`idPlanFK`) REFERENCES `plan_entrenamiento` (`idPlan`),
+  ADD CONSTRAINT `ejercicio_ibfk_2` FOREIGN KEY (`idClienteFk`) REFERENCES `plan_entrenamiento` (`idClienteFk`),
+  ADD CONSTRAINT `ejercicio_ibfk_3` FOREIGN KEY (`idTipoEjercicioFK`) REFERENCES `tipoejercicio` (`idTipoEjercicio`);
 
 --
 -- Filtros para la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
-  ADD CONSTRAINT `entrenador_ibfk_1` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`),
-  ADD CONSTRAINT `entrenador_ibfk_2` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `entrenador_ibfk_1` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `medida`
 --
 ALTER TABLE `medida`
-  ADD CONSTRAINT `medida_ibfk_1` FOREIGN KEY (`CodigoFK`) REFERENCES `tipomedida` (`Codigo`);
+  ADD CONSTRAINT `medida_ibfk_1` FOREIGN KEY (`idPlanFK`) REFERENCES `plan_entrenamiento` (`idPlan`),
+  ADD CONSTRAINT `medida_ibfk_2` FOREIGN KEY (`idClienteFK`) REFERENCES `plan_entrenamiento` (`idClienteFk`),
+  ADD CONSTRAINT `medida_ibfk_3` FOREIGN KEY (`CodigoFK`) REFERENCES `tipomedida` (`Codigo`);
 
 --
 -- Filtros para la tabla `plan_entrenamiento`
 --
 ALTER TABLE `plan_entrenamiento`
   ADD CONSTRAINT `plan_entrenamiento_ibfk_1` FOREIGN KEY (`idClienteFk`) REFERENCES `cliente` (`idCliente`),
-  ADD CONSTRAINT `plan_entrenamiento_ibfk_2` FOREIGN KEY (`idMedidaFK`) REFERENCES `medida` (`idMedida`),
-  ADD CONSTRAINT `plan_entrenamiento_ibfk_3` FOREIGN KEY (`idEjercicioFK`) REFERENCES `ejercicio` (`idEjercicio`),
-  ADD CONSTRAINT `plan_entrenamiento_ibfk_4` FOREIGN KEY (`idEntrenadorFK`) REFERENCES `entrenador` (`idEntrenador`);
+  ADD CONSTRAINT `plan_entrenamiento_ibfk_2` FOREIGN KEY (`idEntrenadorFK`) REFERENCES `entrenador` (`idEntrenador`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
