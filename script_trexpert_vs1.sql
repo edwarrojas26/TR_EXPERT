@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2022 a las 16:21:34
+-- Tiempo de generación: 15-09-2022 a las 17:43:58
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -116,6 +116,15 @@ CREATE TABLE `cliente` (
   `idUsuarioFK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`idCliente`, `idUsuarioFK`) VALUES
+(1, 2),
+(2, 3),
+(3, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +152,13 @@ CREATE TABLE `entrenador` (
   `idUsuarioFK` bigint(20) NOT NULL,
   `area` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `entrenador`
+--
+
+INSERT INTO `entrenador` (`idEntrenador`, `idUsuarioFK`, `area`) VALUES
+(1, 6, '');
 
 -- --------------------------------------------------------
 
@@ -184,6 +200,15 @@ CREATE TABLE `tipomedida` (
   `categoria` enum('Tren superior','Tren Inferior','saludAlimentacion','factorRiesgo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tipomedida`
+--
+
+INSERT INTO `tipomedida` (`Codigo`, `nombreParte`, `categoria`) VALUES
+(3, 'cuello', 'Tren superior'),
+(4, 'cuello', 'Tren superior'),
+(5, 'pierna', 'Tren superior');
+
 -- --------------------------------------------------------
 
 --
@@ -216,11 +241,31 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaIngreso`) VALUES
-(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Famisanar', 'Ninguna', 'Inactivo', 'M', 'Cliente', 'edwar', '2022-09-14 11:10:57');
+(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Famisanar', 'Ninguna', 'Inactivo', 'M', 'Cliente', 'edwar', '2022-09-14 11:10:57'),
+(2, 35513761, 'CC', 'Maria', 'Colorado', '1969-01-09', 53, 'Calle 65g sur #7D-42', 3178144300, 'maria@gmail.com', 'O+', 'Compensar', 'Niguna', 'Activo', 'F', 'Cliente', 'edwar', '2022-09-15 04:29:23'),
+(3, 19348706, 'CC', 'Reinaldo', 'Rojas', '1956-07-06', 66, 'Diagonal 59 sur #3B-72', 3208081310, 'Reinaldo@gmail.com', 'O+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'reinaldo', '2022-09-15 15:14:02'),
+(4, 1025320898, 'CC', 'Daniel ', 'Sierra', '1956-07-10', 18, 'Calle 60', 123456987, 'sdfghjkl@gmail.com', 'O+', 'Famisanar', 'Polvo', 'Activo', 'M', 'Cliente', 'asdfghfdsafg', '2022-09-15 15:19:32'),
+(6, 846138498184, 'CE', 'Mike', 'Towers baby', '2021-08-02', 2, 'Calle 6486168', 3212481668498, 'edwarroja@gmail.com', 'B-', 'Cruz Blanca', 'Parvo', 'Activo', 'M', 'Entrenador', 'rdfghjk', '2022-09-15 15:21:41');
 
 --
 -- Disparadores `usuario`
 --
+DELIMITER $$
+CREATE TRIGGER `Cliente` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
+IF new.rol = "Cliente" THEN
+insert into cliente(idUsuarioFk) values (new.idUsuario);
+END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `Entrenador` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
+IF new.rol = "Entrenador" THEN 
+INSERT INTO Entrenador(idUsuarioFk) values (new.idUsuario);
+END IF;
+END
+$$
+DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `usuarios_despues_actualizar` BEFORE UPDATE ON `usuario` FOR EACH ROW BEGIN
 insert into actualizacionesusuario(idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol, contraseña) values (old.idUsuario, old.numDoc, old.tipoDoc, old.nombre, old.apellido, old.fechaNacimiento, old.edad, old.direccion, old.telefono, old.correo, old.Tipo_sangre, old.EPS, old.alergias, old.estado, old.sexo, old.rol, old.contraseña);
@@ -301,7 +346,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCliente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicio`
@@ -313,7 +358,7 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
-  MODIFY `idEntrenador` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEntrenador` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `medida`
@@ -325,7 +370,7 @@ ALTER TABLE `medida`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
