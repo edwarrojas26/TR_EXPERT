@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2022 a las 18:34:46
+-- Tiempo de generación: 14-09-2022 a las 16:21:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `gymsoft`
+-- Base de datos: `trexpert`
 --
 
 DELIMITER $$
@@ -74,6 +74,40 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `actualizacionesusuario`
+--
+
+CREATE TABLE `actualizacionesusuario` (
+  `idUsuario` bigint(20) NOT NULL,
+  `numDoc` bigint(20) NOT NULL,
+  `tipoDoc` enum('CC','TI','TE','CE','PAS') NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `fechaNacimiento` date NOT NULL,
+  `edad` int(11) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `telefono` bigint(20) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `Tipo_sangre` enum('A+','A-','B+','B-','AB+','AB-','O+','O-') NOT NULL,
+  `EPS` enum('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar') NOT NULL,
+  `alergias` varchar(100) NOT NULL,
+  `estado` varchar(9) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
+  `rol` varchar(12) NOT NULL,
+  `contraseña` varchar(100) NOT NULL,
+  `fechaModificaciones` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `actualizacionesusuario`
+--
+
+INSERT INTO `actualizacionesusuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaModificaciones`) VALUES
+(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar', '2022-09-14 11:23:29');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cliente`
 --
 
@@ -85,10 +119,10 @@ CREATE TABLE `cliente` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ejercicios`
+-- Estructura de tabla para la tabla `ejercicio`
 --
 
-CREATE TABLE `ejercicios` (
+CREATE TABLE `ejercicio` (
   `idEjercicio` bigint(20) NOT NULL,
   `nombreEjercicio` varchar(50) DEFAULT NULL,
   `descripcionEjercicio` varchar(100) NOT NULL,
@@ -130,11 +164,11 @@ CREATE TABLE `medida` (
 --
 
 CREATE TABLE `plan_entrenamiento` (
-  `idClienteFk` bigint(20) DEFAULT NULL,
-  `idMedidaFK` bigint(20) NOT NULL,
+  `idClienteFk` bigint(20) NOT NULL,
+  `idMedidaFK` bigint(20) DEFAULT NULL,
   `idEjercicioFK` bigint(20) DEFAULT NULL,
-  `idEntrenador` bigint(20) DEFAULT NULL,
-  `oservaciones` varchar(100) DEFAULT NULL,
+  `idEntrenadorFK` bigint(20) DEFAULT NULL,
+  `observaciones` varchar(100) DEFAULT NULL,
   `fechaCreacion` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -182,24 +216,41 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaIngreso`) VALUES
-(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar', '2022-09-12 06:37:56'),
-(2, 39765813, 'CC', 'Ana', 'Vargas', '1955-10-29', 66, 'Diagonal 59 sur #3B-72', 3178144300, 'edwarrojas@gmail.com', 'A-', 'Famisanar', 'Todas', 'Inactivo', 'M', 'Cliente', 'asdfghjklÃ±', '2022-09-12 06:51:01'),
-(3, 19348706, 'TI', 'Mike', 'Galindo', '1995-03-15', 28, 'Diagonal 59 sur #3B-72', 3227123006, 'edwar@gmail.com', 'A-', 'Convida', 'Ninguna', 'Activo', 'M', 'Cliente', 'dfghjklÃ±', '2022-09-12 07:03:43');
+(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Famisanar', 'Ninguna', 'Inactivo', 'M', 'Cliente', 'edwar', '2022-09-14 11:10:57');
+
+--
+-- Disparadores `usuario`
+--
+DELIMITER $$
+CREATE TRIGGER `usuarios_despues_actualizar` BEFORE UPDATE ON `usuario` FOR EACH ROW BEGIN
+insert into actualizacionesusuario(idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol, contraseña) values (old.idUsuario, old.numDoc, old.tipoDoc, old.nombre, old.apellido, old.fechaNacimiento, old.edad, old.direccion, old.telefono, old.correo, old.Tipo_sangre, old.EPS, old.alergias, old.estado, old.sexo, old.rol, old.contraseña);
+END
+$$
+DELIMITER ;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `actualizacionesusuario`
+--
+ALTER TABLE `actualizacionesusuario`
+  ADD UNIQUE KEY `numDoc` (`numDoc`),
+  ADD UNIQUE KEY `telefono` (`telefono`),
+  ADD UNIQUE KEY `correo` (`correo`);
+
+--
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idCliente`);
+  ADD PRIMARY KEY (`idCliente`),
+  ADD KEY `idUsuarioFK` (`idUsuarioFK`);
 
 --
--- Indices de la tabla `ejercicios`
+-- Indices de la tabla `ejercicio`
 --
-ALTER TABLE `ejercicios`
+ALTER TABLE `ejercicio`
   ADD PRIMARY KEY (`idEjercicio`),
   ADD UNIQUE KEY `nombreEjercicio` (`nombreEjercicio`);
 
@@ -207,25 +258,31 @@ ALTER TABLE `ejercicios`
 -- Indices de la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
-  ADD PRIMARY KEY (`idEntrenador`);
+  ADD PRIMARY KEY (`idEntrenador`),
+  ADD KEY `idUsuarioFK` (`idUsuarioFK`);
 
 --
 -- Indices de la tabla `medida`
 --
 ALTER TABLE `medida`
-  ADD PRIMARY KEY (`idMedida`);
+  ADD PRIMARY KEY (`idMedida`),
+  ADD KEY `CodigoFK` (`CodigoFK`);
 
 --
 -- Indices de la tabla `plan_entrenamiento`
 --
 ALTER TABLE `plan_entrenamiento`
-  ADD PRIMARY KEY (`idMedidaFK`);
+  ADD PRIMARY KEY (`idClienteFk`),
+  ADD KEY `idMedidaFK` (`idMedidaFK`),
+  ADD KEY `idEjercicioFK` (`idEjercicioFK`),
+  ADD KEY `idEntrenadorFK` (`idEntrenadorFK`);
 
 --
 -- Indices de la tabla `tipomedida`
 --
 ALTER TABLE `tipomedida`
-  ADD PRIMARY KEY (`Codigo`);
+  ADD PRIMARY KEY (`Codigo`),
+  ADD UNIQUE KEY `Codigo` (`Codigo`);
 
 --
 -- Indices de la tabla `usuario`
@@ -233,6 +290,7 @@ ALTER TABLE `tipomedida`
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`),
   ADD UNIQUE KEY `numDoc` (`numDoc`),
+  ADD UNIQUE KEY `telefono` (`telefono`),
   ADD UNIQUE KEY `correo` (`correo`);
 
 --
@@ -246,9 +304,9 @@ ALTER TABLE `cliente`
   MODIFY `idCliente` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `ejercicios`
+-- AUTO_INCREMENT de la tabla `ejercicio`
 --
-ALTER TABLE `ejercicios`
+ALTER TABLE `ejercicio`
   MODIFY `idEjercicio` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
@@ -267,7 +325,40 @@ ALTER TABLE `medida`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`),
+  ADD CONSTRAINT `cliente_ibfk_2` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`);
+
+--
+-- Filtros para la tabla `entrenador`
+--
+ALTER TABLE `entrenador`
+  ADD CONSTRAINT `entrenador_ibfk_1` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`),
+  ADD CONSTRAINT `entrenador_ibfk_2` FOREIGN KEY (`idUsuarioFK`) REFERENCES `usuario` (`idUsuario`);
+
+--
+-- Filtros para la tabla `medida`
+--
+ALTER TABLE `medida`
+  ADD CONSTRAINT `medida_ibfk_1` FOREIGN KEY (`CodigoFK`) REFERENCES `tipomedida` (`Codigo`);
+
+--
+-- Filtros para la tabla `plan_entrenamiento`
+--
+ALTER TABLE `plan_entrenamiento`
+  ADD CONSTRAINT `plan_entrenamiento_ibfk_1` FOREIGN KEY (`idClienteFk`) REFERENCES `cliente` (`idCliente`),
+  ADD CONSTRAINT `plan_entrenamiento_ibfk_2` FOREIGN KEY (`idMedidaFK`) REFERENCES `medida` (`idMedida`),
+  ADD CONSTRAINT `plan_entrenamiento_ibfk_3` FOREIGN KEY (`idEjercicioFK`) REFERENCES `ejercicio` (`idEjercicio`),
+  ADD CONSTRAINT `plan_entrenamiento_ibfk_4` FOREIGN KEY (`idEntrenadorFK`) REFERENCES `entrenador` (`idEntrenador`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
