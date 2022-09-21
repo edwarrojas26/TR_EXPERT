@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-09-2022 a las 17:29:34
+-- Tiempo de generación: 05-09-2022 a las 18:27:13
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -139,7 +139,7 @@ CREATE TABLE `usuario` (
   `estado` varchar(9) NOT NULL,
   `sexo` varchar(1) NOT NULL,
   `rol` varchar(12) NOT NULL,
-  `contraseña` varchar(30) DEFAULT NULL,
+  `contraseña` varchar(30) NOT NULL,
   `fechaIngreso` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -148,7 +148,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaIngreso`) VALUES
-(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2022-09-15', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Inactivo', 'M', 'Cliente', NULL, '2022-09-01 15:02:26');
+(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2022-09-15', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Inactivo', 'M', 'Cliente', '', '2022-09-01 15:02:26'),
+(3, 39765813, 'CC', 'Camilo', 'Sanchez', '2022-09-23', 18, 'Diagonal 59 sur #3B-72', 3178144300, 'edwarrojas@gmail.com', 'B+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', '', '2022-09-05 15:23:32'),
+(4, 123456789, 'CC', 'ana', 'vargas', '0000-00-00', 60, 'calle 60', 3227123006, 'ana@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar123', '2022-09-05 15:54:08'),
+(5, 1234589, 'CC', 'ana', 'vargas', '0000-00-00', 60, 'calle 60', 3227123006, 'ana123@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar123', '2022-09-05 16:01:53'),
+(7, 12345, 'CC', 'ana', 'vargas', '1956-11-22', 60, 'calle 60', 3227123006, 'ana124313@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar123', '2022-09-05 16:02:55');
 
 -- --------------------------------------------------------
 
@@ -284,7 +288,7 @@ ALTER TABLE `trabajo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `valor`
