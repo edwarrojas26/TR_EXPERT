@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2022 a las 18:27:13
+-- Tiempo de generación: 08-09-2022 a las 16:21:44
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizarusuario` (`_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(30), `_numDoc` BIGINT)   UPDATE usuario set tipoDoc = _tipoDoc, nombre = _nombre, apellido = _apellido, fechaNacimiento = _fechaNacimiento, edad = _edad, direccion = _direccion, telefono = _telefono, correo = _correo, Tipo_sangre = _Tipo_sangre, EPS = _EPS, alergias = _alergias, estado = _estado, sexo = _sexo, rol = _rol, contraseña = _contraseña where numDoc=_numDoc$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizarusuario` (`_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(100), `_numDoc` BIGINT)   UPDATE usuario set tipoDoc = _tipoDoc, nombre = _nombre, apellido = _apellido, fechaNacimiento = _fechaNacimiento, edad = _edad, direccion = _direccion, telefono = _telefono, correo = _correo, Tipo_sangre = _Tipo_sangre, EPS = _EPS, alergias = _alergias, estado = _estado, sexo = _sexo, rol = _rol, contraseña = _contraseña where numDoc=_numDoc$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarUsuario` (`_numDoc` BIGINT)   SELECT numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol, contraseña FROM usuario where numDoc = _numDoc$$
 
@@ -33,8 +33,41 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `inhabilitarusuario` (`_numDoc` BIGI
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `listarUsuarios` ()   SELECT numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol FROM usuario$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `nuevousuario` (`_numDoc` BIGINT, `_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(30))   INSERT INTO usuario(numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion ,telefono ,correo ,Tipo_sangre ,EPS ,alergias ,estado ,sexo ,rol, contraseña) 
-VALUES (_numDoc, _tipoDoc, _nombre, _apellido, _fechaNacimiento , _edad, _direccion, _telefono, _correo, _Tipo_sangre, _EPS, _alergias, _estado, _sexo, _rol, _contraseña)$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `nuevousuario` (`_numDoc` BIGINT, `_tipoDoc` ENUM('CC','TI','TE','CE','PAS'), `_nombre` VARCHAR(50), `_apellido` VARCHAR(50), `_fechaNacimiento` DATE, `_edad` INT, `_direccion` VARCHAR(50), `_telefono` BIGINT, `_correo` VARCHAR(50), `_Tipo_sangre` ENUM('A+','A-','B+','B-','AB+','AB-','O+','O-'), `_EPS` ENUM('Sura','Cruz Blanca','Convida','Famisanar','Sánitas','Capital Salud','Compensar'), `_alergias` VARCHAR(100), `_estado` VARCHAR(9), `_sexo` VARCHAR(1), `_rol` VARCHAR(12), `_contraseña` VARCHAR(100))   INSERT INTO usuario(
+		numDoc, 
+		tipoDoc, 
+		nombre, 
+		apellido, 
+		fechaNacimiento, 
+		edad, 
+		direccion,
+		telefono,
+		correo,
+		Tipo_sangre,
+		EPS,
+		alergias,
+		estado,
+		sexo,
+		rol, 
+		contraseña) 
+
+VALUES (
+		_numDoc, 
+		_tipoDoc, 
+		_nombre, 
+		_apellido, 
+		_fechaNacimiento, 
+		_edad, 
+		_direccion, 
+		_telefono, 
+		_correo, 
+		_Tipo_sangre, 
+		_EPS, 
+		_alergias, 
+		_estado, 
+		_sexo, 
+		_rol, 
+		_contraseña)$$
 
 DELIMITER ;
 
@@ -139,7 +172,7 @@ CREATE TABLE `usuario` (
   `estado` varchar(9) NOT NULL,
   `sexo` varchar(1) NOT NULL,
   `rol` varchar(12) NOT NULL,
-  `contraseña` varchar(30) NOT NULL,
+  `contraseña` varchar(100) NOT NULL,
   `fechaIngreso` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -148,11 +181,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaIngreso`) VALUES
-(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2022-09-15', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Inactivo', 'M', 'Cliente', '', '2022-09-01 15:02:26'),
-(3, 39765813, 'CC', 'Camilo', 'Sanchez', '2022-09-23', 18, 'Diagonal 59 sur #3B-72', 3178144300, 'edwarrojas@gmail.com', 'B+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', '', '2022-09-05 15:23:32'),
-(4, 123456789, 'CC', 'ana', 'vargas', '0000-00-00', 60, 'calle 60', 3227123006, 'ana@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar123', '2022-09-05 15:54:08'),
-(5, 1234589, 'CC', 'ana', 'vargas', '0000-00-00', 60, 'calle 60', 3227123006, 'ana123@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar123', '2022-09-05 16:01:53'),
-(7, 12345, 'CC', 'ana', 'vargas', '1956-11-22', 60, 'calle 60', 3227123006, 'ana124313@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Activo', 'M', 'Cliente', 'edwar123', '2022-09-05 16:02:55');
+(8, 1025140348, 'TI', 'Edwar ', 'Rojas', '2022-08-29', 18, 'Diagonal 59 sur #3B-72', 3227123006, 'edwarrojas2003@gmail.com', 'AB+', 'Sura', 'Ninguna', 'Inactivo', 'm', 'Cliente', 'Cliente', '2022-09-08 00:48:25'),
+(9, 39765813, 'TI', 'Cristian', 'Avila', '2003-12-18', 18, 'Diagonal 59 sur #3B-72', 48138184, 'edwarrojas@gmail.com', 'A+', 'Sura', 'Ninguna', 'Inactivo', 'M', 'Cliente', 'edwar', '2022-09-08 03:46:48'),
+(10, 9632148, 'CC', 'Myke', 'Towers', '2003-12-15', 19, 'Diagonal 60 sur #3B-72', 74123698, 'edwarrojas20008@gmail.com', 'AB+', 'Famisanar', 'Todas', 'Activo', 'F', 'Cliente', 'angelica', '2022-09-08 03:49:53');
 
 -- --------------------------------------------------------
 
@@ -288,7 +319,7 @@ ALTER TABLE `trabajo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `valor`
