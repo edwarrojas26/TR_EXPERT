@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-09-2022 a las 15:41:04
+-- Tiempo de generación: 01-09-2022 a las 17:29:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -139,9 +139,16 @@ CREATE TABLE `usuario` (
   `estado` varchar(9) NOT NULL,
   `sexo` varchar(1) NOT NULL,
   `rol` varchar(12) NOT NULL,
-  `contraseña` varchar(30) NOT NULL,
+  `contraseña` varchar(30) DEFAULT NULL,
   `fechaIngreso` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `numDoc`, `tipoDoc`, `nombre`, `apellido`, `fechaNacimiento`, `edad`, `direccion`, `telefono`, `correo`, `Tipo_sangre`, `EPS`, `alergias`, `estado`, `sexo`, `rol`, `contraseña`, `fechaIngreso`) VALUES
+(1, 1025140348, 'CC', 'Edwar', 'Rojas', '2022-09-15', 18, 'Diagonal 59 sur #3B-72', 3235647223, 'edwarrojas2003@gmail.com', 'A+', 'Sánitas', 'Ninguna', 'Inactivo', 'M', 'Cliente', NULL, '2022-09-01 15:02:26');
 
 -- --------------------------------------------------------
 
@@ -277,7 +284,7 @@ ALTER TABLE `trabajo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `valor`
