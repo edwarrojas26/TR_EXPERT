@@ -11,15 +11,7 @@ package ModeloVO;
  */
 public class MedidaVO {
 
-    private String idMedida, nombreMedida, valor, descripcion, tipoMedida;
-
-    public MedidaVO(String idMedida, String nombreMedida, String valor, String descripcion, String tipoMedida) {
-        this.idMedida = idMedida;
-        this.nombreMedida = nombreMedida;
-        this.valor = valor;
-        this.descripcion = descripcion;
-        this.tipoMedida = tipoMedida;
-    }
+    private String idMedida, codigoFK, valorI, valorF;
 
     public String getIdMedida() {
         return idMedida;
@@ -29,36 +21,28 @@ public class MedidaVO {
         this.idMedida = idMedida;
     }
 
-    public String getNombreMedida() {
-        return nombreMedida;
+    public String getCodigoFK() {
+        return codigoFK;
     }
 
-    public void setNombreMedida(String nombreMedida) {
-        this.nombreMedida = nombreMedida;
+    public void setCodigoFK(String codigoFK) {
+        this.codigoFK = codigoFK;
     }
 
-    public String getValor() {
-        return valor;
+    public String getValorI() {
+        return valorI;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setValorI(String valorI) {
+        this.valorI = valorI;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getValorF() {
+        return valorF;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getTipoMedida() {
-        return tipoMedida;
-    }
-
-    public void setTipoMedida(String tipoMedida) {
-        this.tipoMedida = tipoMedida;
+    public void setValorF(String valorF) {
+        this.valorF = valorF;
     }
 
 }

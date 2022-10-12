@@ -11,32 +11,16 @@ package ModeloVO;
  */
 public class UsuarioVO {
 
-    /*Atributos*/
-    
-    private String numDoc, tipoDoc, nombre, apellido, fechaNacimiento, fechaIngreso, edad, direccion, telefono, correo, RH, EPS, alergia, estado, sexo, rol, contraseña;
+    private String idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, TS, EPS, alergia, estado, sexo, rol, contraseña;
 
-    /*Metodo constructor*/
-    public UsuarioVO(String numDoc, String tipoDoc, String nombre, String apellido, String fechaNacimiento, String fechaIngreso, String edad, String direccion, String telefono, String correo, String RH, String EPS, String alergia, String estado, String sexo, String rol, String contraseña) {
-        this.numDoc = numDoc;
-        this.tipoDoc = tipoDoc;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.fechaIngreso = fechaIngreso;
-        this.edad = edad;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.RH = RH;
-        this.EPS = EPS;
-        this.alergia = alergia;
-        this.estado = estado;
-        this.sexo = sexo;
-        this.rol = rol;
-        this.contraseña = contraseña;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    /*Getters y Setters*/
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public String getNumDoc() {
         return numDoc;
     }
@@ -77,14 +61,6 @@ public class UsuarioVO {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
     public String getEdad() {
         return edad;
     }
@@ -117,12 +93,12 @@ public class UsuarioVO {
         this.correo = correo;
     }
 
-    public String getRH() {
-        return RH;
+    public String getTS() {
+        return TS;
     }
 
-    public void setRH(String RH) {
-        this.RH = RH;
+    public void setTS(String TS) {
+        this.TS = TS;
     }
 
     public String getEPS() {
@@ -172,4 +148,28 @@ public class UsuarioVO {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    public UsuarioVO(String idUsuario, String numDoc, String tipoDoc, String nombre, String apellido, String fechaNacimiento, String edad, String direccion, String telefono, String correo, String TS, String EPS, String alergia, String estado, String sexo, String rol, String contraseña) {
+        this.idUsuario = idUsuario;
+        this.numDoc = numDoc;
+        this.tipoDoc = tipoDoc;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.TS = TS;
+        this.EPS = EPS;
+        this.alergia = alergia;
+        this.estado = estado;
+        this.sexo = sexo;
+        this.rol = rol;
+        this.contraseña = contraseña;
+    }
+
+    public UsuarioVO() {
+    }
+
 }

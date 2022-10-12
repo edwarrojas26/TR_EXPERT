@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #f00;
+}
+
+body {
+  background: #000;
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: .1rem;
+  width: 100%;
+  background: #aaa;
+  z-index: -1;
+}
+
+.heading span {
+  font-size: 3rem;
+  color: #f00;
+  background: #000;
+  padding: .5rem 1.5rem;
+  border: 0.1rem solid #aaa;
+  border-radius: .5rem;
+}
+
+
+
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 9%;
+    z-index: 10000;
+    background: #000;
+    font-size: 0.5em;
+    text-decoration: none;
+  }
+
+  .header .logo {
+    padding: 1em;
+    height: 60px;
+    margin-left: -40%;
+  }
+
+  .header .navbar .enlace {
+    display: inline-block;
+    padding: 1.5rem 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+    font-size: 2.5em;
+    text-decoration: none;
+  }
+
+  .header .navbar .enlace:hover {
+    background: #f00;
+  }
+
+#menu-btn {
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+
+.btn-outline-dark {
+  border: 2px solid ;
+}
+
+
+.form-control {
+  background-color: #fff;
+  border: 2px solid ;
+  border-radius: .2rem;
+  padding: 1.5rem 1rem;
+}
+
+.testiomonial {
+  bottom: 8px
+}
+#ti{
+  display: flex;
+  font-size: 70px;
+  color: red;
+  font-family: Marcellus;
+  justify-content: center;
+          align-content: center;
+          align-items: center;
+}
+
+
+#input-style{  
+  color:#fff;
+  border-width:thin;
+  border-style:solid;
+  border-color:#fff;
+  }
+
+.texto-input{
+  color: #000;
+  font-size: 150%;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 8rem;
+}
+
+.about .image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+  position: relative;
+}
+
+.about .image::before, .about .image::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: #f00;
+  height: 15rem;
+  width: 15rem;
+}
+
+.about .image::before {
+  top: 0;
+  left: 0;
+}
+
+.about .image::after {
+  bottom: 0;
+  right: 0;
+}
+
+.about .image img {
+  width: 100%;
+  padding: 2rem;
+}
+
+.about .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+
+#formulario {
+  padding: 30px 20px;
+}
+
+.form-control {    
+  margin-bottom: 7px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  display: inline-block;
+  margin-bottom: 7px;
+  font:weight 200px
+}
+
+.form-control input {
+  border: none;
+  background-color: #ebd9d9;
+  color: #000;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 12px;
+  width: 100%;    
+}
+
+.form-control select {
+  border: none;
+  background-color: #ebd9d9;
+  color: #000;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 12px;
+  width: 100%;    
+}
+.form-control, input:focus {
+  outline: none;
+}
+
+.form-control.ok input {
+  border: 0.1px solid;
+  border-color: hsl(120, 100%, 52%);
+}
+.form-control.falla input {
+  border: 0.1px solid;
+  border-color: #fe5f55;
+}
+
+#formulario button {
+  background: red;
+  border-radius: 2px;
+  color: #f6f6e9;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+.form-control p {
+  visibility: hidden;
+  position: absolute;
+  font-size: small;
+  font-weight: 500;
+  text-align: right;
+}
+
+.form-control.falla p {
+  visibility: visible;
+  color:#e74c3c;
+}
+table {
+  background-color: white;
+  text-align: center;
+  width: 50%;
+  border-radius: 5px;
+  margin-top: 100px;
+  margin-left: 25%;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  
+}
+
+th,
+td {
+  padding: 5px;
+  font-size: 13px;
+}
+
+thead {
+  background-color: #121231;
+  border-bottom: solid 5px #0f362d;
+  color: white;
+  font-size: 13px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(113, 149, 160, 0.651);
+}
+
+tr:hover td {
+  background-color: #121231;
+  color: white;
+}
+#actualizar {
+  background-color: rgb(251, 255, 0);
+  font-size: 1em;
+  height: auto;
+  width: auto;
+  padding: 5px;
+}
+#eliminar {
+  background-color: rgb(255, 0, 0); 
+  font-size: 1em;
+  height: auto;
+  width: auto;
+  padding: 5px;
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

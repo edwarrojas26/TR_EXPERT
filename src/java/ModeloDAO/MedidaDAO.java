@@ -6,8 +6,8 @@
 package ModeloDAO;
 
 import ModeloVO.MedidaVO;
-import ConexionBD.ConexionBd;
-import ConexionBD.Crud;
+import Util.ConexionBd;
+import Util.Crud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,47 +28,44 @@ public class MedidaDAO extends ConexionBd implements Crud {
     private boolean operacion = false;
     private String sql;
 
-    private String idMedida = "", nombreMedida = "", valor = "", descripcion = "", tipoMedida = "";
+    private String idMedida = "", codigoFK = "", valorI = "", valorF = "";
 
     public MedidaDAO() {
     }
 
     public MedidaDAO(MedidaVO medidaVO) {
         super();
-
         try {
             conexion = this.obtenerConexion();
 
             idMedida = medidaVO.getIdMedida();
-            nombreMedida = medidaVO.getNombreMedida();
-            valor = medidaVO.getValor();
-            descripcion = medidaVO.getDescripcion();
-            tipoMedida = medidaVO.getTipoMedida();
-
+            codigoFK = medidaVO.getCodigoFK();
+            valorI = medidaVO.getValorI();
+            valorF = medidaVO.getValorF();
         } catch (Exception e) {
             Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
         }
-
     }
 
     @Override
     public boolean agregarRegistro() {
         try {
-            sql = "INSERT INTO medida VALUES (?, ?, ?, ?, ?)";
+
+            sql = "INSERT INTO medida (idMedida, codigoFK, valorI, valorF) VALUES (?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idMedida);
-            puente.setString(2, nombreMedida);
-            puente.setString(3, valor);
-            puente.setString(4, descripcion);
-            puente.setString(5, tipoMedida);
+            puente.setString(2, codigoFK);
+            puente.setString(3, valorI);
+            puente.setString(4, valorF);
             puente.executeUpdate();
             operacion = true;
+
         } catch (SQLException e) {
             Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 this.cerrarConexion();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }
@@ -78,21 +75,21 @@ public class MedidaDAO extends ConexionBd implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "UPDATE medida SET nombreMedida = ?, valor = ?, descripcion = ?, tipoMedida = ? WHERE idMedida = ?";
+
+            sql = "UPDATE medida SET valorI=?, valorF=? where idMedida=?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idMedida);
-            puente.setString(2, nombreMedida);
-            puente.setString(3, valor);
-            puente.setString(4, descripcion);
-            puente.setString(5, tipoMedida);
+            puente.setString(1, valorI);
+            puente.setString(2, valorF);
+            puente.setString(3, idMedida);
             puente.executeUpdate();
             operacion = true;
+
         } catch (SQLException e) {
             Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 this.cerrarConexion();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }
@@ -103,4 +100,5 @@ public class MedidaDAO extends ConexionBd implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

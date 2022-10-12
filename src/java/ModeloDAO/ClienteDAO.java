@@ -6,8 +6,8 @@
 package ModeloDAO;
 
 import ModeloVO.ClienteVO;
-import ConexionBD.ConexionBd;
-import ConexionBD.Crud;
+import Util.ConexionBd;
+import Util.Crud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

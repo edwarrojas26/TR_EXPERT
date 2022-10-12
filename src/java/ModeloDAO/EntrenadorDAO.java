@@ -6,8 +6,8 @@
 package ModeloDAO;
 
 import ModeloVO.EntrenadorVO;
-import ConexionBD.ConexionBd;
-import ConexionBD.Crud;
+import Util.ConexionBd;
+import Util.Crud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +27,7 @@ public class EntrenadorDAO extends ConexionBd implements Crud {
     private boolean operacion = false;
     private String sql;
     
-    private String idEntrenador = "", numDoc = "", area = "";
+    private String area = "";
     
     public EntrenadorDAO(){
     }
@@ -38,8 +38,8 @@ public class EntrenadorDAO extends ConexionBd implements Crud {
         try {
             conexion = this.obtenerConexion();
             
-            idEntrenador = entrenadorVO.getIdEntrenador();
-            numDoc = entrenadorVO.getNumDoc();
+            /*idEntrenador = entrenadorVO.getIdEntrenador();
+            numDoc = entrenadorVO.getNumDoc();*/
             area = entrenadorVO.getArea();
 
         } catch (Exception e) {
@@ -52,11 +52,11 @@ public class EntrenadorDAO extends ConexionBd implements Crud {
     @Override
     public boolean agregarRegistro() {
         try {
-            sql = "call nuevousuario (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO Entrenador (area) VALUES (?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idEntrenador);
-            puente.setString(2, numDoc);
-            puente.setString(3, area);
+            /*puente.setString(1, idEntrenador);
+            puente.setString(2, numDoc);*/
+            puente.setString(1, area);
             
             
             
@@ -80,9 +80,9 @@ public class EntrenadorDAO extends ConexionBd implements Crud {
         try {
             sql = "UPDATE usuario SET observacion = ? WHERE numDoc = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idEntrenador);
-            puente.setString(2, numDoc);
-            puente.setString(3, area);
+            /*puente.setString(1, idEntrenador);
+            puente.setString(2, numDoc);*/
+            puente.setString(1, area);
 
             
             puente.executeUpdate();

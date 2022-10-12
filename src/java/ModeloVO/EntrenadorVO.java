@@ -12,17 +12,17 @@ package ModeloVO;
 public class EntrenadorVO {
 
     /*Atributos*/
-    private String idEntrenador, numDoc, area;
+    private String /*idEntrenador, numDoc,*/ area;
 
     /*Constructor*/
-    public EntrenadorVO(String idEntrenador, String numDoc, String area) {
-        this.idEntrenador = idEntrenador;
-        this.numDoc = numDoc;
+    public EntrenadorVO(String area) {
+        /*this.idEntrenador = idEntrenador;
+        this.numDoc = numDoc;*/
         this.area = area;
     }
 
     /*Getters y Setters*/
-    public String getIdEntrenador() {
+    /*public String getIdEntrenador() {
         return idEntrenador;
     }
 
@@ -36,7 +36,7 @@ public class EntrenadorVO {
 
     public void setNumDoc(String numDoc) {
         this.numDoc = numDoc;
-    }
+    }*/
 
     public String getArea() {
         return area;
