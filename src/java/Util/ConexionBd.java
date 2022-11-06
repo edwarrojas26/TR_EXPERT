@@ -25,7 +25,7 @@ public class ConexionBd {
         driver="com.mysql.jdbc.Driver";   
         user="root";
         password="";
-        dataBase="trexpert_1";
+        dataBase="trexpert";
         urlBd="jdbc:mysql://localhost:3306/"+dataBase;
         
         //3. Conectarse

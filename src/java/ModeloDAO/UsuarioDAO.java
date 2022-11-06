@@ -242,10 +242,10 @@ public class UsuarioDAO extends ConexionBd implements Crud {
         return listaUsuario;
     }
 
-    public boolean iniciarSesion(String idUSuario, String correo, String contraseña) {
+    public boolean iniciarSesion(String correo, String contraseña) {
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT idUsuario, correo, contraseña FROM usuario WHERE correo=? AND contraseña=?;";
+            sql = "SELECT correo, contraseña FROM usuario WHERE correo=? AND contraseña=?;";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
             puente.setString(2, contraseña);

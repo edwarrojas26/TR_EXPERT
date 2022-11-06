@@ -299,6 +299,33 @@ public class TipoMedidaDAO extends ConexionBd implements Crud {
     }
     
     
+    
+    /*Cantidad de iteraciones*/
+    public String cantidadTI(String categoria) {
+        String medTIVO = null;
+         
+        
+        try {
+            sql = "SELECT COUNT(categoria) FROM tipomedida WHERE categoria = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, categoria);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                medTIVO =  mensajero.getString(1);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return medTIVO;
+    }
+    
+    
 
     @Override
     public boolean eliminarRegistro() {

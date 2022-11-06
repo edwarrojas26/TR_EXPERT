@@ -11,7 +11,17 @@ package ModeloVO;
  */
 public class EjercicioVO {
 
-    public String idEjercicio, nombreEjercicio, descripcionEjercicio, series, repeticiones, descanso, peso;
+    private String idEjercicio, idPlanFK, idClienteFK, idTipoEjercicioFK;
+
+    public EjercicioVO(String idEjercicio, String idPlanFK, String idClienteFK, String idTipoEjercicioFK) {
+        this.idEjercicio = idEjercicio;
+        this.idPlanFK = idPlanFK;
+        this.idClienteFK = idClienteFK;
+        this.idTipoEjercicioFK = idTipoEjercicioFK;
+    }
+    
+    public EjercicioVO(){
+    }
 
     public String getIdEjercicio() {
         return idEjercicio;
@@ -21,52 +31,30 @@ public class EjercicioVO {
         this.idEjercicio = idEjercicio;
     }
 
-    public String getNombreEjercicio() {
-        return nombreEjercicio;
+    public String getIdPlanFK() {
+        return idPlanFK;
     }
 
-    public void setNombreEjercicio(String nombreEjercicio) {
-        this.nombreEjercicio = nombreEjercicio;
+    public void setIdPlanFK(String idPlanFK) {
+        this.idPlanFK = idPlanFK;
     }
 
-    public String getDescripcionEjercicio() {
-        return descripcionEjercicio;
+    public String getIdClienteFK() {
+        return idClienteFK;
     }
 
-    public void setDescripcionEjercicio(String descripcionEjercicio) {
-        this.descripcionEjercicio = descripcionEjercicio;
+    public void setIdClienteFK(String idClienteFK) {
+        this.idClienteFK = idClienteFK;
     }
 
-    public String getSeries() {
-        return series;
+    public String getIdTipoEjercicioFK() {
+        return idTipoEjercicioFK;
     }
 
-    public void setSeries(String series) {
-        this.series = series;
+    public void setIdTipoEjercicioFK(String idTipoEjercicioFK) {
+        this.idTipoEjercicioFK = idTipoEjercicioFK;
     }
-
-    public String getRepeticiones() {
-        return repeticiones;
-    }
-
-    public void setRepeticiones(String repeticiones) {
-        this.repeticiones = repeticiones;
-    }
-
-    public String getDescanso() {
-        return descanso;
-    }
-
-    public void setDescanso(String descanso) {
-        this.descanso = descanso;
-    }
-
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
-    }
+    
+    
 
 }

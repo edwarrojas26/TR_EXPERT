@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.TipoEjercicioDAO"%>
 <%@page import="ModeloVO.TipoEjercicioVO"%>
+<%@include file="Sesiones.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,9 +28,13 @@
         <div id="menu-btn" class="fas fa-bars"></div>
 
         <nav class="navbar">
-            <a class="enlace" href="bienvenido-entrenador.jsp">Inicio</a>    
-            <a class="enlace" href="#home">Planes de entrenamiento</a>
-            <a class="enlace" href="#about">Cerrar sesión</a>
+            <a class="enlace" href="Planes_entrenamiento.jsp">Planes de entrenamiento</a>
+            <a class="enlace" href="registrarTipoMedida.jsp">Tipos de medidas</a>
+            <a class="enlace" href="tiposEjercicios.jsp">Tipos de ejercicios</a>
+            
+            <form method="POST" action="Sesiones">
+                <input type="submit" class="active" value="Cerrar Sesión">
+            </form>
         </nav>
 
     </header>

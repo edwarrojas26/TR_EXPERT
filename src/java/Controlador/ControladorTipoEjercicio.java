@@ -41,9 +41,10 @@ public class ControladorTipoEjercicio extends HttpServlet {
         String repeticiones = request.getParameter("txtRepeticiones");
         String descanso = request.getParameter("txtDescanso");
         String peso = request.getParameter("txtPeso");
+        String foto = request.getParameter("foto");
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        TipoEjercicioVO tejVO = new TipoEjercicioVO(idTE, nombreE, desc, series, repeticiones, descanso, peso);
+        TipoEjercicioVO tejVO = new TipoEjercicioVO(idTE, nombreE, foto, desc, series, repeticiones, descanso, peso);
         
         TipoEjercicioDAO tejDAO = new TipoEjercicioDAO(tejVO);
         
@@ -65,13 +66,10 @@ public class ControladorTipoEjercicio extends HttpServlet {
             case 2:
                 tejVO = tejDAO.eliminarTipoEjercicio(idTE);
                 if (tejVO != null) {
-                    /*request.setAttribute("UsuarioSeleccionado", usuVO);*/
                     request.setAttribute("mensajeExito", "SE HA ELIMINADO El TIPO DEJERCICIO EXITOSAMENTE");
                    
                 } else {
                     request.setAttribute("mensajeError", "EL TIPO DE EJERCICIO NO SE HA PODIDO ELIMINAR");
-                   
-                    
                 }
                 request.getRequestDispatcher("tiposEjercicios.jsp").forward(request, response);
                 break;

@@ -1,131 +1,160 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.TipoMedidaDAO"%>
 <%@page import="ModeloVO.TipoMedidaVO"%>
+<%@include file="Sesiones.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORMULARIO DE REGISTRO ZONAS ADICIONALES</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    
-    <link href="css/style-formulario.css" rel="stylesheet">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TR Expert</title>
+
+        <!-- font awesome cdn link  -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
+
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="css/tiposEjercicios.css">
+
+    </head>
+    <header>
+
+        <nav>
+            <div class="logo">
+                <img src="img/Logo-TR-Expert.svg">
+                <i class="fa-solid fa-bars hamburguer"></i>
+            </div>
+
+            <div class="menu outside"> 
+                <a class="item" href="Planes_entrenamiento.jsp">Planes de entrenamiento</a>
+                <a class="item" href="registrarTipoMedida.jsp">Tipos de medidas</a>
+                <a class="item" href="tiposEjercicios.jsp">Tipos de ejercicios</a>
+
+                <hr class="menu-hr2" noshade="">
+                <form method="POST" action="Sesiones">
+                    <input type="submit" class="boton" value="Cerrar Sesión">
+                </form>
 
 
-</head>
-<body>
-    
-<!-- header section starts-->
+            </div>
+        </nav>
 
-<header class="header">
-
-    <a href="#" class="logo"> <span>TR</span>EXPERT </a>
-
-    <div id="menu-btn" class="fas fa-bars"></div>
-
-    <nav class="navbar">
-        <a href="bienvenido-entrenador.jsp">Inicio</a>    
-    </nav>
- 
-</header>
-
-<!-- about section starts  -->
-
-<section class="about" id="about">
-
-    <div class="image">
-        <img src="img/about-img.jpg" alt="">
-    </div>
-
-    <div class="content">
+    </header>
+    <body>
         <br><br>
-        <h3 id="ti">MEDIDAS ADICIONALES</h3>
-        <div class="box-container">
-            <form id="formulario" action="Medida" method="post">
+        <h1 class="titulo">Tipos de medidas</h1>
 
-    
-                <div class="form-control">
-                    <label for="" class="texto-input">Nombre de la zona</label>
-                    <input id="numdoc" type="text" name="txtNombreParte">              
+        <div class="buscar">
+            <input type="text" placeholder="Buscar por id" required />
+
+
+            <div class="lupa">
+                <button  type="button" class="boton-modal"><i class="fas fa-search icon" data-toggle="modal" data-target="#exampleModalCenter"></i></button>
+            </div>
+
+            <div class="agregar">
+                <button  type="button" class="boton-modal" data-toggle="modal" data-target="#exampleModalAreaTri"><i class="fas fa-add icon" data-toggle="modal" data-target="#exampleModalCenter"></i>Agregar</button>
+            </div>
+        </div>
+        <br><br>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%  TipoMedidaVO medVO = new TipoMedidaVO();
+                        TipoMedidaDAO medDAO = new TipoMedidaDAO();
+                        ArrayList<TipoMedidaVO> listaTipoMedida = medDAO.listar();
+                        for (int i = 0; i < listaTipoMedida.size(); i++) {
+
+                            medVO = listaTipoMedida.get(i);
+
+                    %>
+                    <tr>
+                        <td data-label="ID"><%=medVO.getCodigo()%></td>
+                        <td data-label="Nombre"><%=medVO.getNombreParte()%></td>
+                        <td data-label="Categoria"><%=medVO.getCategoria()%></td>
+                        <td data-label="Acciones">
+                            <div class="btn" >
+                                <form method="post" action="Medida">
+                                    <div class="borrar">
+                                        
+                                       
+                                        <button type="submit"><i class="fas fa-trash icon"></i><button>
+                                        <input type="hidden" name="txtCodigo" value="<%=medVO.getCodigo()%>">
+                                        <input type="hidden" value="2" name="opcion">
+                                    </div>
+                                </form>
+                            </div>  
+                            <div class="btn">
+                                <form method="post" action="Medida">
+                                    <div class="btn-editar">
+                                        
+                                        
+                                         <button type="submit"><i class="fas fa-edit icon"></i><button>
+                                        
+                                        <input type="hidden" name="txtCodigo" value="<%=medVO.getCodigo()%>">
+                                        <input type="hidden" value="3" name="opcion">
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+        <!-- Modal login-->
+        <div class="color-modal">
+            <div class="modal fade" id="exampleModalAreaTri" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-    
-                <div class="form-control">
-                    <label for="rh" class="texto-input">Categoría</label><br>
-                        <select id="rh" class="texto-input" name="txtCategoria">
-                            <option>Seleccionar...</option>
+
+                <div class="center">
+                    <h1 id="titulo-modal">Registrar nuevo tipo de medida</h1>
+                    <form method="post" action="Medida">
+
+                        <label>Nombre medida</label><br>
+                        <input name="txtNombreParte" type="text" required><br><br>
+
+                        <label>Categoria</label><br>
+                        <select name="txtCategoria">
                             <option value="1">Tren superior</option>
                             <option value="2">Tren inferior</option>
                             <option value="3">Salud / Alimentación</option>
                             <option value="4">Factor de riesgo</option>
                         </select>
-                    
-                    
-                    </div>
-    
-                <input type="submit" value="enviar" onclick="alerta()">
-             <input name="opcion" type="hidden" value="1">
-            </form>
-            
-        </div>
-</section>
-
-<table>
-    
-    <thead>
-        <tr>
-        <td>Código</td>
-        <td>Nombre de la zona</td>
-        <td>Categoría</td>
-        <td colspan="2">Acciones</td>
-        </tr>
-    </thead>
-
-    <%  TipoMedidaVO medVO = new TipoMedidaVO();
-                    TipoMedidaDAO medDAO = new TipoMedidaDAO();
-                    ArrayList<TipoMedidaVO> listaTipoMedida = medDAO.listar();
-                    for (int i = 0; i < listaTipoMedida.size(); i++) {
-
-                        medVO = listaTipoMedida.get(i);
-
-                %>
-    <tr>
-        <td><%=medVO.getCodigo()%></td>
-        <td><%=medVO.getNombreParte()%></td>
-        <td><%=medVO.getCategoria()%></td>
-        
-        <form method="post" action="Medida">
-                        <td><input class="btn btn-success" type="submit" value="Eliminar"></td>
-                        <input type="hidden" name="txtCodigo" value="<%=medVO.getCodigo()%>">
-                        <input type="hidden" value="2" name="opcion">
+                        <input type="hidden" value="1" name="opcion">
+                        <div class="modal-footer">
+                            <button type="button" class="btn1 btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <input type="submit" class="btn2 btn-success" value="Agregar">
+                        </div>
                     </form>
-                
-                
-                
-                
-                    <form method="post" action="Medida">
-                        <td><input class="btn btn-success" type="submit" value="Actualizar"></td>
-                        <input type="hidden" name="txtCodigo" value="<%=medVO.getCodigo()%>">
-                        <input type="hidden" value="3" name="opcion">
-                    </form>
-        
-        <%}%>
-        
-    </tr>
-</table>
-        
-        <%
-            if (request.getAttribute("mensajeError") != null) {%>
-        <div class="alert alert-danger" role="alert">
-            ${mensajeError}
+                </div>
+            </div>
         </div>
-        <% } else { %>
-        <div class="alert alert-success" role="alert">
-            ${mensajeExito}
-        </div>
-        <% }%>
-</body>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+        <script src="./js/menu-index.js"></script>
+
+    </body>
 </html>

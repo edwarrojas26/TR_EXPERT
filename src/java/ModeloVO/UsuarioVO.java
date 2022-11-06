@@ -12,6 +12,29 @@ package ModeloVO;
 public class UsuarioVO {
 
     private String idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, TS, EPS, alergia, estado, sexo, rol, contraseña;
+    
+    public UsuarioVO(String idUsuario, String numDoc, String tipoDoc, String nombre, String apellido, String fechaNacimiento, String edad, String direccion, String telefono, String correo, String TS, String EPS, String alergia, String estado, String sexo, String rol, String contraseña) {
+        this.idUsuario = idUsuario;
+        this.numDoc = numDoc;
+        this.tipoDoc = tipoDoc;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.TS = TS;
+        this.EPS = EPS;
+        this.alergia = alergia;
+        this.estado = estado;
+        this.sexo = sexo;
+        this.rol = rol;
+        this.contraseña = contraseña;
+    }
+
+    public UsuarioVO() {
+    }
 
     public String getIdUsuario() {
         return idUsuario;
@@ -20,6 +43,7 @@ public class UsuarioVO {
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
+        
 
     public String getNumDoc() {
         return numDoc;
@@ -149,27 +173,6 @@ public class UsuarioVO {
         this.contraseña = contraseña;
     }
 
-    public UsuarioVO(String idUsuario, String numDoc, String tipoDoc, String nombre, String apellido, String fechaNacimiento, String edad, String direccion, String telefono, String correo, String TS, String EPS, String alergia, String estado, String sexo, String rol, String contraseña) {
-        this.idUsuario = idUsuario;
-        this.numDoc = numDoc;
-        this.tipoDoc = tipoDoc;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.edad = edad;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.TS = TS;
-        this.EPS = EPS;
-        this.alergia = alergia;
-        this.estado = estado;
-        this.sexo = sexo;
-        this.rol = rol;
-        this.contraseña = contraseña;
-    }
-
-    public UsuarioVO() {
-    }
+    
 
 }

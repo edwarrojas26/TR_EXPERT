@@ -15,24 +15,22 @@
 <%
     HttpSession buscarSesion = (HttpSession) request.getSession();
     String correo = "";
-    String idUsuario = "";
 
     if (buscarSesion.getAttribute("datosUsuario") == null) {
         request.getRequestDispatcher("login.jsp").forward(request, response);
     } else {
         UsuarioVO usuVO = (UsuarioVO) buscarSesion.getAttribute("datosUsuario");
-        correo = usuVO.getCorreo();
-        idUsuario = usuVO.getIdUsuario();
         
-        System.out.println(idUsuario);
+        correo = usuVO.getCorreo();
+        
+        
     }
 %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
-    <body>
-        <p>Bienvenido <%=correo%></p>
-        <p>Hola: <%=idUsuario%></p>
-    </body>
+    <!--<body>
+        <p>Bienvenido /*<%=correo%>*/</p>
+    </body>-->
 </html>

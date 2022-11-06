@@ -22,7 +22,7 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
     private boolean operacion = false;
     private String sql;
     
-    private String idTE, nombreE, descripcionE, seriesE, repeticionesE, descansoE, pesoE;
+    private String idTE, nombreE, foto, descripcionE, seriesE, repeticionesE, descansoE, pesoE;
     
     public TipoEjercicioDAO(){
     }
@@ -34,6 +34,7 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             conexion = this.obtenerConexion();
             idTE = tipoejercicioVO.getIdTE();
             nombreE = tipoejercicioVO.getNombre();
+            foto = tipoejercicioVO.getFoto();
             descripcionE = tipoejercicioVO.getDescricpion();
             seriesE = tipoejercicioVO.getSeries();
             repeticionesE = tipoejercicioVO.getRepeticiones();
@@ -53,10 +54,11 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             puente = conexion.prepareStatement(sql);
             puente.setString(1, nombreE);
             puente.setString(2, descripcionE);
-            puente.setString(3, seriesE);
-            puente.setString(4, repeticionesE);
-            puente.setString(5, descansoE);
-            puente.setString(6, pesoE);
+            puente.setString(3, foto);
+            puente.setString(4, seriesE);
+            puente.setString(5, repeticionesE);
+            puente.setString(6, descansoE);
+            puente.setString(7, pesoE);
             puente.executeUpdate();
             operacion = true;
 
@@ -77,15 +79,15 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
         
        try {
 
-            sql = "UPDATE tipoejercicio SET nombreEjercicio=?, descripcionEjercicio=? ,series=? , repeticiones=? , descanso=? , peso=?  WHERE idTipoEjercicio=?";
+            sql = "UPDATE tipoejercicio SET nombreEjercicio=?,foto=?,  descripcionEjercicio=? ,series=? , repeticiones=? , descanso=? , peso=?  WHERE idTipoEjercicio=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, nombreE);
             puente.setString(2, descripcionE);
-            puente.setString(3, seriesE);
-            puente.setString(4, repeticionesE);
-            puente.setString(5, descansoE);
-            puente.setString(6, pesoE);
-            puente.setString(7, idTE);
+            puente.setString(3, foto);
+            puente.setString(4, seriesE);
+            puente.setString(5, repeticionesE);
+            puente.setString(6, descansoE);
+            puente.setString(7, pesoE);
             puente.executeUpdate();
             operacion = true;
 
@@ -122,7 +124,8 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
                         mensajero.getString(4),
                         mensajero.getString(5),
                         mensajero.getString(6),
-                        mensajero.getString(7));
+                        mensajero.getString(7),
+                        mensajero.getString(8));
                 listaTipoEjercicio.add(tejVO);
             }
 
@@ -148,7 +151,6 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idTE); 
             puente.executeUpdate();
-            operacion = true;
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
@@ -177,7 +179,8 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
                         mensajero.getString(4),
                         mensajero.getString(5),
                         mensajero.getString(6),
-                        mensajero.getString(7));
+                        mensajero.getString(7),
+                        mensajero.getString(8));
             }
         } catch (Exception e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);

@@ -61,12 +61,11 @@ public class controladorTipoMedida extends HttpServlet {
             case 2:
                 medVO = medDAO.eliminarTipoMedida(codigo);
                 if (medVO != null) {
-                    /*request.setAttribute("UsuarioSeleccionado", usuVO);*/
                     request.setAttribute("mensajeExito", "SE HA ELIMINADO LA MEDIDA EXITOSAMENTE");
-                    request.getRequestDispatcher("zonasCuerpo.jsp").forward(request, response);
+                    request.getRequestDispatcher("registrarTipoMedida.jsp").forward(request, response);
                 } else {
                     request.setAttribute("mensajeError", "EL CODIGO YA CORRESPONDE A OTRO TIPO DE MEDIDA");
-                    request.getRequestDispatcher("zonasCuerpo.jsp").forward(request, response);
+                    request.getRequestDispatcher("registrarTipoMedida.jsp").forward(request, response);
                     
                 }
                 break;
@@ -74,18 +73,18 @@ public class controladorTipoMedida extends HttpServlet {
                 medVO = medDAO.consultarTipoMedida(codigo);
                 if (medVO != null) {
                     request.setAttribute("TMSeleccion", medVO);
-                    request.getRequestDispatcher("actualizarTipoMedida.jsp").forward(request, response);
+                    request.getRequestDispatcher("registrarTipoMedida.jsp").forward(request, response);
                
                 } else {
                     request.setAttribute("mensajeError", "EL TIPO DE MEDIDA NO SE ENCUENTRA REGISTRADA");
-                    request.getRequestDispatcher("zonasCuerpo.jsp").forward(request, response);
+                    request.getRequestDispatcher("registrarTipoMedida.jsp").forward(request, response);
                 }
                 break;
                 
             case 4:
                 if (medDAO.actualizarRegistro()) {
                     request.setAttribute("mensajeExito", "EL TIPO DE MEDIDA SE ACTUALIZO CORRECTAMENTE");
-                    request.getRequestDispatcher("zonasCuerpo.jsp").forward(request, response);
+                    request.getRequestDispatcher("registrarTipoMedida.jsp").forward(request, response);
                 } else {
                     request.setAttribute("mensajeError", "EL TIPO DE MEDIDA NO SE HA PODIDO ACTUALIZAR");
                     request.getRequestDispatcher("bienvenido-entrenador.jsp").forward(request, response);

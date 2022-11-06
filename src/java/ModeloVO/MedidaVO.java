@@ -11,7 +11,20 @@ package ModeloVO;
  */
 public class MedidaVO {
 
-    private String idMedida, codigoFK, valorI, valorF;
+   private String idMedida, idPlanFk, idClienteFk, CodigoFk, valorI, valorF;
+   
+   public MedidaVO(){
+
+   }
+
+    public MedidaVO(String idMedida, String idPlanFk, String idClienteFk, String CodigoFk, String valorI, String valorF) {
+        this.idMedida = idMedida;
+        this.idPlanFk = idPlanFk;
+        this.idClienteFk = idClienteFk;
+        this.CodigoFk = CodigoFk;
+        this.valorI = valorI;
+        this.valorF = valorF;
+    }
 
     public String getIdMedida() {
         return idMedida;
@@ -21,12 +34,28 @@ public class MedidaVO {
         this.idMedida = idMedida;
     }
 
-    public String getCodigoFK() {
-        return codigoFK;
+    public String getIdPlanFk() {
+        return idPlanFk;
     }
 
-    public void setCodigoFK(String codigoFK) {
-        this.codigoFK = codigoFK;
+    public void setIdPlanFk(String idPlanFk) {
+        this.idPlanFk = idPlanFk;
+    }
+
+    public String getIdClienteFk() {
+        return idClienteFk;
+    }
+
+    public void setIdClienteFk(String idClienteFk) {
+        this.idClienteFk = idClienteFk;
+    }
+
+    public String getCodigoFk() {
+        return CodigoFk;
+    }
+
+    public void setCodigoFk(String CodigoFk) {
+        this.CodigoFk = CodigoFk;
     }
 
     public String getValorI() {
@@ -44,5 +73,10 @@ public class MedidaVO {
     public void setValorF(String valorF) {
         this.valorF = valorF;
     }
+    
+    
+   
+   
+   
 
 }

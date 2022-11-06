@@ -33,42 +33,34 @@ public class RolDAO extends ConexionBd implements Crud {
 
     public RolDAO() {
     }
-    
-    public ArrayList<RolVO> listar(String correo) 
-    {
-        ArrayList<RolVO> listaRol = new ArrayList<>();
-        try 
-        {
+
+    public RolVO sesiones(String correo) {
+        RolVO rolVO = null;
+        try {
             conexion = this.obtenerConexion();
             sql = "SELECT usuario.idUsuario, rol.rolTipo FROM rol INNER JOIN usuario_rol ON rol.id_Rol = usuario_rol.id_Rol INNER JOIN usuario ON usuario_rol.idUsuario = usuario.idUsuario WHERE usuario.correo=?;";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
             mensajero = puente.executeQuery();
-            while (mensajero.next()) 
-            {
-                RolVO rolVO = new RolVO(mensajero.getString(1), mensajero.getString(2));
-                listaRol.add(rolVO);
+            while (mensajero.next()) {
+                rolVO = new RolVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2)
+                );
+
             }
 
-        } 
-        catch (SQLException e) 
-        {
+        } catch (SQLException e) {
             Logger.getLogger(RolDAO.class.getName()).log(Level.SEVERE, null, e);
-        } 
-        finally 
-        {
-            try 
-            {
+        } finally {
+            try {
                 this.cerrarConexion();
-            } 
-            catch (SQLException e) 
-            {
+            } catch (SQLException e) {
                 Logger.getLogger(RolDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }
-        return listaRol;
+        return rolVO;
     }
-    
     @Override
     public boolean agregarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -83,7 +75,5 @@ public class RolDAO extends ConexionBd implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
 }

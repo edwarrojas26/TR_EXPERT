@@ -10,7 +10,6 @@ import ModeloDAO.UsuarioDAO;
 import ModeloVO.RolVO;
 import ModeloVO.UsuarioVO;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -105,27 +104,25 @@ public class ControladorU extends HttpServlet {
                     request.getRequestDispatcher("listar.jsp").forward(request, response);
                 }
                 break;
-
-            case 5: {
-                if (usuDAO.iniciarSesion(idUsuario, correo, contraseña)) {
+                
+                
+                case 5: {
+                    if (usuDAO.iniciarSesion(correo, contraseña)) {
                     HttpSession misesion = request.getSession(true);
                     usuVO = new UsuarioVO(idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, TS, EPS, alergia, estado, sexo, rol, contraseña);
 
                     RolDAO rolDAO = new RolDAO();
                     RolVO rolVO = new RolVO();
 
-                    ArrayList<RolVO> listaRol = rolDAO.listar(correo);
-                    for (int i = 0; i < listaRol.size(); i++) {
-                        rolVO = listaRol.get(i);
-                    }
+                    rolVO = rolDAO.sesiones(correo);
+                    
                     String usuid = rolVO.getIdRol();
                     String roltipo = rolVO.getRolTipo();
 
                     misesion.setAttribute("datosUsuario", usuVO);
-
-                    if (listaRol.size() > 1) {
-                        request.getRequestDispatcher("bienvenido-entrenador.jsp").forward(request, response);
-                    }
+                    misesion.setAttribute("idUser", usuid);
+                    
+                   
                     if (roltipo.equals("Cliente")) {
                         request.getRequestDispatcher("cliente.jsp").forward(request, response);
                     } else if (roltipo.equals("Entrenador")) {
@@ -138,6 +135,7 @@ public class ControladorU extends HttpServlet {
             }
             break;
 
+            
         }
 
     }

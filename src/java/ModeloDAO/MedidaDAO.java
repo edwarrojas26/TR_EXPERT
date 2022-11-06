@@ -6,6 +6,8 @@
 package ModeloDAO;
 
 import ModeloVO.MedidaVO;
+import ModeloVO.RolVO;
+import ModeloVO.UsuarioVO;
 import Util.ConexionBd;
 import Util.Crud;
 import java.sql.Connection;
@@ -27,19 +29,23 @@ public class MedidaDAO extends ConexionBd implements Crud {
 
     private boolean operacion = false;
     private String sql;
-
-    private String idMedida = "", codigoFK = "", valorI = "", valorF = "";
-
+    private String idMedida = "", idPlanFK = "",idClienteFk = "", CodigoFk = "", valorI = "", valorF = "";
+   
+    
     public MedidaDAO() {
     }
 
     public MedidaDAO(MedidaVO medidaVO) {
         super();
         try {
+            
+            
             conexion = this.obtenerConexion();
 
             idMedida = medidaVO.getIdMedida();
-            codigoFK = medidaVO.getCodigoFK();
+            idPlanFK = medidaVO.getIdPlanFk();
+            idClienteFk = medidaVO.getIdClienteFk();
+            CodigoFk = medidaVO.getCodigoFk();
             valorI = medidaVO.getValorI();
             valorF = medidaVO.getValorF();
         } catch (Exception e) {
@@ -51,12 +57,13 @@ public class MedidaDAO extends ConexionBd implements Crud {
     public boolean agregarRegistro() {
         try {
 
-            sql = "INSERT INTO medida (idMedida, codigoFK, valorI, valorF) VALUES (?,?,?,?)";
+            sql = "CALL medida (?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idMedida);
-            puente.setString(2, codigoFK);
+            puente.setString(1, idPlanFK);
+            puente.setString(2, CodigoFk);
             puente.setString(3, valorI);
             puente.setString(4, valorF);
+            puente.setString(5, idClienteFk);
             puente.executeUpdate();
             operacion = true;
 
@@ -95,6 +102,10 @@ public class MedidaDAO extends ConexionBd implements Crud {
         }
         return operacion;
     }
+    
+    
+    
+    
 
     @Override
     public boolean eliminarRegistro() {

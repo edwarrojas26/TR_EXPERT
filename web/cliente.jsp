@@ -33,8 +33,9 @@
         <div id="menu-btn" class="fas fa-bars"></div>
     
         <nav class="navbar">
-            <a href="#">Modificar Datos Personales</a>
-            <a href="#">Mi plan</a>
+            <a href="#" class="enlace">Modificar Datos Personales</a>
+            <a href="registrarMedidas.jsp" class="enlace">Registrar medidas corporales</a>
+            <a href="#" class="enlace">Mi plan</a>
              <form method="POST" action="Sesiones">
                 <input type="submit" class="active"value="Cerrar Sesión">
             </form>
@@ -62,8 +63,9 @@
         <div class="box">
            <a href="datos-plan.html"><img src="img/entrenador1.jpg" alt=""></a> 
             <div class="content">
-                <a href="datos-plan.html"><span>TR EXPERT</span></a>
+                     <a href="datos-plan.html"><span>TR EXPERT</span></a>
                     <a href="datos-plan.html"> <div class="share"></a>
+                    <a class="enlace" href="registrarMedidas.jsp">Registrar medidas</a>
                 </div>
             </div>
         </div>

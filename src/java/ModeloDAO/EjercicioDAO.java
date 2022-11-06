@@ -28,7 +28,7 @@ public class EjercicioDAO extends ConexionBd implements Crud {
     private boolean operacion = false;
     private String sql;
 
-    private String idEjercicio = "", nombreEjercicio = "", descripcionEjercicio = "", series = "", repeticiones = "", descanso = "", peso = "";
+    private String idEjercicio = "", idPlanFK = "", idClienteFK = "", idTipoEjercicioFK = "";
 
     public EjercicioDAO() {
     }
@@ -39,12 +39,9 @@ public class EjercicioDAO extends ConexionBd implements Crud {
             conexion = this.obtenerConexion();
 
             idEjercicio = ejerciciosVO.getIdEjercicio();
-            nombreEjercicio = ejerciciosVO.getNombreEjercicio();
-            descripcionEjercicio = ejerciciosVO.getDescripcionEjercicio();
-            series = ejerciciosVO.getSeries();
-            repeticiones = ejerciciosVO.getRepeticiones();
-            descanso = ejerciciosVO.getDescanso();
-            peso = ejerciciosVO.getPeso();
+            idPlanFK = ejerciciosVO.getIdPlanFK();
+            idClienteFK = ejerciciosVO.getIdClienteFK();
+            idTipoEjercicioFK = ejerciciosVO.getIdTipoEjercicioFK();
         } catch (Exception e) {
             Logger.getLogger(EjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -54,15 +51,12 @@ public class EjercicioDAO extends ConexionBd implements Crud {
     public boolean agregarRegistro() {
         try {
 
-            sql = "INSERT INTO ejercicios (idEjercicio, nombreEjercicio, descripcionEjercicio, series, repeticiones, descanso, peso) VALUES (?,?,?,?,?,?,?)";
+            sql = "INSERT INTO ejercicio (idEjercicio, idPlanFK, idClienteFK, idTipoEjercicioFK) VALUES (?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idEjercicio);
-            puente.setString(2, nombreEjercicio);
-            puente.setString(3, descripcionEjercicio);
-            puente.setString(4, series);
-            puente.setString(5, repeticiones);
-            puente.setString(6, descanso);
-            puente.setString(7, peso);
+            puente.setString(2, idPlanFK);
+            puente.setString(3, idClienteFK);
+            puente.setString(4, idTipoEjercicioFK);
             puente.executeUpdate();
             operacion = true;
 
@@ -82,15 +76,11 @@ public class EjercicioDAO extends ConexionBd implements Crud {
     public boolean actualizarRegistro() {
         try {
 
-            sql = "UPDATE ejercicios SET nombreEjercicio=?, descripcionEjercicio=?, series=?, repeticiones=?, descanso=?, peso=? where idEjercicio=?";
+            sql = "UPDATE ejercicios SET where idEjercicio=?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, nombreEjercicio);
-            puente.setString(2, descripcionEjercicio);
-            puente.setString(3, series);
-            puente.setString(4, repeticiones);
-            puente.setString(5, descanso);
-            puente.setString(6, peso);
-            puente.setString(7, idEjercicio);
+            
+            puente.setString(1, idTipoEjercicioFK);
+            
             puente.executeUpdate();
             operacion = true;
 

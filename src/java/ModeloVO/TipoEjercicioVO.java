@@ -4,14 +4,15 @@ package ModeloVO;
 
 public class TipoEjercicioVO {
     
-    String idTE, nombre, descricpion, series, repeticiones, descanso, peso;
+    String idTE, nombre,foto, descricpion, series, repeticiones, descanso, peso;
     
     public TipoEjercicioVO(){
     }
     
-    public TipoEjercicioVO (String idTE, String nombre, String descripcion, String series, String repeticiones, String descanso, String peso) {
+    public TipoEjercicioVO (String idTE, String nombre,String foto, String descripcion, String series, String repeticiones, String descanso, String peso) {
         this.idTE = idTE;
         this.nombre = nombre;
+        this.foto = foto;
         this.descricpion = descripcion;
         this.series = series;
         this.repeticiones = repeticiones;
@@ -35,6 +36,14 @@ public class TipoEjercicioVO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public String getFoto() {
+        return nombre;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public String getDescricpion() {

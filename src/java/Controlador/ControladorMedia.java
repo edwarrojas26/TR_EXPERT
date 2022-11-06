@@ -5,8 +5,9 @@
  */
 package Controlador;
 
+import ModeloDAO.MedidaDAO;
+import ModeloVO.MedidaVO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +33,32 @@ public class ControladorMedia extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-          /*Servlet en desarrollo*/
+            String idMedida = request.getParameter("txtMedida");
+            String idPlanFk = request.getParameter("txtIdPlan");
+            String idClienteFk = request.getParameter("txtIdCliente");
+            String CodigoFk = request.getParameter("txtCodigo");
+            String valorI = request.getParameter("txtIdVI");
+            String valorF = request.getParameter("txtIdVF");
+            int opcion = Integer.parseInt(request.getParameter("opcion"));
+
+        MedidaVO medVO = new MedidaVO(idMedida, idPlanFk, idClienteFk, CodigoFk, valorI, valorF);
+
+        MedidaDAO medDAO = new MedidaDAO(medVO);
+        
+        switch (opcion)  {
+        
+            case 1 :
+                
+                if (medDAO.agregarRegistro()){
+                    request.setAttribute("mensajeExito", "Medidas registradas correctamente REGISTRADO EXITOSAMENTE");
+                    request.getRequestDispatcher("bienvenido-entrenador.jsp").forward(request, response);
+                }else {
+                    request.setAttribute("mensajeError", "ERROR AL REGISTRAR LAS MEDIDAS");
+                    request.getRequestDispatcher("registrarUsuario.jsp").forward(request, response);
+                }
+                
+            break;
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

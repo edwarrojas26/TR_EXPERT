@@ -21,6 +21,7 @@ public class RolVO {
         this.rolTipo = rolTipo;
     }
 
+
     public String getIdRol() {
         return idRol;
     }
