@@ -1,107 +1,193 @@
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page import="ModeloVO.UsuarioVO"%>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LISTAR</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-        <link href="css/listar.css" rel="stylesheet">
 
+    <head>
+        <title>Responsive Table</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!--  Datatables  -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
+        <link rel="stylesheet" href="./css/style_listarUsuarios.css"/>
 
     </head>
+
     <body>
 
-        <!-- header section starts-->
+        <nav class="sidebar close-navd">
+            <header>
+                <div class="image-textd">
 
-        <header class="header">
 
-            <a href="#" class="logo"> <span>TR</span>EXPERT </a>
+                    <div class="text logod-text">
+                        <img src="img/Logo-TR-Expert.svg" width="100%">
+                    </div>
+                </div>
 
-            <div id="menu-btn" class="fas fa-bars"></div>
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
 
-            <nav class="navbar">
-                <a href="registrarUsuario.jsp">Inicio</a>    
-            </nav>
+            <div class="menu-bardd">
+                <div class="menudds">
 
-        </header>
-    <body>
-            <table>
-                <thead>
-                    <tr>
-                    <td># Documento</td>
-                    <td>Tipo de documento</td>
-                    <td>Nombre</td>
-                    <td>Apellido</td>
-                    <td>Fecha Nacimiento</td>
-                    <td>Edad</td>
-                    <td>Direccion</td>
-                    <td>Telefono</td>
-                    <td>Correo</td>
-                    <td>Tipo de sangre</td>
-                    <td>EPS</td>
-                    <td>Alergia</td>
-                    <td>Estado</td>
-                    <td>Sexo</td>
-                    <td>Rol</td>
-                    <td colspan="2">Acciones</td>
-                    </tr>
-                </thead>
-                <%  UsuarioVO usuVO = new UsuarioVO();
-                    UsuarioDAO usuDAO = new UsuarioDAO();
-                    ArrayList<UsuarioVO> ListaUsuario = usuDAO.listar();
-                    for (int i = 0; i < ListaUsuario.size(); i++) {
+                    <li class="search-box">
+                        <i class='bx bx-search icon'></i>
+                        <input type="text" placeholder="Search...">
+                    </li>
 
-                        usuVO = ListaUsuario.get(i);
+                    <ul class="menu-linksds">
+                        <li class="nav-linkds">
+                            <a href="#">
+                                <i class='fa-solid fa-home icon' ></i>
+                                <span class="text nav-text">Inicio</span>
+                            </a>
+                        </li>
 
-                %>
-                <tr>
-                    <td><%=usuVO.getNumDoc()%></td>
-                    <td><%=usuVO.getTipoDoc()%></td>
-                    <td><%=usuVO.getNombre()%></td>
-                    <td><%=usuVO.getApellido()%></td>
-                    <td><%=usuVO.getFechaNacimiento()%></td>
-                    <td><%=usuVO.getEdad()%></td>
-                    <td><%=usuVO.getDireccion()%></td>
-                    <td><%=usuVO.getTelefono()%></td>
-                    <td><%=usuVO.getCorreo()%></td>
-                    <td><%=usuVO.getTS()%></td>
-                    <td><%=usuVO.getEPS()%></td>
-                    <td><%=usuVO.getAlergia()%></td>
-                    <td><%=usuVO.getEstado()%></td>
-                    <td><%=usuVO.getSexo()%></td>
-                    <td><%=usuVO.getRol()%></td>
+                        <li class="nav-linkds">
+                            <a href="#">
+                                <i class="fa-solid fa-file-invoice icon"></i>
+                                <span class="text nav-text">Planes</span>
+                            </a>
+                        </li>
 
-               
-                    
-                    <form method="post" action="Usuario">
-                        <td><input id="eliminar" class="btn btn-success" type="submit" value="Inhabilitar"></td>
-                        <input type="hidden" name="txtNumDoc" value="<%=usuVO.getNumDoc()%>">
-                        <input type="hidden" value="2" name="opcion">
+                        <li class="nav-linkds">
+                            <a href="#">
+                                <i class="fa-solid fa-ruler icon"></i>
+                                <span class="text nav-text">Tipo medida</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-linkds">
+                            <a href="#">
+                                <i class="fa-solid fa-person-walking icon"></i>
+                                <span class="text nav-text">Tipo ejercicios</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-linkds">
+                            <a href="listarUsuarios.jsp">
+                                <i class="fa-solid fa-user icon"></i>
+                                <span class="text nav-text">Listar usuarios</span>
+                            </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <form method="post" action="Sesiones">
+                        <div class="bottom-contentds">
+                            <li class="Cerrars">
+                                <a href="#">
+                                    <i class='bx bx-log-out icon'></i>
+                                    <input class="text nav-text" type="submit" value="Cerrar Sesion">
+                                </a>
+                            </li> 
+                        </div>
                     </form>
-                
-                
-                
-                
-                    <form method="post" action="Usuario">
-                        <td><input id="actualizar" class="btn btn-success" type="submit" value="Actualizar"></td>
-                        <input type="hidden" name="txtNumDoc" value="<%=usuVO.getNumDoc()%>">
-                        <input type="hidden" value="4" name="opcion">
-                    </form>
-                    
-           
-                </tr>
-                                                                <%}%>
-            </table>
-        </div>
+                </div>
+
+        </nav>
+
+        <section class="home">
+
+            <h3 class="pb-2">Listado usuarios</h3>
+
+            <div>
+                <form method="POST" action="GenerarPDF.jsp" target="_black" class="freportes">
+                    <input type="submit" value="Generar Reporte PDF" class="btn btn-success">
+                </form>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">        
+                            <table id="example" class="table table-striped table-secondary" style="width:100%">
+
+                                <thead>
+
+                                    <tr class="bg-danger">
+                                        <th class="bg-danger">Documento</th>
+                                        <th class="bg-danger">Tipo de documento</th>
+                                        <th class="bg-danger">Nombre</th>
+                                        <th class="bg-danger">Apellido</th>
+                                        <th class="bg-danger">Edad</th>
+                                        <th class="bg-danger">Direccion</th>
+                                        <th class="bg-danger">Telefono</th>
+                                        <th class="bg-danger">Correo</th>
+                                        <th class="bg-danger">Sexo</th>
+                                        <th class="bg-danger">Estado</th>
+                                        <th class="bg-danger">Inhabilitar</th>
+                                        <th class="bg-danger">Actualizar</th>
+                                    </tr>
+
+                                </thead>
+
+                                <%  UsuarioVO usuVO = new UsuarioVO();
+                                    UsuarioDAO usuDAO = new UsuarioDAO();
+                                    ArrayList<UsuarioVO> ListaUsuario = usuDAO.listar();
+                                    for (int i = 0; i < ListaUsuario.size(); i++) {
+
+                                        usuVO = ListaUsuario.get(i);
+
+                                %>
+
+                                <tr>
+                                    <td><%=usuVO.getNumDoc()%></td>
+                                    <td><%=usuVO.getTipoDoc()%></td>
+                                    <td><%=usuVO.getNombre()%></td>
+                                    <td><%=usuVO.getApellido()%></td>
+                                    <td><%=usuVO.getEdad()%></td>
+                                    <td><%=usuVO.getDireccion()%></td>
+                                    <td><%=usuVO.getTelefono()%></td>
+                                    <td><%=usuVO.getCorreo()%></td>
+                                    <td><%=usuVO.getSexo()%></td>
+                                    <td><%=usuVO.getEstado()%></td>
+                                    <td>
+                                        <form method="post" action="Usuario">
+                                            <input id="eliminar" class="btn btn-warning" type="submit" value="Inhabilitar">
+                                            <input type="hidden" name="txtNumDoc" value="<%=usuVO.getNumDoc()%>">
+                                            <input type="hidden" value="2" name="opcion">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="Usuario">
+                                            <input id="actualizar" class="btn btn-primary" type="submit" value="Actualizar">
+                                            <input type="hidden" name="txtNumDoc" value="<%=usuVO.getNumDoc()%>">
+                                            <input type="hidden" value="4" name="opcion">
+                                        </form>
+                                    </td>
+
+                                </tr>
+                                <%}%>
+
+                            </table>
+
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+        <script src="js/App.js"></script>
+
     </body>
-</html>
 
+</html>
 
 
 

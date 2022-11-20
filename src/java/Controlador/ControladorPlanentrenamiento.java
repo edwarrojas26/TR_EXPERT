@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,16 +30,15 @@ public class ControladorPlanentrenamiento extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
         
         
-        
         /*Servlet en desarrollo*/
-        
-        
         
         
         

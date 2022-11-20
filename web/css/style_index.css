@@ -235,6 +235,27 @@ input[type="submit"]:hover {
   text-align: center;
   margin: 0 0 1rem 0;
 }
+.principal{
+  margin-top: 50px;
+  font-family: 'roboto';
+}
+
+.card-header-third{
+  font-size: 50px;
+  margin-top: -25px;
+  height: 120px;
+  background: linear-gradient(-90deg, #08524b, #0c632d);
+}
+
+
+
+.card-section{
+  box-shadow: 0 2px 5px 0 rgb(0, 0, 0,.16), 0 2px 10px 0 rgb(0, 0, 0,.12);
+}
+
+.card-text{
+  font-size: 15px;
+}
 
 /* LARGE SIZE */
 @media(min-width: 700px) {
@@ -429,24 +450,6 @@ label {
   display: flex;
   padding-left: 45%;
 
-}
-
-.formulario__btn {
-  height: 45px;
-  line-height: 45px;
-  width: 250%;
-  background: red;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: .1s ease all;
-
-}
-
-.formulario__btn:hover {
-  box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
 }
 
 .formulario__mensaje-exito {

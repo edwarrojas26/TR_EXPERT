@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ae6640d-7a26-4e99-a303-a55eef2cd246">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="192"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tipoejercicio.`idTipoEjercicio` AS tipoejercicio_idTipoEjercicio,
+     tipoejercicio.`nombreEjercicio` AS tipoejercicio_nombreEjercicio,
+     tipoejercicio.`descripcionEjercicio` AS tipoejercicio_descripcionEjercicio,
+     tipoejercicio.`series` AS tipoejercicio_series,
+     tipoejercicio.`repeticiones` AS tipoejercicio_repeticiones,
+     tipoejercicio.`descanso` AS tipoejercicio_descanso,
+     tipoejercicio.`peso` AS tipoejercicio_peso,
+     tipoejercicio.`foto` AS tipoejercicio_foto
+FROM
+     `tipoejercicio` tipoejercicio]]>
+	</queryString>
+	<field name="tipoejercicio_idTipoEjercicio" class="java.lang.Long"/>
+	<field name="tipoejercicio_nombreEjercicio" class="java.lang.String"/>
+	<field name="tipoejercicio_descripcionEjercicio" class="java.lang.String"/>
+	<field name="tipoejercicio_series" class="java.lang.Integer"/>
+	<field name="tipoejercicio_repeticiones" class="java.lang.Integer"/>
+	<field name="tipoejercicio_descanso" class="java.lang.Float"/>
+	<field name="tipoejercicio_peso" class="java.lang.Float"/>
+	<field name="tipoejercicio_foto" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement x="725" y="0" width="95" height="102" uuid="f8a14c0d-f935-4bb8-a1ab-f17ecd349518"/>
+				<imageExpression><![CDATA["./img/Logo_TR_Expert (2).png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="3d218abd-27b2-4696-bd0d-d703a6b4d511"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="9fc13ae0-72b6-44d0-8d15-dd8b870bab66"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Verdana" size="40" isBold="false"/>
+					</textElement>
+					<text><![CDATA[TR EXPERT 2022]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" forecolor="#FFFFFF" uuid="1c62519d-c6d5-409c-85b7-6860dd91ebfd"/>
+					<textElement textAlignment="Right">
+						<font fontName="Verdana" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[REPORTE EJERCICIO]]></text>
+				</staticText>
+				<image>
+					<reportElement x="-43" y="-221" width="596" height="878" uuid="1f131eaf-9ecf-49c1-ba48-a0a25cf12390"/>
+					<imageExpression><![CDATA["C:\\Users\\marbe\\Documents\\NetBeansProjects\\TREXPERT_CRUD\\trexpert\\web\\img\\Logo_TR_Expert-(2).png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="27a44099-303b-4b2b-ad7d-619abaed5be9"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="e38b8bf8-b2c9-47fa-adcb-dc8cc63e862c"/>
+					<textElement textAlignment="Right">
+						<font fontName="Verdana" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="99" height="18" forecolor="#000000" uuid="10f125e5-e937-43b1-bcc0-74cac6f952d7"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[tipoejercicio_idTipoEjercicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="99" y="0" width="99" height="18" forecolor="#000000" uuid="20e3cce7-b059-40b4-967c-2fea0806cbb7"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="198" y="0" width="99" height="18" forecolor="#000000" uuid="d694e553-9c60-4047-9b8c-bcbb36f1924d"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="297" y="0" width="99" height="18" forecolor="#000000" uuid="c36ea2c6-801d-4bb6-8dd6-356bceda9a7a"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SERIES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="396" y="0" width="99" height="18" forecolor="#000000" uuid="92e5cbc0-7881-4779-beec-30b20c0aed15"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[REPETICIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="495" y="0" width="99" height="18" forecolor="#000000" uuid="f5b603e6-ad00-415b-9f50-f2057ee2296c"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DESCANSO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="594" y="0" width="99" height="18" forecolor="#000000" uuid="5aa4e6f2-1f73-41fc-b198-5d5f8333ae98"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PESO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="693" y="0" width="99" height="18" forecolor="#000000" uuid="c0a487d8-e1f1-4ca2-a636-b7f9bddcfccb"/>
+				<textElement>
+					<font fontName="Verdana" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IMAGEN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="26501fd1-b756-46b6-b1d7-640b108d2e9c"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="99" height="18" uuid="fe959061-8856-4e71-a7f4-f315164e459b"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_idTipoEjercicio}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="99" y="0" width="99" height="18" uuid="8b9b1427-d5d3-4fd8-8958-1dc37b103c53"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_nombreEjercicio}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="198" y="0" width="99" height="18" uuid="91a338ad-def2-448c-a637-106becf20a1c"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_descripcionEjercicio}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="297" y="0" width="99" height="18" uuid="a62e9ad0-d945-4883-ab26-79ac5e7e57a6"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_series}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="396" y="0" width="99" height="18" uuid="f1ac3f7d-881c-452e-873e-2eb7542f4ecd"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_repeticiones}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="495" y="0" width="99" height="18" uuid="f4d9f6b2-016c-40d2-9d03-c4fcdc617b19"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_descanso}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="594" y="0" width="99" height="18" uuid="5e5fd14d-d164-4964-b9b8-516936062fd1"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoejercicio_peso}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="693" y="0" width="99" height="18" uuid="d5d0e440-2c7e-4ff1-bf79-37143784f016"/>
+					<textElement>
+						<font fontName="Verdana" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""+$F{tipoejercicio_foto}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="3d1e18cc-43bc-425c-aa69-4b5064b06531"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="f6d19364-172b-4462-9a15-f49b3ca2d61f"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="13cfacc2-c229-456f-bd48-965a1a3ceaa0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="df04e2d7-9653-48ba-b933-dec3e5dcf993"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Verdana" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="5e285c6a-ea5b-4988-a5fa-a6da0c7bb34b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

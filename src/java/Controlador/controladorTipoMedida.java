@@ -87,7 +87,7 @@ public class controladorTipoMedida extends HttpServlet {
                     request.getRequestDispatcher("registrarTipoMedida.jsp").forward(request, response);
                 } else {
                     request.setAttribute("mensajeError", "EL TIPO DE MEDIDA NO SE HA PODIDO ACTUALIZAR");
-                    request.getRequestDispatcher("bienvenido-entrenador.jsp").forward(request, response);
+                    request.getRequestDispatcher("moduloEntrenador.jsp").forward(request, response);
                 }
                
                 break;

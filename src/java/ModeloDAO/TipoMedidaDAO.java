@@ -298,7 +298,32 @@ public class TipoMedidaDAO extends ConexionBd implements Crud {
         return medVO;
     }
     
-    
+     public TipoMedidaVO consultarParte(String codigo) {
+        TipoMedidaVO tiVO = null;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select * from tipomedida where codigo = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, codigo);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+                tiVO = new TipoMedidaVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2),
+                        mensajero.getString(3));
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } /*finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }*/
+        return tiVO;
+    }
     
     /*Cantidad de iteraciones*/
     public String cantidadTI(String categoria) {

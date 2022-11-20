@@ -89,6 +89,7 @@ public class UsuarioDAO extends ConexionBd implements Crud {
             puente.setString(16, contraseña);
             puente.executeUpdate();
             operacion = true;
+
         } catch (SQLException e) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
@@ -245,13 +246,13 @@ public class UsuarioDAO extends ConexionBd implements Crud {
     public boolean iniciarSesion(String correo, String contraseña) {
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT correo, contraseña FROM usuario WHERE correo=? AND contraseña=?;";
+            sql = "SELECT correo, contraseña FROM usuario WHERE correo=? AND contraseña=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
             puente.setString(2, contraseña);
-            
+
             mensajero = puente.executeQuery();
-            
+
             if (mensajero.next()) {
                 operacion = true;
             }
@@ -263,6 +264,30 @@ public class UsuarioDAO extends ConexionBd implements Crud {
             try {
                 this.cerrarConexion();
             } catch (SQLException e) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return operacion;
+    }
+
+    public boolean recuperarContraseña() {
+
+        try {
+            conexion = this.obtenerConexion();
+            sql = "UPDATE usuario SET contraseña = ? WHERE correo = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, correo);
+            puente.setString(2, contraseña);
+
+            puente.executeUpdate();
+            operacion = true;
+            
+        } catch (SQLException e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }

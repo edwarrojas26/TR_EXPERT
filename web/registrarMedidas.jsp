@@ -25,67 +25,79 @@
 
             <div class="tab-content">
 
-<form method="post" class="container-form" action="ControladorMedia"> 
-    
-                                <%
-                                RolDAO rolDAO = new RolDAO();
-                                RolVO rolVO = new RolVO();
+                <form method="post" class="container-form" action="ControladorMedia"> 
 
-                                rolVO = rolDAO.sesiones(correo);
-             
-                                if (rolVO != null) {
-                                %>
-                                <input type="hidden" name="txtIdCliente" value="<%= rolVO.getIdRol()%>">
-    
-                                <%}%>  
-                                
-                                <input type="hidden" name="txtIdPlan" value="3">
-                                            <input type="hidden" name="opcion" value="1" >
-    
-     
-                            
-                <div id="home" data-tab-content class="active">
-                    <div class="container-register">
-                        <div class="container-columns">
+                    <%                                    RolDAO rolDAO = new RolDAO();
+                        RolVO rolVO = new RolVO();
+
+                        rolVO = rolDAO.sesiones(correo);
+
+                        if (rolVO != null) {
+                    %>
+                    <input type="hidden" name="txtIdCliente" value="<%= rolVO.getIdRol()%>">
+
+                    <%}%>  
+
+                    <input type="hidden" name="txtIdPlan" value="6">
+                    <input type="hidden" name="opcion" value="1" >
+
+
+
+                    <div id="home" data-tab-content class="active">
+                        <div class="container-register">
+                            <div class="container-columns">
                                 <div class="column">
                                     <div class="columns">
-                                        
 
-                                        <%  TipoMedidaVO medVO = new TipoMedidaVO();
-                                             TipoMedidaDAO medDAO = new TipoMedidaDAO();
-                                             ArrayList<TipoMedidaVO> listaTipoMedidaTI = medDAO.listarTI();
-                                             for (int i = 0; i < listaTipoMedidaTI.size(); i++) {
 
-                                                 medVO = listaTipoMedidaTI.get(i);
+                                        <%  /*TipoMedidaVO medVO = new TipoMedidaVO();
+                                            TipoMedidaDAO medDAO = new TipoMedidaDAO();
+                                            ArrayList<TipoMedidaVO> listaTipoMedidaTI = medDAO.listarTI();
+                                            for (int i = 0; i < listaTipoMedidaTI.size(); i++) {
 
-                                         %>             
-                
+                                                medVO = listaTipoMedidaTI.get(i);*/
+
+                                        %>             
+
                                         <div>
-                                            <label><p class="texto-input"><%=medVO.getNombreParte()%> (cm)</p></label>
-                                            <input type="text" name="txtCodigo"  value="<%=medVO.getCodigo()%>">
-                                            <%}%>
-                                            
-                                            <%
-                                                for (int iteracion = 1; iteracion <= 4; iteracion++) {
-                                            %>
+                                            <label><p class="texto-input">Muslo Derecho </p></label>
+                                            <input type="hidden" name="txtCodigo"  value="1">
                                             <input type="text" name="txtIdVI" id="input-style" >
                                             <input type="hidden" name="txtIdVF" value="0">
-                                            <%}%>
+
                                         </div>
-                                           
-                            <input type="hidden" name="opcion" value="1">
-                                            
+                                        <div>
+                                            <label><p class="texto-input">Muslo Izquierdo</p></label>
+                                            <input type="hidden" name="txtCodigo"  value="2">
+                                            <input type="text" name="txtIdVI" id="input-style" >
+                                            <input type="hidden" name="txtIdVF" value="0">
+
+                                        </div>
+                                        <div>
+                                            <label><p class="texto-input">Pierna Derecha</p></label>
+                                            <input type="hidden" name="txtCodigo"  value="3">
+                                            <input type="text" name="txtIdVI" id="input-style" >
+                                            <input type="hidden" name="txtIdVF" value="0">
+
+                                        </div>
+                                        <div>
+                                            <label><p class="texto-input">Pierna Izquierda</p></label>
+                                            <input type="hidden" name="txtCodigo"  value="4">
+                                            <input type="text" name="txtIdVI" id="input-style" >
+                                            <input type="hidden" name="txtIdVF" value="0">
+
+                                        </div>
                                     </div>
                                 </div>
-                                        <input type="submit" value="Enviar">
+                                <input type="submit" value="Enviar">
+                            </div>
                         </div>
-                    </div>
-                                        
-                </div>    
-                                        
-                                        
-</form>
-                                    
+
+                    </div>    
+
+
+                </form>
+
             </div>
 
         </div>

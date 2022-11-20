@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de9b3b8c-5184-4ae6-8e15-2a3bee58fa0c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     plan_entrenamiento.`idPlan` AS plan_entrenamiento_idPlan,
+     plan_entrenamiento.`idClienteFk` AS plan_entrenamiento_idClienteFk,
+     plan_entrenamiento.`idEntrenadorFK` AS plan_entrenamiento_idEntrenadorFK,
+     plan_entrenamiento.`observaciones` AS plan_entrenamiento_observaciones,
+     plan_entrenamiento.`fechaCreacion` AS plan_entrenamiento_fechaCreacion
+FROM
+     `plan_entrenamiento` plan_entrenamiento]]>
+	</queryString>
+	<field name="plan_entrenamiento_idPlan" class="java.lang.Long"/>
+	<field name="plan_entrenamiento_idClienteFk" class="java.lang.Long"/>
+	<field name="plan_entrenamiento_idEntrenadorFK" class="java.lang.Long"/>
+	<field name="plan_entrenamiento_observaciones" class="java.lang.String"/>
+	<field name="plan_entrenamiento_fechaCreacion" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement x="725" y="0" width="96" height="102" uuid="2967c953-d2b3-42b8-ab71-b200a97e41fc"/>
+				<imageExpression><![CDATA["./img/Logo_TR_Expert (2).png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="50faf08b-d69f-4907-b3b4-0e2aa3833bbb"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="c7221e34-afe8-4fa1-bb78-c57aafc3df8f"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Verdana" size="40" isBold="false"/>
+					</textElement>
+					<text><![CDATA[TR EXPERT 2022]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="351" height="29" forecolor="#FFFFFF" uuid="9a20968c-c101-45f1-ac3c-be4e30807ede"/>
+					<textElement textAlignment="Right">
+						<font fontName="Verdana" size="15" isBold="false"/>
+					</textElement>
+					<text><![CDATA[REPORTE PLAN DE ENTRENAMIENTO]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="06890e9f-92c3-4a7b-bcba-eef48ff0c446"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="9e791795-d34d-4537-a675-f13439ab317d"/>
+					<textElement textAlignment="Right">
+						<font fontName="Verdana" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="159" height="18" forecolor="#000000" uuid="79a3ac65-9e45-423b-9948-838e30539db1"/>
+				<textElement>
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[plan_entrenamiento_idPlan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="159" y="0" width="159" height="18" forecolor="#000000" uuid="3d064cc3-6bd4-4725-8aa0-9f6b4630ac02"/>
+				<textElement>
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[plan_entrenamiento_idClienteFk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="318" y="0" width="159" height="18" forecolor="#000000" uuid="ed294684-da04-432c-b33b-9afec1c2ebdf"/>
+				<textElement>
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[plan_entrenamiento_idEntrenadorFK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="477" y="0" width="159" height="18" forecolor="#000000" uuid="da2dacff-dcf3-45e8-ac4e-bbd28a973d92"/>
+				<textElement>
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[plan_entrenamiento_observaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="636" y="0" width="159" height="18" forecolor="#000000" uuid="8a781a0c-2bb2-4d1a-9584-8fe82823fc20"/>
+				<textElement>
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<text><![CDATA[plan_entrenamiento_fechaCreacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="47746e86-73d1-41fb-a76f-31fd22e75967"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="159" height="18" uuid="fa671884-3d31-4bed-afd4-7f96280c9493"/>
+					<textElement>
+						<font fontName="Verdana" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plan_entrenamiento_idPlan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="159" y="0" width="159" height="18" uuid="2cdd01b7-371b-480c-8594-2177d28e27c3"/>
+					<textElement>
+						<font fontName="Verdana" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plan_entrenamiento_idClienteFk}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="318" y="0" width="159" height="18" uuid="378123fa-7ef6-4655-b0be-8b14364f033a"/>
+					<textElement>
+						<font fontName="Verdana" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plan_entrenamiento_idEntrenadorFK}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="477" y="0" width="159" height="18" uuid="00a084f9-65c5-4fa7-b502-c8ad3ea4af49"/>
+					<textElement>
+						<font fontName="Verdana" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plan_entrenamiento_observaciones}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="636" y="0" width="159" height="18" uuid="a06c9a34-4087-4ce2-b572-64fb583ff832"/>
+					<textElement>
+						<font fontName="Verdana" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plan_entrenamiento_fechaCreacion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="ca694805-bbd0-4c66-b31a-b75617cf9470"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="35bd37d8-0102-42d8-a696-da5d981e2544"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="1065f184-0d80-4ed9-ba5d-2ae74d8bd836"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="f6152613-4a5b-4abc-9510-e0f74a1abc6c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Verdana" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="c6ba8dcc-0f5c-44b6-9d79-383ebddeb8c1"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

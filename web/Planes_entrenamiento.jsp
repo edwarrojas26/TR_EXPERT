@@ -1,7 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.TipoEjercicioDAO"%>
 <%@page import="ModeloVO.TipoEjercicioVO"%>
-<%@include file="Sesiones.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Planes de entrenamiento</title>
         <link rel="stylesheet" href="css/style_planes.css">
+        <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
     </head>
 
     <body>
@@ -46,7 +46,7 @@
 
             <div class="cards">
                 <h3><%=tejVO.getNombre()%></h3>
-                <div class="imagen_entrenamiento"></div>
+                <div class="imagen_entrenamiento"><img src="<%=tejVO.getImg()%>"></div>
                 <p>Series: <%=tejVO.getSeries()%></p>
                 <p>Repeticiones: <%=tejVO.getRepeticiones()%></p>
                 <p>Descansos: <%=tejVO.getDescanso()%></p>

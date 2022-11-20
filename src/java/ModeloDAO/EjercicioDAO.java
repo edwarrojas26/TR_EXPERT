@@ -51,12 +51,11 @@ public class EjercicioDAO extends ConexionBd implements Crud {
     public boolean agregarRegistro() {
         try {
 
-            sql = "INSERT INTO ejercicio (idEjercicio, idPlanFK, idClienteFK, idTipoEjercicioFK) VALUES (?,?,?,?)";
+            sql = "INSERT INTO ejercicio (idPlanFK, idClienteFK, idTipoEjercicioFK) VALUES (?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idEjercicio);
-            puente.setString(2, idPlanFK);
-            puente.setString(3, idClienteFK);
-            puente.setString(4, idTipoEjercicioFK);
+            puente.setString(1, idPlanFK);
+            puente.setString(2, idClienteFK);
+            puente.setString(3, idTipoEjercicioFK);
             puente.executeUpdate();
             operacion = true;
 
@@ -78,9 +77,7 @@ public class EjercicioDAO extends ConexionBd implements Crud {
 
             sql = "UPDATE ejercicios SET where idEjercicio=?";
             puente = conexion.prepareStatement(sql);
-            
-            puente.setString(1, idTipoEjercicioFK);
-            
+            puente.setString(1, idEjercicio);
             puente.executeUpdate();
             operacion = true;
 
@@ -96,9 +93,43 @@ public class EjercicioDAO extends ConexionBd implements Crud {
         return operacion;
     }
 
+    public boolean registrarEjercicio(EjercicioVO ejeVO) {
+
+        try {
+            conexion = this.obtenerConexion();
+            sql = "INSERT INTO ejercicio (idPlanFK, idClienteFk, idTipoEjercicioFK) VALUES (?,?,?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, ejeVO.getIdPlanFK());
+            puente.setString(2, ejeVO.getIdClienteFK());
+            puente.setString(3, ejeVO.getIdTipoEjercicioFK());
+            puente.executeUpdate();
+            operacion = true;
+
+        } catch (SQLException e) {
+            Logger.getLogger(EjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return operacion;
+    }
+
     @Override
     public boolean eliminarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "DELETE * FROM ejercicio WHERE idEjercicio = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idEjercicio);
+            puente.executeUpdate();
+            operacion = true;
+
+        } catch (SQLException e) {
+            Logger.getLogger(EjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(EjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return operacion;
     }
 
 }

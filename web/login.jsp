@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </script>
     <link rel="stylesheet" href="css/style_login.css"/>
-    <title>login</title>
+    <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
+    <title>LOGIN</title>
 </head>
 <body>
     <div class="container">
@@ -32,9 +33,11 @@
                             <button type="submit" class="formulario__btn">Ingresar</button>
                             <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
                         </div>
-                        
+                        <div>
+                            <a href="index.jsp">Regresar</a>
+                        </div>
                     </div>    
-                    
+
                     <p class="social-text">Visita nuestras redes sociales</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -55,12 +58,16 @@
             </div>
         </div>
 
+        <div>
+            <a href="recuperarContraseña.jsp">¿Olvidaste tu contraseña?</a>
+        </div>
+
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>No te haz registrado?</h3>
+                    <h3>¿No estas registrado?</h3>
                     <p>
-                        Si no te haz registrado da click aquÃ­!
+                        ¡Si no estas registrado da click aquí!
                     </p>
                     <button class="btn transparent" id="sign-up-btn">
                         <a href="formulario-validaciones.jsp"> Registrarse</a>

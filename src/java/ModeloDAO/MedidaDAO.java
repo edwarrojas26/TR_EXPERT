@@ -7,6 +7,7 @@ package ModeloDAO;
 
 import ModeloVO.MedidaVO;
 import ModeloVO.RolVO;
+import ModeloVO.TipoMedidaVO;
 import ModeloVO.UsuarioVO;
 import Util.ConexionBd;
 import Util.Crud;
@@ -24,22 +25,22 @@ import java.util.logging.Logger;
 public class MedidaDAO extends ConexionBd implements Crud {
 
     private Connection conexion;
+    ConexionBd con = new ConexionBd();
     private PreparedStatement puente;
     private ResultSet mensajero;
+    int med;
 
     private boolean operacion = false;
     private String sql;
-    private String idMedida = "", idPlanFK = "",idClienteFk = "", CodigoFk = "", valorI = "", valorF = "";
-   
-    
+    private String idMedida = "", idPlanFK = "", idClienteFk = "", CodigoFk = "", valorI = "", valorF = "";
+
     public MedidaDAO() {
     }
 
     public MedidaDAO(MedidaVO medidaVO) {
         super();
         try {
-            
-            
+
             conexion = this.obtenerConexion();
 
             idMedida = medidaVO.getIdMedida();
@@ -53,28 +54,22 @@ public class MedidaDAO extends ConexionBd implements Crud {
         }
     }
 
-    @Override
-    public boolean agregarRegistro() {
+    public boolean registrarMedida(MedidaVO medi) {
+
         try {
 
-            sql = "CALL medida (?,?,?,?,?)";
+            conexion = this.obtenerConexion();
+            sql = "INSERT INTO medida (idPlanFK,idClienteFK,CodigoFK,valorI) VALUES (?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idPlanFK);
-            puente.setString(2, CodigoFk);
-            puente.setString(3, valorI);
-            puente.setString(4, valorF);
-            puente.setString(5, idClienteFk);
+            puente.setString(1, medi.getIdPlanFk());
+            puente.setString(2, medi.getIdClienteFk());
+            puente.setString(3, medi.getCodigoFk());
+            puente.setString(4, medi.getValorI());
             puente.executeUpdate();
             operacion = true;
 
         } catch (SQLException e) {
             Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException e) {
-                Logger.getLogger(MedidaDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
         }
         return operacion;
     }
@@ -83,9 +78,8 @@ public class MedidaDAO extends ConexionBd implements Crud {
     public boolean actualizarRegistro() {
         try {
 
-            sql = "UPDATE medida SET valorI=?, valorF=? where idMedida=?";
+            sql = "UPDATE medida SET valorF = ? where idMedida = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, valorI);
             puente.setString(2, valorF);
             puente.setString(3, idMedida);
             puente.executeUpdate();
@@ -102,13 +96,33 @@ public class MedidaDAO extends ConexionBd implements Crud {
         }
         return operacion;
     }
-    
-    
-    
-    
+
+    public MedidaVO consultarPlan(String idMedida) {
+        MedidaVO medidVO = null;
+        try {
+            sql = "select * from medida where idMedida = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idMedida);
+            puente.executeUpdate();
+        } catch (SQLException e) {
+            Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return medidVO;
+    }
 
     @Override
     public boolean eliminarRegistro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean agregarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

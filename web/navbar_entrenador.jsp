@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href=" css/navbar_entrenador.css">
+        <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
         <title>JSP Page</title>
     </head>
     <body>
@@ -67,26 +68,19 @@
                         </li>
 
                         <li class="nav-link">
-                            <a href="tiposEjercicios.jsp">
+                            <a href="registrarTipoEjercicio.jsp">
                                 <i class="fa-solid fa-person-walking icon"></i>
                                 <span class="text nav-text">Tipo Ejercicios</span>
                             </a>
                         </li>
-
-                        <!-- <li class="nav-link">
-                            <a href="#">
-                                <i class='bx bx-heart icon'></i>
-                                <span class="text nav-text">Likes</span>
-                            </a>
-                        </li>
-    
+                        
                         <li class="nav-link">
-                            <a href="#">
-                                <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">Wallets</span>
+                            <a href="listarUsuarios.jsp">
+                                <i class="fa-solid fa-person-walking icon"></i>
+                                <span class="text nav-text">Listar Usuarios</span>
                             </a>
-                        </li> -->
-
+                        </li> 
+                        
                     </ul>
                 </div>
 

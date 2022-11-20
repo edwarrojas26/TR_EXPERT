@@ -11,15 +11,16 @@ package ModeloVO;
  */
 public class planEntrenamientoVO {
     
-    private String idPlan, idTrabajo, idMedida,idEntrenador,idCliente,infoPlan;
-    
-    public planEntrenamientoVO(String idPlan, String idTrabajo, String idMedida, String idEntrenador, String idCliente, String infoPlan) {
+    private String idPlan, idCliente, idEntrenador,observaciones;
+
+    public planEntrenamientoVO() {
+    }
+
+    public planEntrenamientoVO(String idPlan, String idCliente, String idEntrenador, String observaciones) {
         this.idPlan = idPlan;
-        this.idTrabajo = idTrabajo;
-        this.idMedida = idMedida;
-        this.idEntrenador = idEntrenador;
         this.idCliente = idCliente;
-        this.infoPlan = infoPlan;
+        this.idEntrenador = idEntrenador;
+        this.observaciones = observaciones;
     }
 
     public String getIdPlan() {
@@ -30,20 +31,12 @@ public class planEntrenamientoVO {
         this.idPlan = idPlan;
     }
 
-    public String getIdTrabajo() {
-        return idTrabajo;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdTrabajo(String idTrabajo) {
-        this.idTrabajo = idTrabajo;
-    }
-
-    public String getIdMedida() {
-        return idMedida;
-    }
-
-    public void setIdMedida(String idMedida) {
-        this.idMedida = idMedida;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getIdEntrenador() {
@@ -54,21 +47,15 @@ public class planEntrenamientoVO {
         this.idEntrenador = idEntrenador;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public String getObservaciones() {
+        return observaciones;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
-
-    public String getInfoPlan() {
-        return infoPlan;
-    }
-
-    public void setInfoPlan(String infoPlan) {
-        this.infoPlan = infoPlan;
-    }
+    
+  
 
     
     

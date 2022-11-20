@@ -8,12 +8,14 @@ package Controlador;
 import ModeloDAO.TipoEjercicioDAO;
 import ModeloVO.TipoEjercicioVO;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -41,10 +43,11 @@ public class ControladorTipoEjercicio extends HttpServlet {
         String repeticiones = request.getParameter("txtRepeticiones");
         String descanso = request.getParameter("txtDescanso");
         String peso = request.getParameter("txtPeso");
-        String foto = request.getParameter("foto");
+        Part part = request.getPart("txtFoto");
+        InputStream inputStream = part.getInputStream();
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        TipoEjercicioVO tejVO = new TipoEjercicioVO(idTE, nombreE, foto, desc, series, repeticiones, descanso, peso);
+        TipoEjercicioVO tejVO = new TipoEjercicioVO(idTE, nombreE, inputStream, desc, series, repeticiones, descanso, peso);
         
         TipoEjercicioDAO tejDAO = new TipoEjercicioDAO(tejVO);
         

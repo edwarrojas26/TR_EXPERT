@@ -55,6 +55,4 @@ public class EjercicioVO {
         this.idTipoEjercicioFK = idTipoEjercicioFK;
     }
     
-    
-
 }
