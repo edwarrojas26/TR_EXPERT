@@ -78,7 +78,7 @@
     </header>
 
     <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
-        Ejercicio AÃ±adido al plan!
+        Ejercicio Añadido al plan!
     </div>
     <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
       Ejercicio removido del plan!
@@ -109,7 +109,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 5 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -134,19 +134,19 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
             <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-white">Principiante - Curl de bÃ­ceps con mancuernas</h5>
+              <h5 class="card-title pt-2 text-center text-white">Principiante - Curl de bíceps con mancuernas</h5>
               <img src="./img/superior4.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -158,19 +158,19 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
             <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-white">Principiante - TrÃ­ceps con mancuerna</h5>
+              <h5 class="card-title pt-2 text-center text-white">Principiante - Tríceps con mancuerna</h5>
               <img src="./img/superior6.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -182,7 +182,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -194,7 +194,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -207,7 +207,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -220,7 +220,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -233,7 +233,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -246,7 +246,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -261,7 +261,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -274,7 +274,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -287,7 +287,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -300,7 +300,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -313,7 +313,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -321,12 +321,12 @@
 
           <div class="col d-flex justify-content-center mb-4">
             <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-white">Principiante - Legs roller con flexiÃ³n</h5>
+              <h5 class="card-title pt-2 text-center text-white">Principiante - Legs roller con flexión</h5>
               <img src="./img/superior18.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -339,7 +339,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -347,12 +347,12 @@
 
           <div class="col d-flex justify-content-center mb-4">
             <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-white">Principiante - ElevaciÃ³n de gemelos a dos</h5>
+              <h5 class="card-title pt-2 text-center text-white">Principiante - Elevación de gemelos a dos</h5>
               <img src="./img/superior20.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -365,7 +365,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -378,7 +378,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -391,7 +391,7 @@
               <div class="card-body">
                 <h5 class="text-white"> <span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -404,7 +404,7 @@
               <div class="card-body">
                 <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 10 kg	<br>Peso Mujer	5 kg</span></h5>
                 <div class="d-grid gap-2">
-                <button  class="btn btn-danger button">AÃ±adir al plan</button>
+                <button  class="btn btn-danger button">Añadir al plan</button>
               </div>
               </div>
             </div>
@@ -432,7 +432,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 5 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -444,7 +444,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -456,19 +456,19 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
         </div>
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Intermedio - Curl de bÃ­ceps con mancuernas</h5>
+            <h5 class="card-title pt-2 text-center text-white">Intermedio - Curl de bíceps con mancuernas</h5>
             <img src="./img/superior4.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -480,19 +480,19 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
         </div>
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Intermedio - TrÃ­ceps con mancuerna</h5>
+            <h5 class="card-title pt-2 text-center text-white">Intermedio - Tríceps con mancuerna</h5>
             <img src="./img/superior6.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -504,7 +504,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -516,7 +516,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -529,7 +529,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -542,7 +542,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -555,7 +555,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -568,7 +568,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -583,7 +583,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -596,7 +596,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -609,7 +609,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -622,7 +622,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -635,7 +635,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -643,12 +643,12 @@
 
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Intermedio - Legs roller con flexiÃ³n</h5>
+            <h5 class="card-title pt-2 text-center text-white">Intermedio - Legs roller con flexión</h5>
             <img src="./img/superior18.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -661,7 +661,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -669,12 +669,12 @@
 
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Intermedio - ElevaciÃ³n de gemelos a dos</h5>
+            <h5 class="card-title pt-2 text-center text-white">Intermedio - Elevación de gemelos a dos</h5>
             <img src="./img/superior20.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -687,7 +687,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -700,7 +700,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -713,7 +713,7 @@
             <div class="card-body">
               <h5 class="text-white"> <span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -726,7 +726,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 20 kg	<br>Peso Mujer	10 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -754,7 +754,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 5 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -766,7 +766,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -778,19 +778,19 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
         </div>
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Avanzado - Curl de bÃ­ceps con mancuernas</h5>
+            <h5 class="card-title pt-2 text-center text-white">Avanzado - Curl de bíceps con mancuernas</h5>
             <img src="./img/superior4.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -802,19 +802,19 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
         </div>
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Avanzado - TrÃ­ceps con mancuerna</h5>
+            <h5 class="card-title pt-2 text-center text-white">Avanzado - Tríceps con mancuerna</h5>
             <img src="./img/superior6.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -826,7 +826,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -838,7 +838,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -851,7 +851,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -864,7 +864,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -877,7 +877,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -890,7 +890,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -905,7 +905,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -918,7 +918,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -931,7 +931,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -944,7 +944,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -957,7 +957,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -965,12 +965,12 @@
 
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Avanzado - Legs roller con flexiÃ³n</h5>
+            <h5 class="card-title pt-2 text-center text-white">Avanzado - Legs roller con flexión</h5>
             <img src="./img/superior18.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -983,7 +983,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -991,12 +991,12 @@
 
         <div class="col d-flex justify-content-center mb-4">
           <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-white">Avanzado - ElevaciÃ³n de gemelos a dos</h5>
+            <h5 class="card-title pt-2 text-center text-white">Avanzado - Elevación de gemelos a dos</h5>
             <img src="./img/superior20.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -1009,7 +1009,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -1022,7 +1022,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -1035,7 +1035,7 @@
             <div class="card-body">
               <h5 class="text-white"> <span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>
@@ -1048,7 +1048,7 @@
             <div class="card-body">
               <h5 class="text-white"><span class="precio"> Repeticiones 12 <br> Series 4 <br> Peso Hombre 30 kg	<br>Peso Mujer	20 kg</span></h5>
               <div class="d-grid gap-2">
-              <button  class="btn btn-danger button">AÃ±adir al plan</button>
+              <button  class="btn btn-danger button">Añadir al plan</button>
             </div>
             </div>
           </div>

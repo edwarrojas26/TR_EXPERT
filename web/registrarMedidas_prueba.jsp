@@ -4,7 +4,6 @@
 <%@page import="ModeloDAO.MedidaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@include file="Sesiones.jsp"%>
 
 <!DOCTYPE html>
 <html>
@@ -20,16 +19,10 @@
             </div>
             <div >
                 <div >
-                    <%  RolDAO rolDAO = new RolDAO();
-                        RolVO rolVO = new RolVO();
+                    
+                    <input type="text" name="idCliente" value="46">
 
-                        rolVO = rolDAO.sesiones(correo);
-
-                        if (rolVO != null) {
-                    %>
-                    <input type="text" name="idCliente" value="<%= rolVO.getIdRol()%>">
-
-                    <%}%> 
+                 
 
                     <input type="text" name="idClienteFK" value="${plVO.getIdCliente() }" class="form-control" placeholder="Codigo" >
                     <button type="submit" name="opcion" value="1" class="btn btn-outline-info">Buscar</button>
@@ -46,7 +39,7 @@
             </div>
             <div >
                 <div >
-                    <input type="text" name="codigoParte" value="${tiVO.getCodigo() }" class="form-control" placeholder="Codigo" >
+                    <input type="text" name="codigoParte" value="${tiVO.getCodigo()}" class="form-control" placeholder="Codigo" >
                     <button type="submit" name="opcion" value="2" class="btn btn-outline-info">Buscar</button>
                 </div>                           
                 <div >
@@ -97,7 +90,7 @@
                         <td>
                             <form method="post" action="ControladorMedida">
                                 <input id="eliminar" class="btn btn-primary" type="submit" value="Actualizar">
-                                <input type="hidden" name="txtNumDoc" value="<%=mediVO.getIdMedida()%>">
+                                <input type="hidden" name="txtNumDoc" value="">
                                 <input type="hidden" value="6" name="opcion">
                             </form>
                         </td>

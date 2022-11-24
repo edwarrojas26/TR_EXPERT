@@ -1,55 +1,121 @@
+<%-- 
+    Document   : cliente
+    Created on : 18/09/2022, 12:08:07 PM
+    Author     : DANIEL SIERRA
+--%>
+
+<%@page import="ModeloDAO.TipoEjercicioDAO"%>
+<%@page import="ModeloVO.TipoEjercicioVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.TipoMedidaDAO"%>
 <%@page import="ModeloVO.TipoMedidaVO"%>
+<%@page import="ModeloVO.UsuarioVO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Sesiones.jsp"%>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+<script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TR Expert</title>
 
-        <!-- font awesome cdn link  -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!----======== CSS ======== -->
+    
+    <link rel="stylesheet" href="css/tiposEjercicios.css">
+    <link rel="stylesheet" href="./css/styleEntrenador.css">
+    
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Cliente</title> 
+</head>
+<body class="fondods">
+    <nav class="sidebar close-navd">
+        <header>
+            <div class="image-textd">
 
-        <!-- custom css file link  -->
-        <link rel="stylesheet" href="css/tiposEjercicios.css">
 
-    </head>
-    <header>
-
-        <nav>
-            <div class="logo">
-                <img src="img/Logo-TR-Expert.svg">
-                <i class="fa-solid fa-bars hamburguer"></i>
+                <div class="text logod-text">
+                    <img src="./img/Logo-TR-Expert.svg" width="100%">
+                </div>
             </div>
 
-            <div class="menu outside"> 
-                <a class="item" href="Planes_entrenamiento.jsp">Planes de entrenamiento</a>
-                <a class="item" href="registrarTipoMedida.jsp">Tipos de medidas</a>
-                <a class="item" href="tiposEjercicios.jsp">Tipos de ejercicios</a>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
 
-                <hr class="menu-hr2" noshade="">
-                <form method="POST" action="Sesiones">
-                    <input type="submit" class="boton" value="Cerrar Sesión">
-                </form>
+        <div class="menu-bardd">
+            <div class="menudds">
 
+                <ul class="menu-linksds">
+                    <li class="nav-linkds">
+                        <a href="moduloEntrenador.jsp">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Inicio</span>
+                        </a>
+                    </li>
 
+                    <li class="nav-linkds">
+                        <a href="planes-clientes.jsp">
+                            <i class="fa-solid fa-file-invoice icon"></i>
+                            <span class="text nav-text">Planes</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-linkds">
+                        <a href="registrarTipoMedida.jsp">
+                            <i class="fa-solid fa-ruler icon"></i>
+                            <span class="text nav-text">Tipo medida</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-linkds">
+                        <a href="registrarTipoEjercicio.jsp">
+                            <i class="fa-solid fa-person-walking icon"></i>
+                            <span class="text nav-text">Tipo ejercicios</span>
+                        </a>
+                    </li>
+                    <li class="nav-linkds">
+                        <a href="listarUsuarios.jsp">
+                            <i class="fa-solid fa-user icon"></i>
+                            <span class="text nav-text">Listar usuarios</span>
+                        </a>
+                    </li>
             </div>
-        </nav>
 
-    </header>
-    <body>
-        <br><br>
-        <h1 class="titulo">Tipos de medidas</h1>
+            </ul>
+
+            <form method="post" action="Sesiones">
+                <div class="bottom-contentds">
+                    <li class="">
+                        <a href="index.jsp">
+                            <i class='bx bx-log-out icon'></i>
+                            <input class="cerrar1s" type="submit" value="Cerrar SesiÃ³n">
+                        </a>
+                    </li>
+                </div>
+            </form>
+
+        </div>
+    </nav>
+
+
+    <section class="home">
 
         <div class="buscar">
             <input type="text" placeholder="Buscar por id" required />
@@ -76,18 +142,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%  TipoMedidaVO medVO = new TipoMedidaVO();
-                        TipoMedidaDAO medDAO = new TipoMedidaDAO();
-                        ArrayList<TipoMedidaVO> listaTipoMedida = medDAO.listar();
-                        for (int i = 0; i < listaTipoMedida.size(); i++) {
+                    <%  TipoMedidaVO ejeVO = new TipoMedidaVO();
+                        TipoMedidaDAO ejeDAO = new TipoMedidaDAO();
+                        ArrayList<TipoMedidaVO> listaTipoEjercicio = ejeDAO.listar();
+                        for (int i = 0; i < listaTipoEjercicio.size(); i++) {
 
-                            medVO = listaTipoMedida.get(i);
+                            ejeVO = listaTipoEjercicio.get(i);
 
                     %>
                     <tr>
-                        <td data-label="ID"><%=medVO.getCodigo()%></td>
-                        <td data-label="Nombre"><%=medVO.getNombreParte()%></td>
-                        <td data-label="Categoria"><%=medVO.getCategoria()%></td>
+                        <td data-label="ID"><%=ejeVO.getCodigo()%></td>
+                        <td data-label="Nombre"><%=ejeVO.getNombreParte()%></td>
+                        <td data-label="Categoria"><%=ejeVO.getCategoria()%></td>
                         <td data-label="Acciones">
                             <div class="btn" >
                                 <form method="post" action="Medida">
@@ -95,7 +161,7 @@
                                         
                                        
                                         <button type="submit"><i class="fas fa-trash icon"></i><button>
-                                        <input type="hidden" name="txtCodigo" value="<%=medVO.getCodigo()%>">
+                                        <input type="hidden" name="txtCodigo" value="<%=ejeVO.getCodigo()%>">
                                         <input type="hidden" value="2" name="opcion">
                                     </div>
                                 </form>
@@ -107,7 +173,7 @@
                                         
                                          <button type="submit"><i class="fas fa-edit icon"></i><button>
                                         
-                                        <input type="hidden" name="txtCodigo" value="<%=medVO.getCodigo()%>">
+                                        <input type="hidden" name="txtCodigo" value="<%=ejeVO.getCodigo()%>">
                                         <input type="hidden" value="3" name="opcion">
                                     </div>
                                 </form>
@@ -138,7 +204,7 @@
                         <select name="txtCategoria">
                             <option value="1">Tren superior</option>
                             <option value="2">Tren inferior</option>
-                            <option value="3">Salud / Alimentación</option>
+                            <option value="3">Salud / Alimentaci?n</option>
                             <option value="4">Factor de riesgo</option>
                         </select>
                         <input type="hidden" value="1" name="opcion">
@@ -150,11 +216,11 @@
                 </div>
             </div>
         </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
-        <script src="./js/menu-index.js"></script>
-
-    </body>
+</body>
 </html>

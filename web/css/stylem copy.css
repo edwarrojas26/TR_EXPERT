@@ -1,0 +1,153 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+   }
+
+@media only screen and (min-width: 320px) {
+
+    .navres {
+        top: 0;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1em;
+        position: sticky;
+        width: 100%;
+        padding: 0%;
+    }
+
+    .navres a {
+        color: var(--blanco);
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navbar-button {
+        background-color: transparent;
+        border: none;
+        border-radius: 3px;
+        font-size: 1em;
+        padding: 0.5rem;
+        font-family: 'Marcellus', serif;
+        color: var(--blanco);
+    }
+    
+
+    .item {
+        padding: 1rem;
+    }
+
+    .logo {
+        background-color: var(--negro2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .logo img {
+        width: 40%;
+        max-width: 200px;
+    }
+
+    .logo i {
+        color: var(--blanco);
+        font-size: 2rem;
+    }
+
+    .menu {
+        color: #fff;
+       background-color: black;
+        display: flex;
+        font-size: 1em;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform .6s ease;
+    }
+    .active {
+        padding-left: 50%;
+        background: red;
+        color: #fff;
+        border: none;
+      }
+#fondo{
+    
+    display: flex;
+    align-items: flex-end;
+    background: url(../img/slide1.jpg);
+    color: white;
+    padding-top: 1rem;
+    height: 780px;
+
+}
+.fondo-title{
+    padding: 2%;
+    font-family: marcellus;
+    text-align: left;
+    font-size: 76px;
+    /* background-color: rgba(0,0,0,0.35); */
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.0001));
+    
+}
+}
+
+@media screen and (min-width: 1024px) {
+
+    .navres {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: black;
+        font-family: 'Quicksand', sans-serif;
+        position: sticky;
+        height: 100px;
+        font-size: 1em;
+        padding: 1rem
+    }
+    .active {
+        font-size: 2em;
+      }
+     .texi{
+        padding-left: 10px;
+     }
+    .botonr{
+        padding-left: 50%;
+    }
+    .btn{
+        background-color: red;
+    }
+
+    .logo {
+        padding: 1rem;
+    }
+
+    .logo img {
+        padding-left: 20%;
+        padding-top: 10%;
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .logo i {
+        display: none;
+    }
+
+    .menu {
+        background-color: black;
+        
+        font-size: 1em;
+        padding-left: 50%;
+        padding-top: 1%;
+        transform: translateY(0);
+    }
+
+  
+    .navres a:hover {
+        background-color: red;
+        color: var(--blanco);
+        width: 100%;
+    }
+
+
+}

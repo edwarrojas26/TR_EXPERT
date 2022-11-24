@@ -7,15 +7,13 @@ import java.io.InputStream;
 public class TipoEjercicioVO {
     
     String idTE, nombre, descricpion, series, repeticiones, descanso, peso;
-    InputStream img;
     
     public TipoEjercicioVO(){
     }
     
-    public TipoEjercicioVO (String idTE, String nombre,InputStream img, String descripcion, String series, String repeticiones, String descanso, String peso) {
+    public TipoEjercicioVO (String idTE, String nombre, String descripcion, String series, String repeticiones, String descanso, String peso) {
         this.idTE = idTE;
         this.nombre = nombre;
-        this.img = img;
         this.descricpion = descripcion;
         this.series = series;
         this.repeticiones = repeticiones;
@@ -39,14 +37,6 @@ public class TipoEjercicioVO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    
-    public InputStream getImg() {
-        return img;
-    }
-
-    public void setImg(InputStream foto) {
-        this.img = foto;
     }
 
     public String getDescricpion() {

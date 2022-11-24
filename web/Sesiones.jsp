@@ -14,16 +14,27 @@
 %>
 <%
     HttpSession buscarSesion = (HttpSession) request.getSession();
-    String correo = "";
+    String numDoc = "", tipoDoc = "", nombre = "", apellido = "", edad = "", fechaNacimiento = "", direccion = "", telefono = "", correo = "", TS = "", EPS = "", alergia = "", sexo = "";
 
     if (buscarSesion.getAttribute("datosUsuario") == null) {
         request.getRequestDispatcher("login.jsp").forward(request, response);
     } else {
         UsuarioVO usuVO = (UsuarioVO) buscarSesion.getAttribute("datosUsuario");
-        
+
+        numDoc = usuVO.getNumDoc();
+        tipoDoc = usuVO.getTipoDoc();
+        nombre = usuVO.getNombre();
+        apellido = usuVO.getApellido();
+        fechaNacimiento = usuVO.getFechaNacimiento();
+        edad = usuVO.getEdad();
+        direccion = usuVO.getDireccion();
+        telefono = usuVO.getTelefono();
         correo = usuVO.getCorreo();
-        
-        
+        TS = usuVO.getTS();
+        EPS = usuVO.getEPS();
+        alergia = usuVO.getAlergia();
+        sexo = usuVO.getSexo();
+
     }
 %>
 <html>
@@ -31,7 +42,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
     </head>
-    <!--<body>
-        <p>Bienvenido /*<%=correo%>*/</p>
-    </body>-->
+
+
 </html>

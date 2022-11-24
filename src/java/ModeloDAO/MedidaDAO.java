@@ -59,7 +59,7 @@ public class MedidaDAO extends ConexionBd implements Crud {
         try {
 
             conexion = this.obtenerConexion();
-            sql = "INSERT INTO medida (idPlanFK,idClienteFK,CodigoFK,valorI) VALUES (?,?,?,?)";
+            sql = "call registrarMedida(?, ?, ?, ?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, medi.getIdPlanFk());
             puente.setString(2, medi.getIdClienteFk());
@@ -114,6 +114,58 @@ public class MedidaDAO extends ConexionBd implements Crud {
             }
         }
         return medidVO;
+    }
+    
+    public MedidaVO consultarMedida(String idClienteFk) {
+        MedidaVO medidVO = null;
+        try {
+            sql = "select * from medida where idClienteFk = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idClienteFk);
+            puente.executeUpdate();
+        } catch (SQLException e) {
+            Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return medidVO;
+    }
+    
+    public MedidaVO consultarEntrenador(String idCliente) {
+        MedidaVO medidaCVO = null;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "SELECT m.valorI FROM medida m INNER JOIN cliente c ON m.idClienteFk = c.idCliente WHERE c.idUsuarioFK = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idCliente);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+                medidaCVO = new MedidaVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2),
+                        mensajero.getString(3),
+                        mensajero.getString(4),
+                        mensajero.getString(5),
+                        mensajero.getString(6));
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            Logger.getLogger(MedidaVO.class.getName()).log(Level.SEVERE, null, e);
+        } /*finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }*/
+        return medidaCVO;
     }
 
     @Override

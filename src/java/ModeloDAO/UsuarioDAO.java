@@ -8,6 +8,8 @@ package ModeloDAO;
 import ModeloVO.UsuarioVO;
 import Util.ConexionBd;
 import Util.Crud;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +31,7 @@ public class UsuarioDAO extends ConexionBd implements Crud {
     private boolean operacion = false;
     private String sql;
 
-    private String idUsuario = "", numDoc = "", tipoDoc = "", nombre = "", apellido = "", fechaNacimiento = "", edad = "", direccion = "", telefono = "", correo = "", TS = "", EPS = "", alergia = "", estado = "", sexo = "", rol = "", contraseña = "";
+    private String idUsuario = "", numDoc = "", tipoDoc = "", nombre = "", apellido = "", fechaNacimiento = "", edad = "", direccion = "", telefono = "",correo = "", TS = "", EPS = "", alergia = "", estado = "", sexo = "", rol = "", contraseña = "";
 
     public UsuarioDAO() {
     }
@@ -246,7 +248,7 @@ public class UsuarioDAO extends ConexionBd implements Crud {
     public boolean iniciarSesion(String correo, String contraseña) {
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT correo, contraseña FROM usuario WHERE correo=? AND contraseña=?";
+            sql = "SELECT correo, contraseña FROM usuario WHERE correo = ? AND contraseña = ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, correo);
             puente.setString(2, contraseña);
@@ -281,7 +283,7 @@ public class UsuarioDAO extends ConexionBd implements Crud {
 
             puente.executeUpdate();
             operacion = true;
-            
+
         } catch (SQLException e) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
@@ -294,10 +296,52 @@ public class UsuarioDAO extends ConexionBd implements Crud {
         return operacion;
     }
 
+    
+
     @Override
     public boolean eliminarRegistro() {
 
         return operacion;
+    }
+    
+    public UsuarioVO consultarUsuarioPerfil(String idUsuario) {
+        UsuarioVO usuVO = null;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "SELECT numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, Tipo_sangre, EPS, alergias, estado, sexo, rol, contraseña FROM usuario where numDoc = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, idUsuario);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                usuVO = new UsuarioVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2),
+                        mensajero.getString(3),
+                        mensajero.getString(4),
+                        mensajero.getString(5),
+                        mensajero.getString(6),
+                        mensajero.getString(7),
+                        mensajero.getString(8),
+                        mensajero.getString(9),
+                        mensajero.getString(10),
+                        mensajero.getString(11),
+                        mensajero.getString(12),
+                        mensajero.getString(13),
+                        mensajero.getString(14),
+                        mensajero.getString(15),
+                        mensajero.getString(16),
+                        mensajero.getString(17));
+            }
+        } catch (Exception e) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return usuVO;
     }
 
 }

@@ -42,8 +42,7 @@ public class UsuarioVO {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
-    }
-        
+    }    
 
     public String getNumDoc() {
         return numDoc;
@@ -172,7 +171,5 @@ public class UsuarioVO {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-
-    
 
 }

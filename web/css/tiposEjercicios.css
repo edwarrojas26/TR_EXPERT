@@ -33,142 +33,7 @@ h5 {
     font-family: 'Marcellus', serif;
 }
 
-@media only screen and (min-width: 320px) {
 
-    
-
-    nav {
-        top: 0;
-        font-family: 'Marcellus', serif;
-        font-size: 1.3em;
-        position: sticky;
-        width: 100%;
-        padding: 0%;
-    }
-
-    nav a {
-        color: var(--blanco);
-        text-decoration: none;
-        text-align: center;
-    }
-
-    .navbar-button {
-        background-color: transparent;
-        border: none;
-        border-radius: 3px;
-        font-size: 1em;
-        padding: 0.5rem;
-        font-family: 'Marcellus', serif;
-        color: var(--blanco);
-    }
-    
-
-    .item {
-        padding: 1rem;
-    }
-
-    .logo {
-        background-color: var(--negro2);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-    }
-
-    .logo img {
-        width: 40%;
-        max-width: 200px;
-    }
-
-    .logo i {
-        color: var(--blanco);
-        font-size: 2rem;
-    }
-
-    .menu {
-        background-color: rgba(221, 5, 5, 0.838);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: transform .6s ease;
-    }
-
-    .menu-hr {
-        width: 90%;
-        border-color: var(--blanco);
-    }
-
-    /*MENU HAMBURGUESA*/
-
-    .outside {
-        transform: translateY(-100em);
-    }
-
-    .open {
-        transform: translateX(0);
-    }
-     /*MENU HAMBURGUESA*/
-
-     .boton{
-      background-color: red;
-      border-radius: 10px;
-    }
-
- 
-
-@media screen and (min-width: 1024px) {
-
-    nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: var(--negro2);
-        font-family: 'Marcellus', serif;
-        position: sticky;
-        font-size: 1.3em;
-        padding: 1rem;
-    }
-
-    .logo {
-        padding: 1rem;
-    }
-
-    .logo img {
-        width: 100%;
-        max-width: 180px;
-    }
-
-    .logo i {
-        display: none;
-    }
-
-    .menu {
-        background-color: var(--negro2);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        transform: translateY(0);
-    }
-
-
-    nav {
-        display: flex;
-        flex-direction: row;
-        padding: 0%;
-    }
-
-    nav a:hover {
-        color: red;
-    }
-    .boton{
-      background-color: red;
-    }
-    .boton a:hover{
-      color: #000;
-    }
-}
 .titulo{
   text-align: center;
   color: #fff;
@@ -221,7 +86,7 @@ td{
   background-color: #fff;
 }
 
-}
+
 
 .container {
   width: 100%;

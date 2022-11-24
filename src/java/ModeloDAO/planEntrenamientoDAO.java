@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -126,14 +127,13 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
         return planVO;
     }
     
-     public planEntrenamientoVO consultarCliente(String idCliente) {
+     public planEntrenamientoVO consultarEntrenador(String idEntrenador) {
         planEntrenamientoVO planVO = null;
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT p.idPlan, p.idClienteFk, p.idEntrenadorFK, p.observaciones FROM plan_entrenamiento p\n" +
-"INNER JOIN cliente c ON p.idClienteFk = c.idCliente WHERE c.idUsuarioFK = ?";
+            sql = "SELECT p.idPlan, p.idClienteFk, p.idEntrenadorFK, p.observaciones FROM plan_entrenamiento p INNER JOIN entrenador e ON p.idEntrenadorFK = e.idEntrenador WHERE e.idUsuarioFK = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idCliente);
+            puente.setString(1, idEntrenador);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
 
@@ -158,25 +158,24 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
         return planVO;
     }
      
-     public planEntrenamientoVO consultarEntrenador(String idEntrenador) {
-        planEntrenamientoVO plaVO = null;
+     
+     public planEntrenamientoVO consultarCliente(String idCliente) {
+        planEntrenamientoVO planVO = null;
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT p.idPlan, p.idClienteFk, p.idEntrenadorFK, p.observaciones FROM plan_entrenamiento p INNER JOIN entrenador e ON p.idEntrenadorFK = e.idEntrenador WHERE e.idUsuarioFK = ?";
+            sql = "SELECT p.idPlan, p.idClienteFk, p.idEntrenadorFK, p.observaciones FROM plan_entrenamiento p INNER JOIN cliente c ON p.idClienteFK = c.idCliente WHERE c.idUsuarioFK = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, idEntrenador);
+            puente.setString(1, idCliente);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
 
-                plaVO = new planEntrenamientoVO(
+                planVO = new planEntrenamientoVO(
                         mensajero.getString(1),
                         mensajero.getString(2),
                         mensajero.getString(3),
                         mensajero.getString(4));
             }
-            
-            
-            
+               
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
         } /*finally {
@@ -186,8 +185,75 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
                 Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }*/
-        return plaVO;
+        return planVO;
     }
+     
+     public ArrayList<planEntrenamientoVO> listarUsuariosPlan() {
+
+        ArrayList<planEntrenamientoVO> listUsuarioPl = new ArrayList<>();
+        try {
+            conexion = this.obtenerConexion();
+            sql = sql = "SELECT * FROM plan_entrenamiento";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                planEntrenamientoVO plaVO = new planEntrenamientoVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2),
+                        mensajero.getString(3),
+                        mensajero.getString(4));
+                listUsuarioPl.add(plaVO);
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(planEntrenamientoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(planEntrenamientoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+            }
+
+        }
+        return listUsuarioPl;
+    }
+     
+     
+     
+     
+    /* public ArrayList<planEntrenamientoVO> listarUsuariosPlan(int idEntrenador) {
+
+        ArrayList<planEntrenamientoVO> listUsuarioPl = new ArrayList<>();
+        try {
+            conexion = this.obtenerConexion();
+            sql = sql = "SELECT p.idPlan, p.idClienteFk, p.idEntrenadorFK, p.observaciones FROM plan_entrenamiento p INNER JOIN entrenador e ON p.idEntrenadorFK = e.idEntrenador WHERE e.idUsuarioFK = ?";;
+            puente = conexion.prepareStatement(sql);
+            puente.setInt(1, idEntrenador);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                planEntrenamientoVO plaVO = new planEntrenamientoVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2),
+                        mensajero.getString(3),
+                        mensajero.getString(4));
+                listUsuarioPl.add(plaVO);
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(planEntrenamientoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(planEntrenamientoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+            }
+
+        }
+        return listUsuarioPl;
+    }*/
+     
      
      
 

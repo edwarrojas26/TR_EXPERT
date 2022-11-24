@@ -43,11 +43,9 @@ public class ControladorTipoEjercicio extends HttpServlet {
         String repeticiones = request.getParameter("txtRepeticiones");
         String descanso = request.getParameter("txtDescanso");
         String peso = request.getParameter("txtPeso");
-        Part part = request.getPart("txtFoto");
-        InputStream inputStream = part.getInputStream();
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        TipoEjercicioVO tejVO = new TipoEjercicioVO(idTE, nombreE, inputStream, desc, series, repeticiones, descanso, peso);
+        TipoEjercicioVO tejVO = new TipoEjercicioVO(idTE, nombreE, desc, series, repeticiones, descanso, peso);
         
         TipoEjercicioDAO tejDAO = new TipoEjercicioDAO(tejVO);
         

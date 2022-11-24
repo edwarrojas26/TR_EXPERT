@@ -44,8 +44,11 @@ body.dark{
     background-color: #18191a;
 }
 .fondods{
-    background-image: url(../img/cliente.png);
+    background-image: url(../img/icliente.jpg);
+   background-repeat: no-repeat;
 }
+
+
 .text{
     font-size: 100px;
 }
@@ -331,4 +334,13 @@ body.dark .switch::before{
 }
 body.dark .home .text{
     color: var(--text-color);
+}
+.cerrar1s{
+    background-color: red;
+    border: none;
+    
+    color: #fff;
+}
+.bottom-contentds{
+    background-color: red;
 }

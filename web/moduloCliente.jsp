@@ -48,32 +48,23 @@
         <div class="menu-bardd">
             <div class="menudds">
 
-
-                <ul class="menu-linksds">
-                   
-
-                    <li class="nav-linkds">
-                        <a href="#">
-                            <i class="fa-solid fa-file-invoice icon"></i>
-                            <span class="text nav-text">Modificar mis datos</span>
-                        </a>
-                    </li>
+                    <ul class="menu-linksds">
+                        <li class="nav-linkds">
+                            <a href="moduloCliente.jsp">
+                                <i class='bx bx-home-alt icon' ></i>
+                                <span class="text nav-text">Inicio</span>
+                            </a>
+                        </li>
 
                     <li class="nav-linkds">
-                        <a href="registrarmedidas_prueba.jsp">
+                        <a href="codigo-medida.jsp">
                             <i class="fa-solid fa-ruler icon"></i>
                             <span class="text nav-text">Registrar medidas corporales</span>
                         </a>
                     </li>
 
                     <li class="nav-linkds">
-                        <a href="#">
-                            <i class="fa-solid fa-person-walking icon"></i>
-                            <span class="text nav-text">Mi plan</span>
-                        </a>
-                    </li>
-                    <li class="nav-linkds">
-                        <a href="registrarmedidas_prueba.jsp">
+                        <a href="miplan.jsp">
                             <i class="fa-solid fa-person-walking icon"></i>
                             <span class="text nav-text">Mi plan</span>
                         </a>
@@ -82,16 +73,16 @@
 
                 </ul>
             
-        <form method="post" action="Sesiones">
-            <div class="bottom-contentds">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon'></i>
-                        <input class="text nav-text" type="submit" value="Cerrar Sesión">
-                    </a>
-                </li> 
-            </div>
-        </form>
+                <form method="post" action="Sesiones">
+                    <div class="bottom-contentds">
+                        <li class="">
+                            <a href="index.jsp">
+                                <i class='bx bx-log-out icon'></i>
+                                <input class="cerrar1s" type="submit" value="Cerrar Sesión">
+                            </a>
+                        </li> 
+                    </div>
+                </form>
                 
         </div>
         
@@ -100,7 +91,7 @@
     </nav>
 
     <section class="home">
-        <div class="text-entrenador"> <b> Bienvenido <br> Cliente</b></div>
+        <div class="text-entrenador" style="color: #000;"> <b> Bienvenido <br> al gimnasio la candelaria</b></div>
     </section>
 
     <script src="./js/script.js"></script>

@@ -29,7 +29,6 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
     TipoEjercicioVO tipoejercicioVO = new TipoEjercicioVO();
 
     private String idTE, nombreE, descripcionE, seriesE, repeticionesE, descansoE, pesoE;
-    private InputStream img;
 
     public TipoEjercicioDAO() {
     }
@@ -40,7 +39,6 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             conexion = this.obtenerConexion();
             idTE = tipoejercicioVO.getIdTE();
             nombreE = tipoejercicioVO.getNombre();
-            img = tipoejercicioVO.getImg();
             descripcionE = tipoejercicioVO.getDescricpion();
             seriesE = tipoejercicioVO.getSeries();
             repeticionesE = tipoejercicioVO.getRepeticiones();
@@ -64,7 +62,6 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             puente.setString(4, repeticionesE);
             puente.setString(5, descansoE);
             puente.setString(6, pesoE);
-            puente.setBlob(7, tipoejercicioVO.getImg());
             puente.executeUpdate();
             operacion = true;
 
@@ -93,7 +90,6 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             puente.setString(4, seriesE);
             puente.setString(5, repeticionesE);
             puente.setString(6, descansoE);
-            puente.setBlob(7, img);
             puente.executeUpdate();
             operacion = true;
 
@@ -114,11 +110,8 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
         return operacion;
     }
 
-    public ArrayList<TipoEjercicioVO> listar() {
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        BufferedInputStream bufferedInputStream = null;
-        BufferedOutputStream bufferedOutputStream = null;
+    public ArrayList<TipoEjercicioVO> listarEjercicio() {
+        
 
         ArrayList<TipoEjercicioVO> listaTipoEjercicio = new ArrayList<>();
         try {
@@ -126,29 +119,19 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
             sql = "SELECT * FROM tipoEjercicio";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
-            /*if (mensajero.next()) {
-                inputStream=mensajero.getBinaryStream("txtFoto");
-            }
-            bufferedInputStream = new BufferedInputStream(inputStream);
-            bufferedOutputStream = new BufferedOutputStream(outputStream);
-            int i=0;*/
 
             while (mensajero.next()) {
                 TipoEjercicioVO tejVO = new TipoEjercicioVO(
                         mensajero.getString(1),
                         mensajero.getString(2),
-                        mensajero.getBinaryStream(3),
+                        mensajero.getString(3),
                         mensajero.getString(4),
                         mensajero.getString(5),
                         mensajero.getString(6),
-                        mensajero.getString(7),
-                        mensajero.getString(8));
+                        mensajero.getString(7));
                 listaTipoEjercicio.add(tejVO);
             }
 
-            /*while((i=bufferedInputStream.read())!=-1){
-                bufferedOutputStream.write(i);
-            }*/
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
@@ -195,12 +178,11 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
                 tejVO = new TipoEjercicioVO(
                         mensajero.getString(1),
                         mensajero.getString(2),
-                        mensajero.getBinaryStream(3),
+                        mensajero.getString(3),
                         mensajero.getString(4),
                         mensajero.getString(5),
                         mensajero.getString(6),
-                        mensajero.getString(7),
-                        mensajero.getString(8));
+                        mensajero.getString(7));
             }
         } catch (Exception e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -227,12 +209,11 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
                 tiEVO = new TipoEjercicioVO(
                         mensajero.getString(1),
                         mensajero.getString(2),
-                        mensajero.getBinaryStream(3),
+                        mensajero.getString(3),
                         mensajero.getString(4),
                         mensajero.getString(5),
                         mensajero.getString(6),
-                        mensajero.getString(7),
-                        mensajero.getString(8));
+                        mensajero.getString(7));
             }
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);

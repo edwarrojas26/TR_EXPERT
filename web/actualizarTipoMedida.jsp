@@ -53,7 +53,7 @@
                         %>
       <form id="formulario" action="Medida" method="post">
                 <div class="form-control">
-                <label for="txtCodigo" class="texto-input">Código</label>
+                <label for="txtCodigo" class="texto-input">C?digo</label>
                 <input type="text" name="txtCodigo" value="<%= medVO.getCodigo()%>" readonly>
                 </div>
     
@@ -63,12 +63,12 @@
                 </div>
     
                 <div class="form-control">
-                    <label for="txtCategoria" class="texto-input">Categoría</label><br>
+                    <label for="txtCategoria" class="texto-input">Categor?a</label><br>
                         <select id="rh" class="texto-input" name="txtCategoria">
                             <option value="<%= medVO.getCategoria()%>"><%= medVO.getCategoria()%></option>
                             <option value="1">Tren superior</option>
                             <option value="2">Tren inferior</option>
-                            <option value="3">Salud / Alimentación</option>
+                            <option value="3">Salud / Alimentaci?n</option>
                             <option value="4">Factor de riesgo</option>
                           </select>
                     </div>

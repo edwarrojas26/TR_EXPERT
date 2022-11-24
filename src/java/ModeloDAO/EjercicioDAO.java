@@ -92,12 +92,14 @@ public class EjercicioDAO extends ConexionBd implements Crud {
         }
         return operacion;
     }
+    
+    
 
     public boolean registrarEjercicio(EjercicioVO ejeVO) {
 
         try {
             conexion = this.obtenerConexion();
-            sql = "INSERT INTO ejercicio (idPlanFK, idClienteFk, idTipoEjercicioFK) VALUES (?,?,?)";
+            sql = "call agregarEjercicio (?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, ejeVO.getIdPlanFK());
             puente.setString(2, ejeVO.getIdClienteFK());
@@ -114,7 +116,7 @@ public class EjercicioDAO extends ConexionBd implements Crud {
     @Override
     public boolean eliminarRegistro() {
         try {
-            sql = "DELETE * FROM ejercicio WHERE idEjercicio = ?";
+            sql = "call eliminarEjercicio(?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, idEjercicio);
             puente.executeUpdate();

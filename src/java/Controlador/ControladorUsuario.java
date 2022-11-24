@@ -18,10 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.codec.digest.DigestUtils;
 
-/**
- *
- * @author DANIEL SIERRA
- */
+
 @WebServlet(name = "ControladorUsuario", urlPatterns = {"/Usuario"})
 public class ControladorUsuario extends HttpServlet {
 
@@ -55,8 +52,8 @@ public class ControladorUsuario extends HttpServlet {
         String sexo = request.getParameter("txtSexo");
         String rol = request.getParameter("txtRol");
         String contrasena = request.getParameter("txtContrasena");
-       /* byte[] encript = DigestUtils.sha256(contrasena);*/
-       /* String clavecifrada = String.valueOf(encript); */ 
+        byte[] encript = DigestUtils.sha256(contrasena);
+        String clavecifrada = String.valueOf(encript);
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         UsuarioVO usuVO = new UsuarioVO(idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, TS, EPS, alergia, estado, sexo, rol, contrasena);
@@ -145,10 +142,18 @@ public class ControladorUsuario extends HttpServlet {
                 }
             }
             break;
-
-        }
-
-    }
+            
+            case 7:
+                usuVO = usuDAO.consultarUsuarioPerfil(idUsuario);
+                if (usuVO != null) {
+                    request.setAttribute("UsuarioSeleccionado", usuVO);
+                    request.getRequestDispatcher("perfil.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("mensajeError", "El usuario no se encuentra registrado");
+                }
+                break;
+            }
+}
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

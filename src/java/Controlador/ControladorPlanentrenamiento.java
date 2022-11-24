@@ -6,8 +6,13 @@
 package Controlador;
 
 
+import ModeloDAO.planEntrenamientoDAO;
+import ModeloVO.EjercicioVO;
+import ModeloVO.planEntrenamientoVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,14 +36,33 @@ public class ControladorPlanentrenamiento extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
+    planEntrenamientoVO plVO = new planEntrenamientoVO();
+    planEntrenamientoDAO plDAO = new planEntrenamientoDAO();
+    
+    ArrayList<planEntrenamientoVO> listap = new ArrayList<>();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        
-        /*Servlet en desarrollo*/
+        /*switch (opcion) {
+            case 1:
+
+                int idEntrenador = Integer.parseInt(request.getParameter("idEntrenador"));
+                listap.set(idEntrenador, plVO);
+                listap = plDAO.listarUsuariosPlan(idEntrenador);
+                
+                
+
+                request.setAttribute("plVO", plVO);
+                
+                listap = new ArrayList<>();
+                request.getRequestDispatcher("planes-clientes.jsp").forward(request, response);
+                break;
+            
+        }*/
         
         
         

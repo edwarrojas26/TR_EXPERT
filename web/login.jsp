@@ -6,10 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </script>
     <link rel="stylesheet" href="css/style_login.css"/>
+    <link rel="stylesheet" href="css/stylem copy.css"/>
     <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
-    <title>LOGIN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
 </head>
 <body>
+      <nav class="navres">
+        <div class="logo">
+            <a href="index.jsp"><button type="submit" class="formulario__btn">Inicio</button></a>
+          
+        </div>
+        <div class="menu outside">
+           
+    </nav>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
@@ -33,12 +45,13 @@
                             <button type="submit" class="formulario__btn">Ingresar</button>
                             <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
                         </div>
-                        <div>
-                            <a href="index.jsp">Regresar</a>
-                        </div>
-                    </div>    
-
-                    <p class="social-text">Visita nuestras redes sociales</p>
+                       
+                    </div> 
+                    <br>   
+                    <div>
+                        <a href="recuperarContrasena.jsp">¿Olvidaste tu contraseña?</a>
+                    </div>
+                   <br><br>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
@@ -58,9 +71,6 @@
             </div>
         </div>
 
-        <div>
-            <a href="recuperarContraseña.jsp">¿Olvidaste tu contraseña?</a>
-        </div>
 
         <div class="panels-container">
             <div class="panel left-panel">
@@ -78,6 +88,9 @@
 
 
             <!--<script src="js/validaciones_login.js"></script>-->
+            
+            <script src="./js/index.js"></script>
             <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
             </body>
             </html>
+

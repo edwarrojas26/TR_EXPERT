@@ -44,7 +44,7 @@ public class ControladorMedia extends HttpServlet {
     String plan;
     String cliente;
     String parte;
-    String valorI;
+    String valor;
     
     List<MedidaVO> lista = new ArrayList<>();
 
@@ -61,40 +61,19 @@ public class ControladorMedia extends HttpServlet {
         String finalizado = request.getParameter("final");
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
+        
+        String idMedidam = request.getParameter("");
+        String idPlanFkM = request.getParameter("");
+        String idClienteFkM = request.getParameter("idCliente");
+        String CodigoFkM = request.getParameter("");
+        String valorIM = request.getParameter("");
+        String valorFM = request.getParameter("");
 
-        /*MedidaVO medVO = new MedidaVO(idPlanFk, idClienteFk, CodigoFk, valorI, valorF);
+        MedidaVO medidVO = new MedidaVO(idMedidam, idPlanFkM, idClienteFkM, CodigoFkM, valorIM, valorFM);
 
-        MedidaDAO medDAO = new MedidaDAO(medVO);*/
+        MedidaDAO medidDAO = new MedidaDAO(medidVO);
         switch (opcion) {
 
-            /*case 1 :
-                
-                TipoMedidaDAO tiMedDAO = new TipoMedidaDAO();
-                ArrayList<TipoMedidaVO> listaTipoMedidaTI = tiMedDAO.listarTI();
-                for (int i = 0; i < listaTipoMedidaTI.size(); i++) {
-                    
-                    MedidaDAO mediDAO = new MedidaDAO();
-                                    
-                    MedidaVO mediVO = new MedidaVO();
-                    mediVO.setIdPlanFk(idPlanFk);                   
-                    mediVO.setCodigoFk(CodigoFk);
-                    mediVO.setValorI(valorI);
-                    mediVO.setValorF(valorF);
-                    mediVO.setIdClienteFk(idClienteFk);
-                    
-                   
-              
-                if (mediDAO.agregarRegistroMedida(mediVO)){
-                    request.setAttribute("mensajeExito", "Medidas registradas correctamente REGISTRADO EXITOSAMENTE");
-                    request.getRequestDispatcher("moduloCliente.jsp").forward(request, response);
-                }else {
-                    request.setAttribute("mensajeError", "ERROR AL REGISTRAR LAS MEDIDAS");
-                    request.getRequestDispatcher("registrarMedidas.jsp").forward(request, response);
-                }
-                } 
-                 
-                
-            break;*/
             case 1:
 
                 String idCliente = request.getParameter("idCliente");
@@ -103,7 +82,7 @@ public class ControladorMedia extends HttpServlet {
 
                 request.setAttribute("plVO", plVO);
                 request.setAttribute("lista", lista);
-                request.getRequestDispatcher("registrarmedidas_prueba.jsp").forward(request, response);
+                request.getRequestDispatcher("codigo-medida.jsp").forward(request, response);
 
                 break;
 
@@ -116,7 +95,7 @@ public class ControladorMedia extends HttpServlet {
                 request.setAttribute("tiVO", tiVO);
                 request.setAttribute("plVO", plVO);
                 request.setAttribute("lista", lista);
-                request.getRequestDispatcher("registrarmedidas_prueba.jsp").forward(request, response);
+                request.getRequestDispatcher("codigo-medida.jsp").forward(request, response);
 
                 break;
 
@@ -127,18 +106,18 @@ public class ControladorMedia extends HttpServlet {
                 plan = request.getParameter("idPlan");
                 cliente = request.getParameter("idClienteFK");
                 parte = request.getParameter("codigoParte");
-                valorI = request.getParameter("inicial");
+                valor = request.getParameter("inicial");
                 
                 mediVO = new MedidaVO();
                 
                 mediVO.setIdPlanFk(plan);
                 mediVO.setIdClienteFk(cliente);
                 mediVO.setCodigoFk(parte);
-                mediVO.setValorI(valorI);
+                mediVO.setValorI(valor);
                 lista.add(mediVO);
                request.setAttribute("plVO", plVO);
                request.setAttribute("lista", lista);
-                 request.getRequestDispatcher("registrarmedidas_prueba.jsp").forward(request, response);
+                 request.getRequestDispatcher("codigo-medida.jsp").forward(request, response);
                 break;
                 
             case 5:
@@ -157,13 +136,13 @@ public class ControladorMedia extends HttpServlet {
                         request.getRequestDispatcher("moduloCliente.jsp").forward(request, response);
                     } else {
                         request.setAttribute("mensajeError", "medida no registrada");
-                        request.getRequestDispatcher("registrarmedidas_prueba.jsp").forward(request, response);
+                        request.getRequestDispatcher("codigo-medida.jsp").forward(request, response);
                     }
 
                 }
 
                 lista = new ArrayList<>();
-                request.getRequestDispatcher("registrarmedidas_prueba.jsp").forward(request, response);
+                request.getRequestDispatcher("codigo-medida.jsp").forward(request, response);
                 
                 
                 break;
@@ -178,14 +157,18 @@ public class ControladorMedia extends HttpServlet {
                 }
                 break;
 
-            /*case 3:
+            case 7:
+                    medidVO = medidDAO.consultarEntrenador(idClienteFkM);
+                if (medidVO != null) {
+                    request.setAttribute("MedidadCliente", medidVO);
+                    request.getRequestDispatcher("miplan.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("mensajeError", "El ejercicio no se actualizo correctamente");
+                    request.getRequestDispatcher("moduloCliente.jsp").forward(request, response);
+                }
+                break;
                 
-                /*String idMedidaFKP = request.getParameter("txtIdPlanFKP");
-                mediVO.setCodigoFk(idMedidaFKP);
-                
-                mediVO = mediDAO.agregarRegistroMedida(idMedidaFKP);
-                
-            break*/
+            
         }
     }
 
