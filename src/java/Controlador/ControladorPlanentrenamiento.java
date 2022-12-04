@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sena
  */
-@WebServlet(name = "controladorPlanentrenamiento", urlPatterns = {"/controladorPlanentrenamiento"})
+@WebServlet(name = "controladorPlanentrenamiento", urlPatterns = {"/Planentrenamiento"})
 public class ControladorPlanentrenamiento extends HttpServlet {
 
     /**
@@ -36,33 +36,37 @@ public class ControladorPlanentrenamiento extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    planEntrenamientoVO plVO = new planEntrenamientoVO();
-    planEntrenamientoDAO plDAO = new planEntrenamientoDAO();
+    
     
     ArrayList<planEntrenamientoVO> listap = new ArrayList<>();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        String idPlan = request.getParameter("idPlan");
+        String idCliente = request.getParameter("idUsuarioCliente");
+        String idEntrenador = request.getParameter("idUsuarioEntrenador");
+        String observaciones = request.getParameter("observaciones");
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
-        /*switch (opcion) {
+        planEntrenamientoVO plVO = new planEntrenamientoVO(idPlan, idCliente, idEntrenador, observaciones);
+        planEntrenamientoDAO plDAO = new planEntrenamientoDAO(plVO);
+        
+        switch (opcion) {
             case 1:
-
-                int idEntrenador = Integer.parseInt(request.getParameter("idEntrenador"));
-                listap.set(idEntrenador, plVO);
-                listap = plDAO.listarUsuariosPlan(idEntrenador);
+                if(plDAO.registrarPlan()){
+                    request.setAttribute("mensajeExito", "Plan registrado exitosamente");
+                    request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
+                  
+                    }
+                    else {
+                    request.setAttribute("mensajeError", "No se ha registrado correctamente");
+                    request.getRequestDispatcher("registrarUsuario.jsp").forward(request, response);
+                    }
                 
-                
-
-                request.setAttribute("plVO", plVO);
-                
-                listap = new ArrayList<>();
-                request.getRequestDispatcher("planes-clientes.jsp").forward(request, response);
-                break;
+            break;
             
-        }*/
+        }
         
         
         

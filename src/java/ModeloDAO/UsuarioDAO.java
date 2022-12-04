@@ -161,13 +161,13 @@ public class UsuarioDAO extends ConexionBd implements Crud {
         return usuVO;
     }
 
-    public UsuarioVO consultarUsuario(String numDoc) {
+    public UsuarioVO consultarUsuario(String idUsuario) {
         UsuarioVO usuVO = null;
         try {
             conexion = this.obtenerConexion();
-            sql = "CALL consultarUsuario(?)";
+            sql = "SELECT c.idCliente, u.numDoc, u.tipoDoc, u.nombre, u.apellido, u.fechaNacimiento, u.edad, u.direccion, u.telefono, u.correo, u.Tipo_sangre, u.EPS, u.alergias, u.estado, u.sexo, u.rol, u.contraseña FROM usuario u INNER JOIN cliente c on c.idUsuarioFK = u.idUsuario WHERE c.idCliente = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, numDoc);
+            puente.setString(1, idUsuario);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 usuVO = new UsuarioVO(
@@ -206,7 +206,7 @@ public class UsuarioDAO extends ConexionBd implements Crud {
         ArrayList<UsuarioVO> listaUsuario = new ArrayList<>();
         try {
             conexion = this.obtenerConexion();
-            sql = "CALL listarUsuarios";
+            sql = "SELECT c.idCliente, u.numDoc, u.tipoDoc, u.nombre, u.apellido, u.fechaNacimiento, u.edad, u.direccion, u.telefono, u.correo, u.Tipo_sangre, u.EPS, u.alergias, u.estado, u.sexo, u.rol, u.contraseña FROM usuario u INNER JOIN cliente c on c.idUsuarioFK = u.idUsuario WHERE NOT EXISTS (SELECT * from plan_entrenamiento p WHERE p.idClienteFk = c.idCliente)";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

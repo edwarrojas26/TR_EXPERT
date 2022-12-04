@@ -12,12 +12,12 @@ package ModeloVO;
 public class ClienteVO {
 
     /*Atributos*/
-    private String idCliente, numDoc;
+    private String idCliente, idUsuarioFK;
 
     /*Constructor*/
     public ClienteVO(String idCliente, String numDoc) {
         this.idCliente = idCliente;
-        this.numDoc = numDoc;
+        this.idUsuarioFK = numDoc;
     }
 
     /*Getters y Setters*/
@@ -29,12 +29,12 @@ public class ClienteVO {
         this.idCliente = idCliente;
     }
 
-    public String getNumDoc() {
-        return numDoc;
+    public String getIdUsuarioFK() {
+        return idUsuarioFK;
     }
 
-    public void setNumDoc(String numDoc) {
-        this.numDoc = numDoc;
+    public void setIdUsuarioFK(String numDoc) {
+        this.idUsuarioFK = idUsuarioFK;
     }
 
 }

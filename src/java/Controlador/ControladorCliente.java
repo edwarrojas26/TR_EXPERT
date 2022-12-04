@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import ModeloVO.ClienteVO;
+import ModeloDAO.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,7 +34,30 @@ public class ControladorCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-          /*Servlet en desarrollo*/
+          
+       String idCliente = request.getParameter("txtIdCliente");
+       String idUsuarioFK = request.getParameter("txtIdUsuario");
+       int opcion = Integer.parseInt(request.getParameter("opcion"));
+       
+       ClienteVO cliVO = new ClienteVO(idCliente, idUsuarioFK);
+
+       ClienteDAO cliDAO = new ClienteDAO(cliVO);
+       switch (opcion) {
+           case 1: 
+               
+               cliVO = cliDAO.consultarUsuario(idCliente);
+               if(cliVO != null){
+                   request.setAttribute("UsuarioSeleccionado", cliVO);
+                   request.getRequestDispatcher("generar_Plan_Entrenamiento.jsp").forward(request, response);
+               } else {
+                   request.setAttribute("mensajeError", "El usuario no se encuentra registrado");
+                   request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
+               }
+               
+           break;
+       }
+       
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

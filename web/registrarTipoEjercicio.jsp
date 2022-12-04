@@ -59,58 +59,63 @@ integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1
         </header>
 
         <div class="menu-bardd">
-            <div class="menudds">
+                            <div class="menudds">
 
-                <ul class="menu-linksds">
-                    <li class="nav-linkds">
-                        <a href="moduloEntrenador.jsp">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Inicio</span>
-                        </a>
-                    </li>
+                                <ul class="menu-linksds">
+                                    <li class="nav-linkds">
+                                        <a href="moduloEntrenador.jsp">
+                                            <i class='bx bx-home-alt icon'></i>
+                                            <span class="text nav-text">Inicio</span>
+                                        </a>
+                                    </li>
 
-                    <li class="nav-linkds">
-                        <a href="planes-clientes.jsp">
-                            <i class="fa-solid fa-file-invoice icon"></i>
-                            <span class="text nav-text">Planes</span>
-                        </a>
-                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="planes-clientes.jsp">
+                                            <i class="fa-solid fa-file-invoice icon"></i>
+                                            <span class="text nav-text">Planes</span>
+                                        </a>
+                                    </li>
 
-                    <li class="nav-linkds">
-                        <a href="registrarTipoMedida.jsp">
-                            <i class="fa-solid fa-ruler icon"></i>
-                            <span class="text nav-text">Tipo medida</span>
-                        </a>
-                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="registrarTipoMedida.jsp">
+                                            <i class="fa-solid fa-ruler icon"></i>
+                                            <span class="text nav-text">Tipo medida</span>
+                                        </a>
+                                    </li>
 
-                    <li class="nav-linkds">
-                        <a href="registrarTipoEjercicio.jsp">
-                            <i class="fa-solid fa-person-walking icon"></i>
-                            <span class="text nav-text">Tipo ejercicios</span>
-                        </a>
-                    </li>
-                    <li class="nav-linkds">
-                        <a href="listarUsuarios.jsp">
-                            <i class="fa-solid fa-user icon"></i>
-                            <span class="text nav-text">Listar usuarios</span>
-                        </a>
-                    </li>
-            </div>
+                                    <li class="nav-linkds">
+                                        <a href="registrarTipoEjercicio.jsp">
+                                            <i class="fa-solid fa-person-walking icon"></i>
+                                            <span class="text nav-text">Tipo ejercicios</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="listarUsuarios.jsp">
+                                            <i class="fa-sharp fa-solid fa-table icon"></i>
+                                            <span class="text nav-text">Listar usuarios</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="generar_Plan_Entrenamiento.jsp">
+                                            <i class="fa-solid fa-file-pen icon"></i>
+                                            <span class="text nav-text">Generar plan</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
-            </ul>
+                            <form method="post" action="Sesiones">
+                                <div class="bottom-contentds">
+                                    <li class="">
+                                        <a href="index.jsp">
+                                            <i class='bx bx-log-out icon'></i>
+                                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
+                                        </a>
+                                    </li>
+                                </div>
+                            </form>
 
-            <form method="post" action="Sesiones">
-                <div class="bottom-contentds">
-                    <li class="">
-                        <a href="index.jsp">
-                            <i class='bx bx-log-out icon'></i>
-                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
-                        </a>
-                    </li>
-                </div>
-            </form>
-
-        </div>
+                        </div>
     </nav>
 
 

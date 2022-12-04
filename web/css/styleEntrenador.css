@@ -40,13 +40,12 @@ body.dark{
     --toggle-color: #fff;
     --text-color: #ccc;
 }
-.fondods{
-    background-image: url(../img/home-bg-3.jpg);
+.fondoentr{
     background-color: #18191a;
 }
-
-
-
+.fondods{
+    background-image: url(../img/home-bg-3.jpg);
+}
 .text{
     font-size: 100px;
 }
@@ -58,6 +57,10 @@ body.dark{
 
 #tablas{
     height: 100%;
+
+}
+th{
+    color: #fff;
 }
 
 /* ===== Sidebar ===== */
@@ -224,11 +227,12 @@ body.dark .sidebar header .toggle{
 }
 
 .sidebar li a:hover{
-    background-color: rgb(237, 19, 19);
+    background-color: red;
+    color: #fff;
 }
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
-    color: rgb(225,225,225);
+    color: #fff;
 }
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
@@ -331,21 +335,4 @@ body.dark .switch::before{
 }
 body.dark .home .text{
     color: var(--text-color);
-}
-.cerrar1s{
-    background-color: red;
-    border: none;
-    
-    color: #fff;
-}
-.bottom-contentds{
-    background-color: red;
-}
-.cardsentre{
-    height: 20%;
-    padding-top: 5%;
-    padding-left: 5%;
-}
-.card-img-top{
-   padding-left: 15%;
 }

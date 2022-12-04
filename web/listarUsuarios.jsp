@@ -47,58 +47,63 @@
             </header>
     
             <div class="menu-bardd">
-                <div class="menudds">
-    
-                        <ul class="menu-linksds">
-                            <li class="nav-linkds">
-                                <a href="moduloEntrenador.jsp">
-                                    <i class='bx bx-home-alt icon' ></i>
-                                    <span class="text nav-text">Inicio</span>
-                                </a>
-                            </li>
-    
-                        <li class="nav-linkds">
-                            <a href="planes-clientes.jsp">
-                                <i class="fa-solid fa-file-invoice icon"></i>
-                                <span class="text nav-text">Planes</span>
-                            </a>
-                        </li>
-    
-                        <li class="nav-linkds">
-                            <a href="">
-                                <i class="fa-solid fa-ruler icon"></i>
-                                <span class="text nav-text">Tipo medida</span>
-                            </a>
-                        </li>
-    
-                        <li class="nav-linkds">
-                            <a href="#">
-                                <i class="fa-solid fa-person-walking icon"></i>
-                                <span class="text nav-text">Tipo ejercicios</span>
-                            </a>
-                        </li>
-                        <li class="nav-linkds">
-                            <a href="listarUsuarios.jsp">
-                                <i class="fa-solid fa-person-walking icon"></i>
-                                <span class="text nav-text">Listar usuarios</span>
-                            </a>
-                        </li>
+                            <div class="menudds">
+
+                                <ul class="menu-linksds">
+                                    <li class="nav-linkds">
+                                        <a href="moduloEntrenador.jsp">
+                                            <i class='bx bx-home-alt icon'></i>
+                                            <span class="text nav-text">Inicio</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-linkds">
+                                        <a href="planes-clientes.jsp">
+                                            <i class="fa-solid fa-file-invoice icon"></i>
+                                            <span class="text nav-text">Planes</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-linkds">
+                                        <a href="registrarTipoMedida.jsp">
+                                            <i class="fa-solid fa-ruler icon"></i>
+                                            <span class="text nav-text">Tipo medida</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-linkds">
+                                        <a href="registrarTipoEjercicio.jsp">
+                                            <i class="fa-solid fa-person-walking icon"></i>
+                                            <span class="text nav-text">Tipo ejercicios</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="listarUsuarios.jsp">
+                                            <i class="fa-sharp fa-solid fa-table icon"></i>
+                                            <span class="text nav-text">Listar usuarios</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="generar_Plan_Entrenamiento.jsp">
+                                            <i class="fa-solid fa-file-pen icon"></i>
+                                            <span class="text nav-text">Generar plan</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <form method="post" action="Sesiones">
+                                <div class="bottom-contentds">
+                                    <li class="">
+                                        <a href="index.jsp">
+                                            <i class='bx bx-log-out icon'></i>
+                                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
+                                        </a>
+                                    </li>
+                                </div>
+                            </form>
+
                         </div>
-    
-                    </ul>
-                
-            <form method="post" action="Sesiones">
-                <div class="bottom-contentds">
-                    <li class="">
-                        <a href="index.jsp">
-                            <i class='bx bx-log-out icon'></i>
-                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
-                        </a>
-                    </li> 
-                </div>
-            </form>
-                    
-            </div>
             
     
     
@@ -106,7 +111,7 @@
 
         <section class="home">
 
-            <h3 class="pb-2">Listado usuarios</h3>
+            <h3 class="pb-2">Listado usuarios sin plan de entrenamiento</h3>
 
             <div>
                 <form method="POST" action="GenerarPDF.jsp" target="_black" class="freportes">
@@ -162,14 +167,14 @@
                                     <td>
                                         <form method="post" action="Usuario">
                                             <input id="eliminar" class="btn btn-warning" type="submit" value="Inhabilitar">
-                                            <input type="hidden" name="txtNumDoc" value="<%=usuVO.getNumDoc()%>">
+                                            <input type="hidden" name="idUsuario" value="<%=usuVO.getIdUsuario()%>">
                                             <input type="hidden" value="2" name="opcion">
                                         </form>
                                     </td>
                                     <td>
                                         <form method="post" action="Usuario">
-                                            <input id="actualizar" class="btn btn-primary" type="submit" value="Actualizar">
-                                            <input type="hidden" name="txtNumDoc" value="<%=usuVO.getNumDoc()%>">
+                                            <input id="actualizar" class="btn btn-primary" type="submit" value="Asignar plan">
+                                            <input type="hidden" name="idUsuario" value="<%=usuVO.getIdUsuario()%>">
                                             <input type="hidden" value="4" name="opcion">
                                         </form>
                                     </td>

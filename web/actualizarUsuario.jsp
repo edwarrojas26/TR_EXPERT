@@ -147,7 +147,7 @@
                                         <label class="font-weight-bold" for="txtContrasena">Contraseña <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="txtContrasena" class="form-control"
-                                            placeholder="Tu rol" value="<%=usuVO.getContrasena()%>">
+                                            placeholder="Tu rol" value="<%=usuVO.getContraseña()%>">
 
                                     </div>
                                     <div class="form-group mb-3">

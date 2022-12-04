@@ -52,8 +52,8 @@ public class ControladorUsuario extends HttpServlet {
         String sexo = request.getParameter("txtSexo");
         String rol = request.getParameter("txtRol");
         String contrasena = request.getParameter("txtContrasena");
-        byte[] encript = DigestUtils.sha256(contrasena);
-        String clavecifrada = String.valueOf(encript);
+        /*byte[] encript = DigestUtils.sha256(contrasena);
+        String clavecifrada = String.valueOf(encript);*/
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         UsuarioVO usuVO = new UsuarioVO(idUsuario, numDoc, tipoDoc, nombre, apellido, fechaNacimiento, edad, direccion, telefono, correo, TS, EPS, alergia, estado, sexo, rol, contrasena);
@@ -94,13 +94,13 @@ public class ControladorUsuario extends HttpServlet {
                 break;
 
             case 4:
-                usuVO = usuDAO.consultarUsuario(numDoc);
+                usuVO = usuDAO.consultarUsuario(idUsuario);
                 if (usuVO != null) {
                     request.setAttribute("UsuarioSeleccionado", usuVO);
-                    request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
+                    request.getRequestDispatcher("generar_Plan_Entrenamiento.jsp").forward(request, response);
                 } else {
                     request.setAttribute("mensajeError", "El usuario no se encuentra registrado");
-                    request.getRequestDispatcher("listar.jsp").forward(request, response);
+                    request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
                 }
                 break;
 

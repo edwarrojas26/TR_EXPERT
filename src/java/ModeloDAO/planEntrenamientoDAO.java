@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ModeloDAO;
 
 import ModeloVO.planEntrenamientoVO;
@@ -16,10 +11,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author milena
- */
 public class planEntrenamientoDAO extends ConexionBd implements Crud {
 
     private Connection conexion;
@@ -117,13 +108,7 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
             }
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
-        } /*finally {
-            try {
-                this.cerrarConexion();
-            } catch (Exception e) {
-                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }*/
+        } 
         return planVO;
     }
     
@@ -148,13 +133,7 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
             
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
-        } /*finally {
-            try {
-                this.cerrarConexion();
-            } catch (Exception e) {
-                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }*/
+        } 
         return planVO;
     }
      
@@ -178,23 +157,18 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
                
         } catch (SQLException e) {
             Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
-        } /*finally {
-            try {
-                this.cerrarConexion();
-            } catch (Exception e) {
-                Logger.getLogger(TipoEjercicioDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }*/
+        } 
         return planVO;
     }
      
-     public ArrayList<planEntrenamientoVO> listarUsuariosPlan() {
+     public ArrayList<planEntrenamientoVO> listarUsuariosPlan(String idEntrenador) {
 
         ArrayList<planEntrenamientoVO> listUsuarioPl = new ArrayList<>();
         try {
             conexion = this.obtenerConexion();
-            sql = sql = "SELECT * FROM plan_entrenamiento";
+            sql = "SELECT p.idPlan, CONCAT(u.nombre, '  ', u.apellido) , e.idEntrenador, p.observaciones FROM plan_entrenamiento p INNER JOIN cliente c ON c.idCliente = p.idClienteFk INNER JOIN usuario u ON u.idUsuario = c.idUsuarioFK INNER JOIN entrenador e ON e.idEntrenador = p.idEntrenadorFK WHERE e.idUsuarioFK = ?";
             puente = conexion.prepareStatement(sql);
+            puente.setString(1, idEntrenador);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 planEntrenamientoVO plaVO = new planEntrenamientoVO(
@@ -219,44 +193,24 @@ public class planEntrenamientoDAO extends ConexionBd implements Crud {
         return listUsuarioPl;
     }
      
-     
-     
-     
-    /* public ArrayList<planEntrenamientoVO> listarUsuariosPlan(int idEntrenador) {
+    public boolean registrarPlan() {
 
-        ArrayList<planEntrenamientoVO> listUsuarioPl = new ArrayList<>();
         try {
             conexion = this.obtenerConexion();
-            sql = sql = "SELECT p.idPlan, p.idClienteFk, p.idEntrenadorFK, p.observaciones FROM plan_entrenamiento p INNER JOIN entrenador e ON p.idEntrenadorFK = e.idEntrenador WHERE e.idUsuarioFK = ?";;
+            sql = "INSERT INTO plan_entrenamiento (idClienteFK, idEntrenadorFK, observaciones) SELECT ?, idEntrenador, ? FROM Entrenador WHERE idUsuarioFK = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setInt(1, idEntrenador);
-            mensajero = puente.executeQuery();
-            while (mensajero.next()) {
-                planEntrenamientoVO plaVO = new planEntrenamientoVO(
-                        mensajero.getString(1),
-                        mensajero.getString(2),
-                        mensajero.getString(3),
-                        mensajero.getString(4));
-                listUsuarioPl.add(plaVO);
-            }
+            puente.setString(1, idCliente);
+            puente.setString(2, observaciones);
+            puente.setString(3, idEntrenador);
+            puente.executeUpdate();
+            operacion = true;
 
         } catch (SQLException e) {
             Logger.getLogger(planEntrenamientoDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException e) {
-                Logger.getLogger(planEntrenamientoDAO.class.getName()).log(Level.SEVERE, null, e);
-
-            }
-
         }
-        return listUsuarioPl;
-    }*/
+        return operacion;
+    }
      
-     
-     
-
     @Override
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

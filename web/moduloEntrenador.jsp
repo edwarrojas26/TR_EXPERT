@@ -78,13 +78,18 @@
                                     </li>
                                     <li class="nav-linkds">
                                         <a href="listarUsuarios.jsp">
-                                            <i class="fa-solid fa-user icon"></i>
+                                            <i class="fa-sharp fa-solid fa-table icon"></i>
                                             <span class="text nav-text">Listar usuarios</span>
                                         </a>
                                     </li>
+                                    <li class="nav-linkds">
+                                        <a href="generar_Plan_Entrenamiento.jsp">
+                                            <i class="fa-solid fa-file-pen icon"></i>
+                                            <span class="text nav-text">Generar plan</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-
-                            </ul>
 
                             <form method="post" action="Sesiones">
                                 <div class="bottom-contentds">

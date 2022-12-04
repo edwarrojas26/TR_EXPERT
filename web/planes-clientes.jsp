@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="Sesiones.jsp"%>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -46,58 +45,63 @@
             </header>
 
             <div class="menu-bardd">
-                <div class="menudds">
+                            <div class="menudds">
 
-                    <ul class="menu-linksds">
-                        <li class="nav-linkds">
-                            <a href="moduloEntrenador.jsp">
-                                <i class='bx bx-home-alt icon' ></i>
-                                <span class="text nav-text">Inicio</span>
-                            </a>
-                        </li>
+                                <ul class="menu-linksds">
+                                    <li class="nav-linkds">
+                                        <a href="moduloEntrenador.jsp">
+                                            <i class='bx bx-home-alt icon'></i>
+                                            <span class="text nav-text">Inicio</span>
+                                        </a>
+                                    </li>
 
-                        <li class="nav-linkds">
-                            <a href="#">
-                                <i class="fa-solid fa-file-invoice icon"></i>
-                                <span class="text nav-text">Planes</span>
-                            </a>
-                        </li>
+                                    <li class="nav-linkds">
+                                        <a href="planes-clientes.jsp">
+                                            <i class="fa-solid fa-file-invoice icon"></i>
+                                            <span class="text nav-text">Planes</span>
+                                        </a>
+                                    </li>
 
-                        <li class="nav-linkds">
-                            <a href="">
-                                <i class="fa-solid fa-ruler icon"></i>
-                                <span class="text nav-text">Tipo medida</span>
-                            </a>
-                        </li>
+                                    <li class="nav-linkds">
+                                        <a href="registrarTipoMedida.jsp">
+                                            <i class="fa-solid fa-ruler icon"></i>
+                                            <span class="text nav-text">Tipo medida</span>
+                                        </a>
+                                    </li>
 
-                        <li class="nav-linkds">
-                            <a href="#">
-                                <i class="fa-solid fa-person-walking icon"></i>
-                                <span class="text nav-text">Tipo ejercicios</span>
-                            </a>
-                        </li>
-                        <li class="nav-linkds">
-                            <a href="listarUsuarios.jsp">
-                                <i class="fa-solid fa-person-walking icon"></i>
-                                <span class="text nav-text">Listar usuarios</span>
-                            </a>
-                        </li>
-                </div>
+                                    <li class="nav-linkds">
+                                        <a href="registrarTipoEjercicio.jsp">
+                                            <i class="fa-solid fa-person-walking icon"></i>
+                                            <span class="text nav-text">Tipo ejercicios</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="listarUsuarios.jsp">
+                                            <i class="fa-sharp fa-solid fa-table icon"></i>
+                                            <span class="text nav-text">Listar usuarios</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-linkds">
+                                        <a href="generar_Plan_Entrenamiento.jsp">
+                                            <i class="fa-solid fa-file-pen icon"></i>
+                                            <span class="text nav-text">Generar plan</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                </ul>
+                            <form method="post" action="Sesiones">
+                                <div class="bottom-contentds">
+                                    <li class="">
+                                        <a href="index.jsp">
+                                            <i class='bx bx-log-out icon'></i>
+                                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
+                                        </a>
+                                    </li>
+                                </div>
+                            </form>
 
-                <form method="post" action="Sesiones">
-                    <div class="bottom-contentds">
-                        <li class="">
-                            <a href="index.jsp">
-                                <i class='bx bx-log-out icon'></i>
-                                <input class="cerrar1s" type="submit" value="Cerrar Sesión">
-                            </a>
-                        </li> 
-                    </div>
-                </form>
-
-            </div>
+                        </div>
 
 
 
@@ -131,9 +135,9 @@
                                 <thead>
 
                                     <tr class="bg-danger">
-                                        <th class="bg-danger">Codigo plan</th>
-                                        <th class="bg-danger">Codigo Cliente</th>
-                                        <th class="bg-danger">Entrenador</th>
+                                        <th class="bg-danger">ID</th>
+                                        <th class="bg-danger">Nombre</th>
+                                        <th class="bg-danger">ID Entrenador</th>
                                         <th class="bg-danger">Observaciones</th>
                                         <th class="bg-danger">Acciones</th>
                                         <th class="bg-danger">Acciones</th>
@@ -141,12 +145,20 @@
 
                                 </thead>
 
-                                <%  planEntrenamientoVO planVO = new planEntrenamientoVO();
+                                <%  RolDAO rolDAO = new RolDAO();
+                                    RolVO rolVO = new RolVO();
+                                    rolVO = rolDAO.sesiones(correo);
+                                    if (rolVO != null) {
+                                    
+                                    
+                                    planEntrenamientoVO planVO = new planEntrenamientoVO();
                                     planEntrenamientoDAO planDAO = new planEntrenamientoDAO();
-                                    ArrayList<planEntrenamientoVO> listUsuarioPl = planDAO.listarUsuariosPlan();
+                                    String idEntrenador = rolVO.getIdRol();
+                                    ArrayList<planEntrenamientoVO> listUsuarioPl = planDAO.listarUsuariosPlan(idEntrenador);
                                     for (int i = 0; i < listUsuarioPl.size(); i++) {
 
                                         planVO = listUsuarioPl.get(i);
+                                    
 
                                 %>
 
@@ -171,6 +183,7 @@
                                     </td>
 
                                 </tr>
+                                <%}%>
                                 <%}%>
 
                             </table>
