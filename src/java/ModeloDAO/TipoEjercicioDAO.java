@@ -54,7 +54,7 @@ public class TipoEjercicioDAO extends ConexionBd implements Crud {
 
         try {
 
-            sql = "INSERT INTO tipoejercicio (nombreEjercicio, descripcionEjercicio, series, repeticiones, descanso, peso, foto) VALUES (?,?,?,?,?,?,?)";
+            sql = "INSERT INTO tipoejercicio (nombreEjercicio, descripcionEjercicio, series, repeticiones, descanso, peso) VALUES (?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, nombreE);
             puente.setString(2, descripcionE);

@@ -24,7 +24,7 @@
 
 body{
     min-height: 100vh;
-    background-color: var(--body-color);
+    background-color: #fff;
     transition: var(--tran-05);
 }
 
@@ -43,9 +43,7 @@ body.dark{
 .fondoentr{
     background-color: #18191a;
 }
-.fondods{
-    background-image: url(../img/home-bg-3.jpg);
-}
+
 .text{
     font-size: 100px;
 }
@@ -61,6 +59,13 @@ body.dark{
 }
 th{
     color: #fff;
+}
+.pb-2{
+    text-align: center;
+    padding-top: 5%;
+}
+.freportes{
+    padding-left: 10%;
 }
 
 /*

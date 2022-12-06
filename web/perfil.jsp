@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-<script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="./css/stylePerfil.css">
-    
-    <link rel="stylesheet" href="./css/perfil.css">
-    
-    <!----===== Boxicons CSS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/swiper@7/swiper-bundle.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="./css/stylePerfil.css" rel="stylesheet">
+    <link href="./css/perfil.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
     
     <title>Cliente</title> 
 </head>
@@ -42,41 +36,26 @@
 
                     <ul class="menu-linksds">
                         <li class="nav-linkds">
-                            <a href="#">
+                            <a href="moduloCliente.jsp">
                                 <i class='bx bx-home-alt icon' ></i>
                                 <span class="text nav-text">Inicio</span>
                             </a>
                         </li>
 
-                    <li class="nav-linkds">
-                        <a href="#">
-                            <i class="fa-solid fa-file-invoice icon"></i>
-                            <span class="text nav-text">Modificar mis datos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-linkds">
-                        <a href="#">
-                            <i class="fa-solid fa-ruler icon"></i>
-                            <span class="text nav-text">Registrar medidas corporales</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-linkds">
-                        <a href="#">
-                            <i class="fa-solid fa-person-walking icon"></i>
-                            <span class="text nav-text">Mi plan</span>
-                        </a>
-                    </li>
-                    <li class="nav-linkds">
-                        <a href="perfil.jsp">
-                            <i class="fa-solid fa-person-walking icon"></i>
-                            <span class="text nav-text">Perfil</span>
-                        </a>
-                    </li>
-                    </div>
-
-                </ul>
+                        <li class="nav-linkds">
+                            <a href="codigo-medida.jsp">
+                                <i class="fa-solid fa-ruler icon"></i>
+                                <span class="text nav-text">Registrar medidas corporales</span>
+                            </a>
+                        </li>
+                        <li class="nav-linkds">
+                            <a href="perfil.jsp">
+                                <i class="fa-solid fa-person-walking icon"></i>
+                                <span class="text nav-text">Perfil</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             
         <form method="post" action="Sesiones">
             <div class="bottom-contentds">

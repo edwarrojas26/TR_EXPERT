@@ -1,26 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import ModeloDAO.TipoEjercicioDAO;
 import ModeloVO.TipoEjercicioVO;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
-/**
- *
- * @author edwar
- */
 @WebServlet(name = "ControladorTipoEjercicio", urlPatterns = {"/Tejercicio"})
 public class ControladorTipoEjercicio extends HttpServlet {
 
@@ -54,13 +42,15 @@ public class ControladorTipoEjercicio extends HttpServlet {
             case 1: //Agregar registro
                 if (tejDAO.agregarRegistro()) {
                     request.setAttribute("mensajeExito", "TIPO DE EJERCICIO REGISTRADO CON EXITO");
+                    request.getRequestDispatcher("registrarTipoEjercicio.jsp").forward(request, response);
                     
 
                 } else {
                     request.setAttribute("mensajeError", "ERROR AL REGISTRAR TIPO DE EJERCICIO");
+                    request.getRequestDispatcher("registrarTipoEjercicio.jsp").forward(request, response);
                     
                 }
-                request.getRequestDispatcher("tiposEjercicios.jsp").forward(request, response);
+                
                 
                 break;
                 

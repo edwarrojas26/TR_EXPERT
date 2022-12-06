@@ -45,8 +45,6 @@ body {
   border: 0.1rem solid #aaa;
   border-radius: .5rem;
 }
-
-
 @media only screen and (min-width: 320px) {
 
   .navres {
@@ -208,14 +206,6 @@ body {
 
 }
 
-.contact-wrapper {
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
-}
-
-.contact-wrapper>* {
-  padding: 1em;
-}
-
 
 .center {
   position: absolute;
@@ -341,58 +331,17 @@ input[type="submit"]:hover {
   font-size: 15px;
 }
 
-.contact-info {
-  background: #000;
-}
-
-.contact-info h4,
-.contact-info ul,
-.contact-info p {
-  text-align: center;
-  margin: 0 0 1rem 0;
-}
 .principal{
   margin-top: 50px;
   font-family: 'roboto';
 }
-
-.card-header-third{
-  font-size: 50px;
-  margin-top: -25px;
-  height: 120px;
-  background: linear-gradient(-90deg, #08524b, #0c632d);
-}
-
-
-
-.card-section{
-  box-shadow: 0 2px 5px 0 rgb(0, 0, 0,.16), 0 2px 10px 0 rgb(0, 0, 0,.12);
-}
-
-.card-text{
-  font-size: 15px;
-}
-
 /* LARGE SIZE */
 @media(min-width: 700px) {
   body {
     padding: 0 4em;
   }
 
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 2fr;
-  }
 
-  .contact-wrapper>* {
-    padding: 2em;
-  }
-
-  .contact-info h4,
-  .contact-info ul,
-  .contact-info p {
-    text-align: left;
-  }
 }
 
 
@@ -560,10 +509,7 @@ color: red;
       padding: 2rem;
   }
 
-  .contact-box {
-      padding: 0;
-  }
-
+ 
   .width-100 {
       width: 100%;
   }
@@ -1332,69 +1278,3 @@ section {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
-/*Cards*/
-.container-card{
-	width: 100%;
-	display: flex;
-	max-width: 1100px;
-	margin: auto;
-}
-
-.card{
-	width: 100%;
-	margin: 20px;
-	border-radius: 6px;
-	overflow: hidden;
-	background:rgb(109, 101, 101);
-	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-	transition: all 400ms ease-out;
-	cursor: default;
-}
-.card:hover{
-	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-	transform: translateY(-3%);
-}
-.card img{
-  padding-left: 35px;
-	width: 40%;
-	height: 90px;
-}
-.card .contenido-card{
-	padding: 15px;
-	text-align: center;
-}
-.card .contenido-card h3{
-	margin-bottom: 15px;
-	color: #7a7a7a;
-}
-.card .contenido-card p{
-	line-height: 1.8;
-	color: #fff;
-	font-size: 14px;
-	margin-bottom: 5px;
-}
-.card .contenido-card a{
-	display: inline-block;
-	padding: 10px;
-	margin-top: 10px;
-	text-decoration: none;
-	color: #2fb4cc;
-	border: 1px solid #2fb4cc;
-	border-radius: 4px;
-	transition: all 400ms ease;
-	margin-bottom: 5px;
-}
-.card .contenido-card a:hover{
-	background: #2fb4cc;
-	color: #fff;
-}
-@media only screen and (min-width:320px) and (max-width:768px){
-	.container-card{
-		flex-wrap: wrap;
-	}
-	.card{
-		margin: 15px;
-	}
-}
-/*Fin-Cards*/

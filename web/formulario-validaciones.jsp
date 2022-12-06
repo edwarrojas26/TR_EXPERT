@@ -2,40 +2,47 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Formulario</title>
-        <link rel="stylesheet" href="css/formulario-validaciones.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/formulario-validaciones.css" rel="stylesheet">
+        <link href="sweetalert2.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="sweetalert2.min.js"></script>
-        <link rel="stylesheet" href="sweetalert2.min.css">
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <title>Formulario</title>
+
     </head>
     <body>
         <nav>
             <div class="botonf">
-            <a href="index.jsp"><button type="submit" class="formulario__btn">Inicio</button></a>
-        </div>
+                <a href="index.jsp"><button type="submit" class="formulario__btn">Inicio</button></a>
+            </div>
         </nav>
-            <style>
-                nav{
-                    background-color: black;
-                }
-                .formulario__btn{
-                    width: 100px;
-                }
-                .botonf{
-                    padding-top: 15px;
-                    padding-left: 15px;
-                }
-            </style>
-          
+        <style>
+            nav{
+                background-color: black;
+            }
+            .formulario__btn{
+                width: 100px;
+                background-color: red;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                padding: 6px;
+            }
+            .botonf{
+                padding-top: 15px;
+                padding-left: 15px;
+            }
+        </style>
+
         <div class="menu outside">
-           
-    </nav>
+
+        </nav>
 
         <section class="contact-box">
             <div class="row">
@@ -262,8 +269,8 @@
             </div>
         </section>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="js/formulario-validaciones.js"></script>
-        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-    </body>
+        
+</body>
 </html>

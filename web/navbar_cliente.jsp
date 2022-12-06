@@ -1,25 +1,18 @@
-<%@page import="ModeloVO.UsuarioVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="Sesiones.jsp"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://unpkg.com/swiper@7/swiper-bundle.min.css" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-        <link href="./css/styleModuloCliente.css" rel="stylesheet">
-        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
+        <link href="css/navbar_cliente.css" rel="stylesheet">
+        <link href="./img/Logo_TR_Expert (2).png" type="image/x-icon" rel="shortcut icon">
+        
         <script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
-
-        <title>Cliente</title> 
     </head>
-    <body class="fondods">
+    <body>
         <nav class="sidebar close-navd">
             <header>
                 <div class="image-textd">
@@ -58,8 +51,7 @@
                         </li>
                     </ul>
                 </div>
-
-                </ul>
+                
 
                 <form method="post" action="Sesiones">
                     <div class="bottom-contentds">
@@ -72,14 +64,11 @@
                     </div>
                 </form>
 
+
             </div>
+
+
+
         </nav>
-
-        <section class="home">
-            <div class="text-entrenador" style="color: #000;"> <b> Bienvenido <br> al gimnasio la candelaria</b></div>
-        </section>
-
-        <script src="./js/script.js"></script>
-
     </body>
 </html>

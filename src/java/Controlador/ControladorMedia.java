@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author DANIEL SIERRA
- */
 @WebServlet(name = "ControladorMedia", urlPatterns = {"/ControladorMedia"})
 public class ControladorMedia extends HttpServlet {
 

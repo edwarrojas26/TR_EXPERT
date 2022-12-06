@@ -1,231 +1,142 @@
-<%-- 
-    Document   : cliente
-    Created on : 18/09/2022, 12:08:07 PM
-    Author     : DANIEL SIERRA
---%>
-
-<%@page import="ModeloDAO.TipoEjercicioDAO"%>
-<%@page import="ModeloVO.TipoEjercicioVO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.TipoMedidaDAO"%>
 <%@page import="ModeloVO.TipoMedidaVO"%>
-<%@page import="ModeloVO.UsuarioVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Sesiones.jsp"%>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
-<!DOCTYPE html>
+<%@include file="navbar_entrenador.jsp"%>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-<script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link href="./img/Logo_TR_Expert (2).png" type="image/x-icon" rel="shortcut icon">
+        <link href="./css/style_listarUsuarios.css" rel="stylesheet">
+        <link href="./css/styleEntrenador.css" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
+
+        <title>Listar usuarios</title>
+
+    </head>
+    
+    <style>
+            .error {
+                display: flex;
+                justify-content: center;
+                background-color: red; 
+                color: white; 
+                z-index: 100; 
+                width: 320px;
+                height: 25px;
+                padding: 1px;
+                border-radius: 5px;
+                position: absolute;
+                margin-left: 38%;
+            }
+
+            .accept {
+                display: flex;
+                justify-content: center;
+                background-color: green; 
+                color: white; 
+                z-index: 100; 
+                width: auto;
+                height: 25px;
+                padding: 1px;
+                border-radius: 5px;
+                position: absolute;
+                margin-left: 38%;
+            }
+        </style>
+
+    <body class="">
 
 
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!----======== CSS ======== -->
-    
-    <link rel="stylesheet" href="css/tiposEjercicios.css">
-    <link rel="stylesheet" href="./css/styleEntrenador.css">
-    
-    
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <title>Cliente</title> 
-</head>
-<body class="fondods">
-    <nav class="sidebar close-navd">
-        <header>
-            <div class="image-textd">
-
-
-                <div class="text logod-text">
-                    <img src="./img/Logo-TR-Expert.svg" width="100%">
-                </div>
+        <section class="home">
+             <%if (request.getAttribute("mensajeError") != null) {%>
+            <div class="error" role="alert">
+                ${mensajeError}
             </div>
+            <% } else { %>
+            <div class="accept" role="alert">
+                ${mensajeExito}
+            </div>
+            <% }%>
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+            <button><a href="./ventana-modal.jsp" class="btn btn-success">Agregar</a></button>
+            <br> <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">        
+                            <table id="example" class="table table-striped table-secondary" style="width:100%">
 
-        <div class="menu-bardd">
-                            <div class="menudds">
+                                <thead>
 
-                                <ul class="menu-linksds">
-                                    <li class="nav-linkds">
-                                        <a href="moduloEntrenador.jsp">
-                                            <i class='bx bx-home-alt icon'></i>
-                                            <span class="text nav-text">Inicio</span>
-                                        </a>
-                                    </li>
+                                    <tr class="bg-danger">
+                                        <th class="bg-danger">ID</th>
+                                        <th class="bg-danger">Nombre</th>
+                                        <th class="bg-danger">Categoria</th>
+                                    </tr>
 
-                                    <li class="nav-linkds">
-                                        <a href="planes-clientes.jsp">
-                                            <i class="fa-solid fa-file-invoice icon"></i>
-                                            <span class="text nav-text">Planes</span>
-                                        </a>
-                                    </li>
+                                </thead>
 
-                                    <li class="nav-linkds">
-                                        <a href="registrarTipoMedida.jsp">
-                                            <i class="fa-solid fa-ruler icon"></i>
-                                            <span class="text nav-text">Tipo medida</span>
-                                        </a>
-                                    </li>
+                                <%  TipoMedidaVO ejeVO = new TipoMedidaVO();
+                                    TipoMedidaDAO ejeDAO = new TipoMedidaDAO();
+                                    ArrayList<TipoMedidaVO> listaTipoEjercicio = ejeDAO.listar();
+                                    for (int i = 0; i < listaTipoEjercicio.size(); i++) {
 
-                                    <li class="nav-linkds">
-                                        <a href="registrarTipoEjercicio.jsp">
-                                            <i class="fa-solid fa-person-walking icon"></i>
-                                            <span class="text nav-text">Tipo ejercicios</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-linkds">
-                                        <a href="listarUsuarios.jsp">
-                                            <i class="fa-sharp fa-solid fa-table icon"></i>
-                                            <span class="text nav-text">Listar usuarios</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-linkds">
-                                        <a href="generar_Plan_Entrenamiento.jsp">
-                                            <i class="fa-solid fa-file-pen icon"></i>
-                                            <span class="text nav-text">Generar plan</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                        ejeVO = listaTipoEjercicio.get(i);
 
-                            <form method="post" action="Sesiones">
-                                <div class="bottom-contentds">
-                                    <li class="">
-                                        <a href="index.jsp">
-                                            <i class='bx bx-log-out icon'></i>
-                                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
-                                        </a>
-                                    </li>
-                                </div>
-                            </form>
+                                %>
+
+                                <tr class="text-center">
+                                    <td><%=ejeVO.getCodigo()%></td>
+                                    <td><%=ejeVO.getNombreParte()%></td>
+                                    <td><%=ejeVO.getCategoria()%></td>
+                                </tr>
+                                <%}%>
+
+                            </table>
 
                         </div>
-    </nav>
-
-
-    <section class="home">
-
-        <div class="buscar">
-            <input type="text" placeholder="Buscar por id" required />
-
-
-            <div class="lupa">
-                <button  type="button" class="boton-modal"><i class="fas fa-search icon" data-toggle="modal" data-target="#exampleModalCenter"></i></button>
-            </div>
-
-            <div class="agregar">
-                <button  type="button" class="boton-modal" data-toggle="modal" data-target="#exampleModalAreaTri"><i class="fas fa-add icon" data-toggle="modal" data-target="#exampleModalCenter"></i>Agregar</button>
-            </div>
-        </div>
-        <br><br>
-
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%  TipoMedidaVO ejeVO = new TipoMedidaVO();
-                        TipoMedidaDAO ejeDAO = new TipoMedidaDAO();
-                        ArrayList<TipoMedidaVO> listaTipoEjercicio = ejeDAO.listar();
-                        for (int i = 0; i < listaTipoEjercicio.size(); i++) {
-
-                            ejeVO = listaTipoEjercicio.get(i);
-
-                    %>
-                    <tr>
-                        <td data-label="ID"><%=ejeVO.getCodigo()%></td>
-                        <td data-label="Nombre"><%=ejeVO.getNombreParte()%></td>
-                        <td data-label="Categoria"><%=ejeVO.getCategoria()%></td>
-                        <td data-label="Acciones">
-                            <div class="btn" >
-                                <form method="post" action="Medida">
-                                    <div class="borrar">
-                                        
-                                       
-                                        <button type="submit"><i class="fas fa-trash icon"></i><button>
-                                        <input type="hidden" name="txtCodigo" value="<%=ejeVO.getCodigo()%>">
-                                        <input type="hidden" value="2" name="opcion">
-                                    </div>
-                                </form>
-                            </div>  
-                            <div class="btn">
-                                <form method="post" action="Medida">
-                                    <div class="btn-editar">
-                                        
-                                        
-                                         <button type="submit"><i class="fas fa-edit icon"></i><button>
-                                        
-                                        <input type="hidden" name="txtCodigo" value="<%=ejeVO.getCodigo()%>">
-                                        <input type="hidden" value="3" name="opcion">
-                                    </div>
-                                </form>
-                            </div>
-                        </td>
-
-                    </tr>
-                    <%}%>
-                </tbody>
-            </table>
-        </div>
-        <!-- Modal login-->
-        <div class="color-modal">
-            <div class="modal fade" id="exampleModalAreaTri" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="center">
-                    <h1 id="titulo-modal">Registrar nuevo tipo de medida</h1>
-                    <form method="post" action="Medida">
-
-                        <label>Nombre medida</label><br>
-                        <input name="txtNombreParte" type="text" required><br><br>
-
-                        <label>Categoria</label><br>
-                        <select name="txtCategoria">
-                            <option value="1">Tren superior</option>
-                            <option value="2">Tren inferior</option>
-                            <option value="3">Salud / Alimentaci?n</option>
-                            <option value="4">Factor de riesgo</option>
-                        </select>
-                        <input type="hidden" value="1" name="opcion">
-                        <div class="modal-footer">
-                            <button type="button" class="btn1 btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <input type="submit" class="btn2 btn-success" value="Agregar">
-                        </div>
-                    </form>
+                    </div> 
                 </div>
             </div>
-        </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
 
-</body>
+            <!--<%
+                if (request.getAttribute("mensajeError") != null) {%>
+             <div class="alert alert-danger" role="alert">
+            ${mensajeError}
+        </div>
+            <% } else { %>
+            <div class="alert alert-success" role="alert">
+            ${mensajeExito}
+        </div>
+            <% }%>
+            --> 
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+        <script src="./js/script.js"></script>
+
+        <script src="js/App.js"></script>
+
+    </body>
+
 </html>
+
+
+

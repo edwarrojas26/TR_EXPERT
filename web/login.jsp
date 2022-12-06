@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="ModeloDAO.UsuarioDAO"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,16 +14,44 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Login</title>
 </head>
+
+<style>
+    .error {
+        display: flex;
+        justify-content: center;
+        background-color: red; 
+        color: white; 
+        z-index: 100; 
+        width: 320px;
+        height: 25px;
+        padding: 1px;
+        border-radius: 5px;
+    }
+    
+    .accept {
+        display: flex;
+        justify-content: center;
+        background-color: green; 
+        color: white; 
+        z-index: 100; 
+        width: 320px;
+        height: 25px;
+        padding: 1px;
+        border-radius: 5px;
+    }
+</style>
 <body>
-      <nav class="navres">
-        <div class="logo">
-            <a href="index.jsp"><button type="submit" class="formulario__btn">Inicio</button></a>
-          
-        </div>
-        <div class="menu outside">
-           
-    </nav>
+     
     <div class="container">
+        <%if (request.getAttribute("mensajeError") != null) {%>
+            <div class="error" role="alert">
+                ${mensajeError}
+            </div>
+            <% } else { %>
+            <div class="accept" role="alert">
+                ${mensajeExito}
+            </div>
+            <% }%>
         <div class="forms-container">
             <div class="signin-signup">
                 <form action="Usuario" method="post" class="sign-in-form" id="formulario">
@@ -47,9 +76,10 @@
                         </div>
                        
                     </div> 
-                    <br>   
+                    <br>
+                    <a href="./index.jsp">Si quieres volver al inicio haz click aquí</a>   
                     <div>
-                        <a href="recuperarContrasena.jsp">¿Olvidaste tu contraseña?</a>
+                        <a href="RecuperarContraseñau.jsp">¿Olvidaste tu contraseña?</a>
                     </div>
                    <br><br>
                     <div class="social-media">
@@ -86,7 +116,10 @@
                 <img src="img/imglogin.png" class="image" alt="" />
             </div>
 
-
+            
+            
+            
+            
             <!--<script src="js/validaciones_login.js"></script>-->
             
             <script src="./js/index.js"></script>

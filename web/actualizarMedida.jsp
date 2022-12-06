@@ -1,8 +1,3 @@
-<%-- 
-    Document   : actualizarMedida
-    Created on : 19/11/2022, 08:13:32 PM
-    Author     : DANIEL SIERRA
---%>
 <%@include file="Sesiones.jsp"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

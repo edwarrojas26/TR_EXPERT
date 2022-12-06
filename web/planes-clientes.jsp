@@ -7,118 +7,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="Sesiones.jsp"%>
+<%@include file="navbar_entrenador.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://unpkg.com/swiper@7/swiper-bundle.min.css" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link href="./css/styleEntrenador1.css" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        
         <script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
-
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
-        <!----======== CSS ======== -->
-        <link rel="stylesheet" href="./css/styleEntrenador.css">
-
-        <!----===== Boxicons CSS ===== -->
-        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
         <title>Entrenador</title> 
     </head>
-    <body class="fondods">
-        <nav class="sidebar close-navd">
-            <header>
-                <div class="image-textd">
-
-
-                    <div class="text logod-text">
-                        <img src="./img/Logo-TR-Expert.svg" width="100%">
-                    </div>
-                </div>
-
-                <i class='bx bx-chevron-right toggle'></i>
-            </header>
-
-            <div class="menu-bardd">
-                            <div class="menudds">
-
-                                <ul class="menu-linksds">
-                                    <li class="nav-linkds">
-                                        <a href="moduloEntrenador.jsp">
-                                            <i class='bx bx-home-alt icon'></i>
-                                            <span class="text nav-text">Inicio</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-linkds">
-                                        <a href="planes-clientes.jsp">
-                                            <i class="fa-solid fa-file-invoice icon"></i>
-                                            <span class="text nav-text">Planes</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-linkds">
-                                        <a href="registrarTipoMedida.jsp">
-                                            <i class="fa-solid fa-ruler icon"></i>
-                                            <span class="text nav-text">Tipo medida</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-linkds">
-                                        <a href="registrarTipoEjercicio.jsp">
-                                            <i class="fa-solid fa-person-walking icon"></i>
-                                            <span class="text nav-text">Tipo ejercicios</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-linkds">
-                                        <a href="listarUsuarios.jsp">
-                                            <i class="fa-sharp fa-solid fa-table icon"></i>
-                                            <span class="text nav-text">Listar usuarios</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-linkds">
-                                        <a href="generar_Plan_Entrenamiento.jsp">
-                                            <i class="fa-solid fa-file-pen icon"></i>
-                                            <span class="text nav-text">Generar plan</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <form method="post" action="Sesiones">
-                                <div class="bottom-contentds">
-                                    <li class="">
-                                        <a href="index.jsp">
-                                            <i class='bx bx-log-out icon'></i>
-                                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
-                                        </a>
-                                    </li>
-                                </div>
-                            </form>
-
-                        </div>
-
-
-
-        </nav>
-
-                </div>
-            </form>
-                    
-            </div>
-            
-    
-    
-        </nav>
-
+    <body>
         <section class="home">
 
-            <h3 class="pb-2">Listado usuarios</h3>
+            <h3 class="pb-2"> <b>Listado usuarios</b> </h3>
 
             <div>
                 <form method="POST" action="GenerarPDFPlanEntrenamiento.jsp" target="_black" class="freportes">
@@ -192,9 +103,11 @@
                     </div> 
                 </div>
             </div>
-                                <a href="PEntrenamiento.jsp">Nuevo plan de entrenamiento</a>
-
-            <%
+            <br>
+            <div class="freportes">
+                <a href="PEntrenamiento.jsp"> <input type="submit" value="Nuevo plan de entrenamiento" class="btn btn-success"></a>
+            </div>
+            <!--  <%
                 if (request.getAttribute("mensajeError") != null) {%>
             <div class="alert alert-danger" role="alert">
                 ${mensajeError}
@@ -203,7 +116,9 @@
             <div class="alert alert-success" role="alert">
                 ${mensajeExito}
             </div>
-            <% }%>
+            <% }%>-->
+
+          
 
         </section>
 

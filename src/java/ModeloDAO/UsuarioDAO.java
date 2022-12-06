@@ -18,10 +18,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author edwar
- */
 public class UsuarioDAO extends ConexionBd implements Crud {
 
     private Connection conexion;

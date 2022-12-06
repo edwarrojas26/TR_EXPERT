@@ -1,113 +1,35 @@
-<%@include file="Sesiones.jsp"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page import="ModeloVO.UsuarioVO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Sesiones.jsp"%>
+<%@include file="navbar_entrenador.jsp"%>
 <!doctype html>
 <html lang="en">
 
     <head>
-        <title>Listar usuarios</title>
-        <!-- Required meta tags -->
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <!--  Datatables  -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
-    
-    
-        
-        <!----===== Boxicons CSS ===== -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
-        <link rel="stylesheet" href="./css/style_listarUsuarios.css"/>
-        <link rel="stylesheet" href="./css/styleEntrenador.css"/>
+        <link href="./img/Logo_TR_Expert (2).png" type="image/x-icon" rel="shortcut icon">
+        <link href="./css/style_listarUsuarios.css" rel="stylesheet">
+        <link href="./css/styleEntrenador.css" rel="stylesheet">
+        
+        <script src="https://kit.fontawesome.com/fb993fc4c6.js" crossorigin="anonymous"></script>
+        
+        <title>Listar usuarios</title>
 
     </head>
 
     <body class="">
 
-        <nav class="sidebar close-navd">
-            <header>
-                <div class="image-textd">
-                    
-    
-                    <div class="text logod-text">
-                        <img src="./img/Logo-TR-Expert.svg" width="100%">
-                    </div>
-                </div>
-    
-                <i class='bx bx-chevron-right toggle'></i>
-            </header>
-    
-            <div class="menu-bardd">
-                            <div class="menudds">
-
-                                <ul class="menu-linksds">
-                                    <li class="nav-linkds">
-                                        <a href="moduloEntrenador.jsp">
-                                            <i class='bx bx-home-alt icon'></i>
-                                            <span class="text nav-text">Inicio</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-linkds">
-                                        <a href="planes-clientes.jsp">
-                                            <i class="fa-solid fa-file-invoice icon"></i>
-                                            <span class="text nav-text">Planes</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-linkds">
-                                        <a href="registrarTipoMedida.jsp">
-                                            <i class="fa-solid fa-ruler icon"></i>
-                                            <span class="text nav-text">Tipo medida</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-linkds">
-                                        <a href="registrarTipoEjercicio.jsp">
-                                            <i class="fa-solid fa-person-walking icon"></i>
-                                            <span class="text nav-text">Tipo ejercicios</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-linkds">
-                                        <a href="listarUsuarios.jsp">
-                                            <i class="fa-sharp fa-solid fa-table icon"></i>
-                                            <span class="text nav-text">Listar usuarios</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-linkds">
-                                        <a href="generar_Plan_Entrenamiento.jsp">
-                                            <i class="fa-solid fa-file-pen icon"></i>
-                                            <span class="text nav-text">Generar plan</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <form method="post" action="Sesiones">
-                                <div class="bottom-contentds">
-                                    <li class="">
-                                        <a href="index.jsp">
-                                            <i class='bx bx-log-out icon'></i>
-                                            <input class="cerrar1s" type="submit" value="Cerrar Sesión">
-                                        </a>
-                                    </li>
-                                </div>
-                            </form>
-
-                        </div>
-            
-    
-    
-        </nav>
 
         <section class="home">
 
@@ -138,8 +60,7 @@
                                         <th class="bg-danger">Correo</th>
                                         <th class="bg-danger">Sexo</th>
                                         <th class="bg-danger">Estado</th>
-                                        <th class="bg-danger">Inhabilitar</th>
-                                        <th class="bg-danger">Actualizar</th>
+                                        <th class="bg-danger">Acciones</th>
                                     </tr>
 
                                 </thead>
@@ -153,7 +74,7 @@
 
                                 %>
 
-                                <tr>
+                                <tr class="text-center">
                                     <td><%=usuVO.getNumDoc()%></td>
                                     <td><%=usuVO.getTipoDoc()%></td>
                                     <td><%=usuVO.getNombre()%></td>
@@ -164,13 +85,6 @@
                                     <td><%=usuVO.getCorreo()%></td>
                                     <td><%=usuVO.getSexo()%></td>
                                     <td><%=usuVO.getEstado()%></td>
-                                    <td>
-                                        <form method="post" action="Usuario">
-                                            <input id="eliminar" class="btn btn-warning" type="submit" value="Inhabilitar">
-                                            <input type="hidden" name="idUsuario" value="<%=usuVO.getIdUsuario()%>">
-                                            <input type="hidden" value="2" name="opcion">
-                                        </form>
-                                    </td>
                                     <td>
                                         <form method="post" action="Usuario">
                                             <input id="actualizar" class="btn btn-primary" type="submit" value="Asignar plan">

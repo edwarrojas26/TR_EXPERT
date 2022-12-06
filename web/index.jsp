@@ -6,36 +6,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TR Expert</title>
-
-    <!-- font awesome cdn link  -->
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylem.css" rel="stylesheet">
+    <link href="css/style_index.css" rel="stylesheet">
+    <link href="./img/Logo_TR_Expert (2).png" type="image/x-icon" rel="shortcut icon">
 
-    <!-- custom css file link  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/stylem.css">
-    <link rel="stylesheet" href="css/style_index.css">
-    <link rel="stylesheet" href="css/style_form-index.css"/>
-    <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
-
+    <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <title>TR Expert</title>
+    
 </head>
 
 <body>
-
-    <!-- header section starts      -->
-
 
     <nav class="navres">
         <div class="logo">
@@ -43,10 +34,10 @@
             <i class="fa-solid fa-bars hamburguer"></i>
         </div>
         <div class="menu outside">
-            <a href="nombre.html" class="item">Acerca de</a>
-            <a href="grados.html" class="item">Módulos</a>
-            <a href="triangulos.html" class="item">Funcionalidades</a>
-            <a href="instructores.html" class="item">Ventajas</a>
+            <a href="#acerca" class="item">Acerca de</a>
+            <a href="#moduloss" class="item">Módulos</a>
+            <a href="#funcionalidadess" class="item">Funcionalidades</a>
+            <a href="#ventajass" class="item">Ventajas</a>
             <a href="login.jsp"> <button type="button"
                             class="active">
                             Iniciar sesión
@@ -128,7 +119,7 @@
             <img src="img/about-img.jpg" alt="">
         </div>
 
-        <div class="content">
+        <div class="content" id="acerca">
             <span>Acerca de...</span>
             <h3 class="title">TR Expert</h3>
             <p>Es un software encargado del buen funcionamiento y gestionamiento de planes de entrenamiento a
@@ -147,7 +138,7 @@
 
     <!-- features section starts  -->
 
-    <section class="features" id="Modulos">
+    <section class="features" id="moduloss">
 
         <h1 class="heading"> <span>Modulos</span> </h1>
 
@@ -165,7 +156,6 @@
                         Los usuarios pueden tener dos estados, que son activo e inactivo, esto permite saber si el
                         usuario sigue en el gimnasio o ya se ha retirado,
                         si el usuario quiere volver al gimnasio solo se le cambiara el estado a activo.</p>
-                    <a href="#" class="btn">Ingresar</a>
                 </div>
             </div>
 
@@ -182,7 +172,6 @@
                         Tambien se permitira actualizar el plan de acuerdo con el avance del cliente, este avance se
                         evaluar cada tres meses y asi el entrenador decide como actualizar el plan de entrenamiento.
                     </p>
-                    <a href="#" class="btn">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -190,204 +179,208 @@
     </section>
 
     <!--   Tarjetas-->
-    <div class="title-cards">
+    <div class="title-cards" id="funcionalidadess">
         <h1 class="heading"> <span>Funcionalidades</span> </h1>
     </div>
-<div class="container-card">
-
-<div class="card">
-<figure>
-    <img src="img/funcionalidades5.png">
-</figure>
-<div class="contenido-card">
-    <p>Agilizar registro de clientes en el gimnasio.</p>
-</div>
-</div>
-<div class="card">
-<figure>
-    <img src="img/funcionalidades5.png">
-</figure>
-<div class="contenido-card">
-    <p>Generar planes de entrenamiento a base de las medidas
-        proporcionadas por los clientes.</p>
-</div>
-</div>
-<div class="card">
-<figure>
-    <img src="img/funcionalidades5.png">
-</figure>
-<div class="contenido-card">
-    <p>Notificar a los clientes sobre sus planes de entrenamiento.</p>
-</div>
-
-</div>
-
-</div>
-<!--Fin   Tarjetas-->
-   <!--   Tarjetas-->
-   
-<div class="container-card">
-
-<div class="card">
-<figure>
-    <img src="img/funcionalidades5.png">
-</figure>
-<div class="contenido-card">
-    <p>Generar planes de entrenamiento a base de las medidas
-        proporcionadas por los clientes.</p>
-</div>
-</div>
-<div class="card">
-<figure>
-    <img src="img/funcionalidades5.png">
-</figure>
-<div class="contenido-card">
-    <p>Habilitar e inhabilitar clientes en el gimnasio.</p>
-</div>
-</div>
-<div class="card">
-<figure>
-    <img src="img/funcionalidades5.png">
-</figure>
-<div class="contenido-card">
-    <p>Generar graficas al cliente para mejor interpretacion de sus
-        resultados.</p>
-</div>
-
-</div>
-
-</div>
+    <section class="p-5">
+          <div class="row text-center g-4">
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-laptop"></i>
+                  </div>
+                  <br>
+                  <h3 class="card-title mb-3">Agilizar registro de clientes en el gimnasio la candelaria.</h3>
+                  <p class="card-text">
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-secondary text-light">
+                <div class="card-body text-center">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-laptop"></i>
+                  </div>
+                  <br>
+                  <h3 class="card-title mb-3"> Generar planes de entrenamiento a base de las medidas
+                    proporcionadas por los clientes.</h3>
+                  <p class="card-text">
+                   
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-laptop"></i>
+                  </div>
+                  <br>
+                  <h3 class="card-title mb-3">Notificar a los clientes sobre sus planes de entrenamiento.</h3>
+                  <p class="card-text">
+                  
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row text-center g-4">
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-laptop"></i>
+                  </div>
+                  <br>
+                  <h3 class="card-title mb-3"> Generar planes de entrenamiento a base de las medidas
+                    proporcionadas por los clientes.</h3>
+                  <p class="card-text">
+                   
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-secondary text-light">
+                <div class="card-body text-center">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-laptop"></i>
+                  </div>
+                  <br>
+                  <h3 class="card-title mb-3">Habilitar e inhabilitar clientes en el gimnasio la candelaria.</h3>
+                  <p class="card-text">
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-laptop"></i>
+                  </div>
+                  <br>
+                  <h3 class="card-title mb-3">Generar graficas al cliente para mejor interpretacion de sus
+                    resultados.</h3>
+                  <p class="card-text">
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
 <!--Fin   Tarjetas-->
 
 
 <br><br>
      <!--   Tarjetas-->
-     <div class="title-cards">
+     <div class="title-cards" id="ventajass">
         <h1 class="heading"> <span>Ventajas</span> </h1>
     </div>
-    <br><br>
-    <div class="container-card">
-    
-        <div class="container-principal">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="row">
-        
-                        <div class="col-lg-4 col-md-12 col-mb-4">
-        
-                            <div class="card-section border rounded p-3">
-                                <div class="card-header-third rounded pb-5">
-                                    <img src="./img/chulo.png" width="100px">
-                              </div>
-                              <div class="card-body text-center">
-                                <p class="card-text"> Agilizar registro de los clientes en el gimnasio la candelaria. </p>
-                              </div>
-                            </div>
-                          </div>
-              <!--tarjeta 2-->
-              <div class="col-lg-4 col-md-12 col-mb-4">
-        
-                <div class="card-section border rounded p-3">
-                    <div class="card-header-third rounded pb-5">
-                        <img src="./img/chulo.png" width="100px">
-                  </div>
-                  <div class="card-body text-center">
-                    <p class="card-text"> Generar planes de entrenamiento a base de las medidas
-                        proporcionadas por los clientes. </p>
-                  </div>
+    <section class="p-5">
+        <div class="row text-center g-4">
+          <div class="col-md">
+            <div class="card bg-success text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-check"></i>
                 </div>
+                <br>
+                <h3 class="card-title mb-3"> Agilizar registro de clientes en el gimnasio la candelaria.</h3>
+                <p class="card-text">
+                 
+                </p>
               </div>
-        
-              <!--tarjeta3-->
-              <div class="col-lg-4 col-md-12 col-mb-4">
-        
-                <div class="card-section border rounded p-3">
-                    <div class="card-header-third rounded pb-5">
-                        <img src="./img/chulo.png" width="100px">
-                  </div>
-                  <div class="card-body text-center">
-                    <p class="card-text">Notificar a los clientes sobre sus planes de entrenamiento. </p>
-                  </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-success text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-check"></i>
                 </div>
+                <br>
+                <h3 class="card-title mb-3">Generar planes de entrenamiento a base de las medidas
+                    proporcionadas por los clientes.</h3>
+                <p class="card-text">
+                  
+                </p>
               </div>
-              <br><br><br>
-              
-                    <div class="col-lg-12 text-center">
-                        <div class="row">
-            
-                            <div class="col-lg-4 col-md-12 col-mb-4">
-        
-                                <div class="card-section border rounded p-3">
-                                    <div class="card-header-third rounded pb-5">
-                                        <img src="./img/chulo.png" width="100px">
-                                  </div>
-                                  <div class="card-body text-center">
-                                    <p class="card-text"> Generar planes de entrenamiento a base de las medidas
-                                        proporcionadas por los clientes. </p>
-                                  </div>
-                                </div>
-                              </div>
-                  <!--tarjeta 2-->
-                  <div class="col-lg-4 col-md-12 col-mb-4">
-        
-                    <div class="card-section border rounded p-3">
-                        <div class="card-header-third rounded pb-5">
-                            <img src="./img/chulo.png" width="100px">
-                      </div>
-                      <div class="card-body text-center">
-                        <p class="card-text">Habilitar e inhabilitar los clientes en el  la candelaria. </p>
-                      </div>
-                    </div>
-                  </div>
-            
-                  <!--tarjeta3-->
-                  <div class="col-lg-4 col-md-12 col-mb-4">
-        
-                    <div class="card-section border rounded p-3">
-                        <div class="card-header-third rounded pb-5">
-                            <img src="./img/chulo.png" width="100px">
-                      </div>
-                      <div class="card-body text-center">
-                        <p class="card-text">Generar graficas al cliente para mejor interpretacion de sus
-                            resultados.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="container">
-                    <div class="forms-container">
-                        <div class="signin-signup">
-                            <form action="Usuario" method="post" class="sign-in-form" id="formulario">
-                                <img src="img/Logo-TR-Expert.svg" width="30%">
-                                <div class="input-field">
-                                    <i class="fas fa-user"></i>
-                                    <input type="text" name="txtCorreo" placeholder="Nombre" />
-                                </div>
-                                <div class="input-field">
-                                    <i class="fas fa-lock"></i>
-                                    <input type="email" name="txtContrasena" placeholder="Correo" />
-                                </div>
-                                <div class="input-field">
-                                    <i class="fas fa-phone"></i>
-                                    <input type="number" name="txtContrasena" placeholder="Teléfono" />
-                                </div>
-                                <div class="input-field">
-                                    <i class="fas fa-lock"></i>
-                                    <input type="text" name="txtContrasena" placeholder="Asunto" />
-                                </div>
-                                    <label for="" class="textoMensaje">Mensaje</label>
-                                    <textarea name="message" rows="4"></textarea>
-                                <br>
-                                        <button type="button" class="formulario__btn">Enviar</button>
-                            </form>
-                        </div>
-                    </div>
-            
-                    <div class="panels-container">
-                        <div class="panel left-panel">
-                           
-                            <img src="img/contacto-img.jpg" class="image" alt="" />
-                        </div></div></div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-success text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-check"></i>
+                </div>
+                <br>
+                <h3 class="card-title mb-3"> Notificar a los clientes sobre sus planes de entrenamiento.</h3>
+                <p class="card-text">
+                 
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row text-center g-4">
+          <div class="col-md">
+            <div class="card bg-success text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-check"></i>
+                </div>
+                <br>
+                <h3 class="card-title mb-3">Generar planes de entrenamiento a base de las medidas
+                    proporcionadas por los clientes.</h3>
+                <p class="card-text">
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-success text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-check"></i>
+                </div>
+                <br>
+                <h3 class="card-title mb-3"> Habilitar e inhabilitar clientes en el gimnasio la candelaria.</h3>
+                <p class="card-text">
+                 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-success text-light">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <i class="bi bi-check"></i>
+                </div>
+                <br>
+                <h3 class="card-title mb-3"> Generar graficas al cliente para mejor interpretacion de sus resultados.</h3>
+                <p class="card-text">
+                 
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
                         <div class="credit">
                             <img src="img/Logo-TR-Expert.svg" width="15%"> Creado Por <span>TR EXPERT</span> copyright |
                             Todos Los Derechos Reservados!

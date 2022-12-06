@@ -1,9 +1,3 @@
-<%-- 
-    Document   : sesion
-    Created on : 21/09/2022, 07:53:29 PM
-    Author     : DANIEL SIERRA
---%>
-
 <%@page import="ModeloVO.UsuarioVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,6 +36,4 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
     </head>
-
-
 </html>

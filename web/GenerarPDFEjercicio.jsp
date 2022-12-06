@@ -1,9 +1,3 @@
-<%-- 
-    Document   : GenerarPDFEjercicio.jsp
-    Created on : 12/11/2022, 11:27:27 AM
-    Author     : DANIEL SIERRA
---%>
-
 <%@page import="net.sf.jasperreports.engine.JasperRunManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="Util.ConexionBd"%>
@@ -15,7 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
+        
         <title>PDF Ejercicio</title>
     </head>
     <body>

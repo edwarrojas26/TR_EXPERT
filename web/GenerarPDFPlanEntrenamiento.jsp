@@ -15,7 +15,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <link rel="shortcut icon" href="./img/Logo_TR_Expert (2).png" type="image/x-icon">
+        
         <title>PDF Plan Entrenamiento</title>
     </head>
     <body>
